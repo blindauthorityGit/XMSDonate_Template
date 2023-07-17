@@ -4,14 +4,23 @@ import styles from "../styles/Home.module.css";
 import MainContainer from "../components/layout/mainContainer";
 import Hero from "../components/Hero/hero";
 
+//COPMPS
+import { Full } from "../components/graphics";
+
+// FX
+import { Snow } from "../components/fx";
+// ASSETS
+import BG from "../assets/bg.svg";
+
 export default function Home() {
     return (
-        <MainContainer width="max-w-[80%]">
+        <MainContainer width="w-full">
             <Head>
                 <title>Site title</title>
             </Head>
-            <Hero fullHeight={true} colspan="col-span-12"></Hero>
-            <h1 className="font-sans">Hallo ich bin ein Text</h1>
+            <Snow />
+            <div className="col-span-12 container mx-auto grid grid-cols-12 h-screen"></div>
+            <Full />
         </MainContainer>
     );
 }
