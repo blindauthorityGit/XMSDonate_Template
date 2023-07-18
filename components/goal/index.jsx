@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { showGoal, goalSum } from "../../config";
-import { dev } from "../../config";
+import { dev, goalStep } from "../../config";
 
 const Goal = (props) => {
     const [data, setData] = useState(props.data);
@@ -24,7 +24,7 @@ const Goal = (props) => {
             setPercentage((sum / goal) * 100);
         } else {
             // When the goal is reached, update the goal to the next value (goal + 1000)
-            setGoal((prevGoal) => prevGoal + 1000);
+            setGoal(Math.ceil(sum / goalStep) * 1000);
         }
     }, [sum]);
 
@@ -50,7 +50,7 @@ const Goal = (props) => {
                         percentage == 100 ? "font-bold" : ""
                     } then absolute text-xs sm:text-base font-semibold pt-2 sm:pt-4 top-0 right-0`}
                 >
-                    EUR {goal},-
+                    EUR {goal.toLocaleString("de")},-
                 </div>
 
                 <div className="balken border border-dashed h-3 rounded-3xl border-darkText sm:h-4 w-full relative">
@@ -70,14 +70,9 @@ const Goal = (props) => {
                             ref={countRef}
                             className="now absolute text-text text-xs sm:text-base right-0 top-3 sm:top-6"
                         >
-                            {showCounter && <>EUR {sum},-</>}
-                            {/* EUR {sum},- */}
+                            {showCounter && <>EUR {sum.toLocaleString("de")},-</>}
                         </div>
                     </motion.div>
-                    <div className="wrapper relative flex">
-                        {/* <div className="now pl-48 pt-4">EUR {sum},-</div> */}
-                        {/* <div className="then absolute pt-4 right-0">EUR {goal},-</div> */}
-                    </div>
                 </div>
             </div>
         </>

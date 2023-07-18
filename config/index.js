@@ -30,8 +30,12 @@ const startInfo = {
 const anzahlRows = 14;
 const anzahlBaumKugeln = 75;
 
+//BAUMSTUMPF HÖHE % (Baumstumpf / gesamthöhe)
+const baumstumpfHeight = 0.1512;
+
 const showGoal = false;
 const goalSum = 1000;
+const goalStep = 1000;
 
 // IMAGES
 const maxSize = 1; // in MB
@@ -39,4 +43,17 @@ const maxSize = 1; // in MB
 const dev = false;
 const local = false;
 
-export { colors, anzahlRows, startInfo, goalSum, showGoal, dev, anzahlBaumKugeln, local, maxSize, bgColors };
+export {
+    colors,
+    goalStep,
+    baumstumpfHeight,
+    anzahlRows,
+    startInfo,
+    goalSum,
+    showGoal,
+    dev,
+    anzahlBaumKugeln,
+    local,
+    maxSize,
+    bgColors,
+};
