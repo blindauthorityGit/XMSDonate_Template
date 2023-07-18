@@ -1,11 +1,20 @@
 import React from "react";
 import Image from "next/image";
+//COMPS
+import { CoverImage } from "../images";
 
 //ASSETS
 import BG from "../../assets/bg.svg";
+import BGMobile from "../../assets/bgMobile.svg";
 
 const BGDesktop = () => {
-    return <Image src={BG.src} alt={"Hintergund"} layout="fill" objectFit="cover" quality={100} />;
+    return (
+        <CoverImage
+            src={BG.src} // Replace with the actual path to your image
+            mobileSrc={BGMobile.src}
+            alt="Cover Background"
+        />
+    );
 };
 
 export default BGDesktop;

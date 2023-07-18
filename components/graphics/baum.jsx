@@ -7,19 +7,21 @@ import { CoverImage } from "../images";
 //ASSETS
 import Baum from "../../assets/baum.svg";
 
-const BoyWhiteGraphic = () => {
+const BaumGraphic = () => {
     return (
         <>
             <CoverImage
                 src={Baum.src} // Replace with the actual path to your image
+                mobileSrc={Baum.src} // Replace with the actual path to your image
                 alt="Cover Background"
                 position="absolute"
                 height="251px" // Set the desired height of the background image
                 width="169px"
-                className="z-10 xl:bottom-[100px] xl:right-[10%] xl:w-[617px] xl:h-[877px]"
+                style={{ aspectRatio: "618 / 877" }}
+                className="z-20 xl:z-30 top-[3%] lg:top-auto xl:bottom-[100px] left-1/2 lg:left-auto transform -translate-x-1/2 lg:-translate-x-0 xl:right-[10%] w-[80vw] h-[auto] xl:w-[617px] xl:h-[877px]"
             />
         </>
     );
 };
 
-export default BoyWhiteGraphic;
+export default BaumGraphic;

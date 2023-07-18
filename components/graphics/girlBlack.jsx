@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 
 //COMPS
 import { CoverImage } from "../images";
@@ -12,11 +11,12 @@ const GirlBlackGraphic = () => {
         <>
             <CoverImage
                 src={GirlBlack.src} // Replace with the actual path to your image
+                mobileSrc={GirlBlack.src} // Replace with the actual path to your image
                 alt="Cover Background"
                 position="absolute"
                 height="251px" // Set the desired height of the background image
                 width="169px"
-                className="z-10 xl:bottom-[130px] xl:left-[10%] xl:w-[213px] xl:h-[317px]"
+                className="z-20 top-[55%] xl:top-auto xl:bottom-[130px] left-[10%] xl:left-[10%] w-[110px] h-[164px] xl:w-[213px] xl:h-[317px]"
             />
         </>
     );
