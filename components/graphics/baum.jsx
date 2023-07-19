@@ -17,12 +17,13 @@ const BaumGraphic = () => {
     const { ref, dimensions } = useElementDimensions();
     const setDimensions = useStore((state) => state.setDimensions);
 
-    // useEffect(() => {
-    //     if (ref.current) {
-    //         console.log(dimensions);
-    //         setDimensions(dimensions.width, dimensions.height);
-    //     }
-    // }, [ref.current]);
+    // Use useEffect to set the dimensions once they are available
+    useEffect(() => {
+        if (dimensions.width > 0 && dimensions.height > 0) {
+            console.log(dimensions.width, dimensions.height);
+            setDimensions(dimensions.width, dimensions.height);
+        }
+    }, [dimensions, setDimensions]);
 
     return (
         <>
@@ -38,7 +39,6 @@ const BaumGraphic = () => {
                 ref={ref}
                 onLoadingComplete={(e) => {
                     console.log(e.clientWidth, e.clientHeight);
-                    setDimensions(dimensions.width, dimensions.height);
                 }}
             />
         </>

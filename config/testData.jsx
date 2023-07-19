@@ -46,20 +46,7 @@ const colors = {
     background: "#fff",
     primaryColor: "#7d866f",
     bgColors: ["rgb(235, 69, 17)", "rgb(220, 223, 220)", "rgb(0, 0, 0)", "rgb(255, 255, 255)"],
-    kugeln: [
-        {
-            kugel1: "#EB4511",
-        },
-        {
-            kugel2: "#DCDFDC",
-        },
-        {
-            kugel3: "#000000",
-        },
-        {
-            kugel4: "#fff",
-        },
-    ],
+    kugeln: ["#870F3B", "#335381", "#F26522", "#ED1C24", "#FFF200"],
     baum: "#04151F",
 };
 
@@ -69,7 +56,7 @@ const TestData = [
         claimed: true,
         name: "Christine Buchner",
         sum: 515,
-        color: colors.kugeln[0].kugel1,
+        color: colors.kugeln[0],
         comment: "Ich spende gerne viel",
     },
     {
@@ -77,7 +64,15 @@ const TestData = [
         claimed: true,
         name: "Johannes Buchner",
         sum: 7755,
-        color: colors.kugeln[0].kugel1,
+        color: colors.kugeln[4],
+        comment: "Viel Glück und Erfolg!",
+    },
+    {
+        id: 5,
+        claimed: true,
+        name: "Johannes Buchner",
+        sum: 7755,
+        color: colors.kugeln[2],
         comment: "Viel Glück und Erfolg!",
     },
     {
@@ -85,14 +80,14 @@ const TestData = [
         claimed: true,
         name: "Sandra Löbl",
         sum: 55,
-        color: colors.kugeln[1].kugel2,
+        color: colors.kugeln[1],
     },
     {
         id: 13,
         claimed: true,
         name: "Marc Werner",
         sum: 35,
-        color: colors.kugeln[2].kugel3,
+        color: colors.kugeln[2],
         comment: "Frohe Weihnachten!",
     },
     {
@@ -100,14 +95,14 @@ const TestData = [
         claimed: true,
         name: "Bubu Bernhard",
         sum: 35,
-        color: colors.kugeln[3].kugel4,
+        color: colors.kugeln[3],
     },
     {
         id: 21,
         claimed: true,
         name: "Edeltraud Wippenberger",
         sum: 35,
-        color: colors.kugeln[1].kugel2,
+        color: colors.kugeln[1],
         comment: "Shut up and take my money!",
     },
     {
@@ -115,7 +110,7 @@ const TestData = [
         claimed: true,
         name: "Edeltraud Wippenberger",
         sum: 135,
-        color: colors.kugeln[1].kugel2,
+        color: colors.kugeln[1],
         comment: "Shut up and take my money!",
     },
     {
@@ -123,7 +118,7 @@ const TestData = [
         claimed: true,
         name: "Edeltraud Wippenberger",
         sum: 335,
-        color: colors.kugeln[3].kugel4,
+        color: colors.kugeln[3],
         comment: "Shut up and take my money!",
     },
     {
@@ -131,21 +126,21 @@ const TestData = [
         claimed: true,
         name: "Santa Clause",
         sum: 35,
-        color: colors.kugeln[0].kugel1,
+        color: colors.kugeln[0],
     },
     {
         id: 35,
         claimed: true,
         name: "Dr. Herbert Schuh",
         sum: 35,
-        color: colors.kugeln[2].kugel3,
+        color: colors.kugeln[2],
     },
     {
         id: 39,
         claimed: true,
         name: "Christ Kind",
         sum: 35,
-        color: colors.kugeln[2].kugel3,
+        color: colors.kugeln[2],
     },
 ];
 

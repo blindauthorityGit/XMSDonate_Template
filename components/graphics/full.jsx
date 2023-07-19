@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import dynamic from "next/dynamic";
 
 //COMPS
 import BGDesktop from "./bg";
@@ -9,6 +10,9 @@ import BoyBrownGraphic from "./boyBrown";
 import SnowmanGraphic from "./snowman";
 import Baum from "./baum";
 import { Raster } from "../raster";
+// const { Raster } = dynamic(() => import("../raster"), {
+//     ssr: false,
+// });
 
 //STATE
 import useStore from "../../store/store"; // Import the same store from the previous example
@@ -26,14 +30,12 @@ const Full = () => {
     return (
         <div>
             <div className="absolute z-10 xl:z-30 top-[3%] lg:top-auto xl:bottom-[100px] left-1/2 lg:left-auto transform -translate-x-1/2 lg:-translate-x-0 xl:right-[10%] w-[80vw] h-[auto] xl:w-[617px] xl:h-[877px]">
-                {dimensions.height && (
-                    <div
-                        className={`w-full`}
-                        style={{ height: dimensions.height - dimensions.height * baumstumpfHeight + "px" }}
-                    >
-                        <Raster></Raster>
-                    </div>
-                )}
+                <div
+                    className={`w-full`}
+                    style={{ height: dimensions.height - dimensions.height * baumstumpfHeight + "px" }}
+                >
+                    <Raster></Raster>
+                </div>
 
                 {/* BaumGraphic component */}
                 <Baum />

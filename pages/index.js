@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
@@ -15,10 +16,21 @@ import { TestData } from "../config/testData";
 
 // FX
 import { Snow } from "../components/fx";
+
 // ASSETS
 import BG from "../assets/bg.svg";
 
+//STORE
+import useStore from "../store/store"; // Import the zustand store
+
 export default function Home() {
+    const userList = useStore((state) => state.userList);
+    const setUserList = useStore((state) => state.setUserList);
+
+    useEffect(() => {
+        setUserList(TestData);
+    }, []);
+
     return (
         <MainContainer width="w-full">
             <Head>
