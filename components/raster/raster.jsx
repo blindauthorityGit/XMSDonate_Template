@@ -48,8 +48,6 @@ const Raster = (props) => {
 
     useEffect(() => {
         console.log(anzahlRows, userList);
-        console.log(Array.from(allRef.current.querySelectorAll(".kugel")));
-        console.log(allRef.current.querySelectorAll(".kugel"));
     });
 
     return (
@@ -79,14 +77,18 @@ const Raster = (props) => {
                                 <Kugel
                                     key={i + "kugel"}
                                     size={`h-[100%] ${
-                                        showUnclaimed ? "opacity-30 bg-transparent " : claimed ? "" : "opacity-0 "
+                                        showUnclaimed && !claimed
+                                            ? "opacity-50 bg-transparent"
+                                            : claimed
+                                            ? "opacity-100"
+                                            : "opacity-0 scale-out-center"
                                     } ${
                                         claimed
                                             ? "shadow-md"
                                             : `border-2 sm:border-4 border-white border-dotted ${
                                                   showUnclaimed ? "scale-in-center" : null
                                               }`
-                                    } `}
+                                    }`}
                                     onAnimationEnd={(e) => {
                                         // e.target.classList.remove("scale-in-center");
                                     }}

@@ -21,3 +21,32 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.claimedKugel {
+  /* Your existing styles for the claimedKugel element */
+  position: relative;
+  box-shadow: 3px 3px 0px 0px rgba(0,0,0,0.21);
+
+}
+
+
+.shine {
+  position: relative;
+}
+
+.shine:before {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at top left,
+    rgba(255, 255, 255, 0.3) 20%,
+    rgba(255, 255, 255, 0) 50%
+  );
+  pointer-events: none;
+  z-index: 1; /* Make sure the shine is below the content of the kugel */
+}

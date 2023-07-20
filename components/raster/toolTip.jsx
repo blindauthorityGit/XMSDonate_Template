@@ -1,16 +1,19 @@
 import React, { forwardRef } from "react";
 import { BsPersonCircle } from "react-icons/bs";
 
+//ASSETS
+import Avatar from "../../assets/avatar.svg";
+
 const ToolTip = (props) => {
     return (
-        <div onMouseLeave={props.onMouseLeave} className={`tooltip font-rucksack ${props.klasse}`} style={props.style}>
+        <div onMouseLeave={props.onMouseLeave} className={`tooltip font-sans z-50 ${props.klasse}`} style={props.style}>
             {props.avatrSrc ? (
-                <div className="grid grid-cols-12 items-center relative">
+                <div className="grid grid-cols-12 items-center relative z-50">
                     <div className="col-span-3 lg:col-span-4 h-full">
                         <div className="avatar w-8 sm:w-12 sm:w-auto h-full">
                             {props.isAnon || !props.avatrSrc ? (
                                 <div className="text-3xl md:text-4xl">
-                                    <BsPersonCircle></BsPersonCircle>
+                                    <img src={Avatar.src} alt="" />
                                 </div>
                             ) : (
                                 <div
@@ -38,7 +41,7 @@ const ToolTip = (props) => {
                     <div className="col-span-3 lg:col-span-4 h-full">
                         <div className="avatar w-8 sm:w-12 sm:w-auto h-full">
                             <div className="text-3xl md:text-4xl">
-                                <BsPersonCircle></BsPersonCircle>
+                                <img src={Avatar.src} alt="" />{" "}
                             </div>
                         </div>
                     </div>

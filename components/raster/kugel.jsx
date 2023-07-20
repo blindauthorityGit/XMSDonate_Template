@@ -24,7 +24,7 @@ const Kugel = (props, ref) => {
 
     return (
         <div
-            className={`kugel z-40 relative mx-1 lg:mx-1 flex h-full items-center text-bold  justify-center text-white ${props.size} ${props.klasse} rounded-full ${props.color} ${props.textColor}`}
+            className={`kugel shine mx-1 lg:mx-1 flex h-full items-center text-bold  justify-center text-white ${props.size} ${props.klasse} rounded-full ${props.color} ${props.textColor}`}
             // className={`kugel relative mx-1 lg:mx-1 flex h-full items-center text-bold ${
             //     isOver ? "bg-red-600 " : ""
             // } justify-center text-white ${props.size} ${props.klasse} rounded-full ${props.color} ${props.textColor}`}
@@ -41,17 +41,21 @@ const Kugel = (props, ref) => {
             data-isWinner={props.winner}
         >
             <>
-                {props.isClaimed && (
-                    <div className="absolute top-2 left-1 opacity-40 w-full h-full">
+                {/* {props.isClaimed && (
+                    <div
+                        className={`${props.klasse} absolute top-2 left-1 opacity-40 w-full h-full`}
+                        onMouseEnter={props.onMouseEnter}
+                        onMouseLeave={props.onMouseLeave}
+                    >
                         <img src={Shine.src} className="w-6 h-6" alt="" />
                     </div>
-                )}
+                )} */}
                 <div className="hidden xl:hidden text-xs pointer-events-none">{props.name}</div>
                 {/* {props.name} */}
                 {props.children}
             </>
             <ToolTip
-                klasse={`absolute tooltip hidden z-20 lg:right-[${props.abstand}rem] bg-black py-4 lg:py-6 px-4 lg:px-6 min-w-[13rem] max-w-[18rem] md:min-w-[15rem] lg:font-bold rounded-xl ${props.toolTipColor} ${props.toolTipAfterColor}`}
+                klasse={`absolute tooltip hidden z-50 lg:right-[${props.abstand}rem] bg-black py-4 lg:py-6 px-4 lg:px-6 min-w-[13rem] max-w-[18rem] md:min-w-[15rem] lg:font-bold rounded-xl ${props.toolTipColor} ${props.toolTipAfterColor}`}
                 name={props.fullName}
                 sum={props.sum}
                 isAnon={props.isAnon}

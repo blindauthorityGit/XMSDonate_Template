@@ -35,7 +35,7 @@ const BaumGraphic = () => {
                 height="251px" // Set the desired height of the background image
                 width="169px"
                 style={{ aspectRatio: "618 / 877" }}
-                className="xl:z-30  top-0 w-[80vw] h-[auto] xl:w-[617px] xl:h-[877px]"
+                className="z-[-1]  top-0 w-[72vw] h-[auto] xl:w-[617px] xl:h-[877px]"
                 ref={ref}
                 onLoadingComplete={(e) => {
                     console.log(e.clientWidth, e.clientHeight);
