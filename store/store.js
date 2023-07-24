@@ -15,6 +15,8 @@ const useStore = create((set) => ({
     openModal: (x, y) => set({ isModalOpen: true, modalPosition: { x, y } }),
     closeModal: () => set({ isModalOpen: false }),
     setModalPosition: (x, y) => set({ modalPosition: { x, y } }),
+    treeAnimationFinished: false,
+    setTreeAnimationFinished: (value) => set({ treeAnimationFinished: value }),
 }));
 
 export default useStore;

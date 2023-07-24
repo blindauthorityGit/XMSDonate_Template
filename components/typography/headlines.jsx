@@ -2,7 +2,7 @@
 import React from "react";
 
 const H1 = ({ children, klasse }) => {
-    return <h1 className={`text-7xl font-black mb-6 font-sans text-darkText ${klasse}`}>{children}</h1>;
+    return <h1 className={`lg:text-5xl xl:text-7xl font-black mb-6 font-sans text-darkText ${klasse}`}>{children}</h1>;
 };
 
 const H2 = ({ children }) => {

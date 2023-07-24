@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
+
 import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
 import MainContainer from "../components/layout/mainContainer";
-import Hero from "../components/Hero/hero";
 
 //COPMPS
-import { Full } from "../components/graphics";
+// import { Full } from "../components/graphics";
+const Full = dynamic(() => import("../components/graphics/full"), {
+    ssr: false,
+});
 import { StartText } from "../components/text";
 import { StartFloaterFull } from "../components/floater";
 import Goal from "../components/goal";
@@ -65,7 +67,7 @@ export default function Home() {
                 <div className="col-span-12 lg:col-span-5 min-h-screen flex flex-col pt-[10%] relative">
                     <Goal
                         data={TestData}
-                        klasse="w-full lg:mb-36 absolute lg:relative bottom-32 lg:bottom-auto lg:top-0"
+                        klasse="w-full lg:mb-20 xl:mb-36 absolute lg:relative bottom-32 lg:bottom-auto lg:top-0"
                     ></Goal>
                     <StartText />
                 </div>

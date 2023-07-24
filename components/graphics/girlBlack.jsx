@@ -17,7 +17,7 @@ const GirlBlackGraphic = () => {
                 height="251px" // Set the desired height of the background image
                 width="169px"
                 style={{ aspectRatio: "110 / 164" }}
-                className="z-20 bottom-[28%] xl:top-auto xl:bottom-[130px] left-[10%] xl:left-[10%] w-[22vw] h-auto xl:w-[213px] xl:h-[317px]"
+                className="z-20 bottom-[28%] lg:bottom-[10%] xl:top-auto xl:bottom-[130px] left-[10%] xl:left-[10%] w-[22vw] lg:w-[10vw] h-auto xl:w-[213px] xl:h-[auto]"
             />
         </>
     );

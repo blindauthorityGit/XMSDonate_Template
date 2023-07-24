@@ -16,7 +16,8 @@ const GirlYellowGraphic = () => {
                 position="absolute"
                 height="251px" // Set the desired height of the background image
                 width="169px"
-                className="z-10 xl:bottom-[100px] xl:left-[20%] xl:w-[246px] xl:h-[326px]"
+                style={{ aspectRatio: "246 / 323" }}
+                className="z-10 lg:bottom-[7%] xl:bottom-[100px] lg:left-[20%] xl:left-[20%]  lg:w-[12vw] xl:w-[246px] h-[auto]"
             />
         </>
     );

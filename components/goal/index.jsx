@@ -44,11 +44,11 @@ const Goal = (props) => {
     return (
         <>
             <div className={`${props.klasse}`}>
-                <div className="headline font-bold text-base sm:text-xl mb-2 sm:mb-4">Erreichtes Ziel</div>
+                <div className="headline font-bold text-base xl:text-xl mb-2 sm:mb-4">Erreichtes Ziel</div>
                 <div
                     className={` ${
                         percentage == 100 ? "font-bold" : ""
-                    } then absolute text-xs sm:text-base font-semibold pt-2 sm:pt-4 top-0 right-0`}
+                    } then absolute text-xs xl:text-base font-semibold pt-2 sm:pt-4 top-0 right-0`}
                 >
                     EUR {goal.toLocaleString("de")},-
                 </div>
@@ -68,7 +68,7 @@ const Goal = (props) => {
                     >
                         <div
                             ref={countRef}
-                            className="now absolute text-text text-xs sm:text-base right-0 top-3 sm:top-6"
+                            className="now absolute text-text text-xs xl:text-base right-0 top-3 sm:top-6"
                         >
                             {showCounter && <>EUR {sum.toLocaleString("de")},-</>}
                         </div>

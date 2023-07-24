@@ -84,7 +84,7 @@ const Raster = (props) => {
                                             : "opacity-0 scale-out-center"
                                     } ${
                                         claimed
-                                            ? "shadow-md"
+                                            ? "shadow-md shine"
                                             : `border-2 sm:border-4 border-white border-dotted ${
                                                   showUnclaimed ? "scale-in-center" : null
                                               }`

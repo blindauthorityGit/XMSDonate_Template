@@ -5,6 +5,20 @@ const { fontFamily } = require("tailwindcss/defaultTheme");
 module.exports = {
     content: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
     theme: {
+        screens: {
+            sm: "640px",
+            md: "768px",
+            lg: "1028px",
+            xl: "1536px",
+            "2xl": "1640px",
+        },
+        container: {
+            sm: "100%",
+            md: "960px",
+            lg: "1024px",
+            xl: "1440px",
+            "2xl": "calc((100vw - 1680px) / 2)",
+        },
         extend: {
             fontFamily: {
                 ...fontFamily,
