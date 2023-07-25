@@ -14,6 +14,11 @@ const Kugel = (props, ref) => {
         // console.log(toolTipRef);
     }, [toolTipRef.current]);
 
+    const mergedToolTipStyle = {
+        ...props.toolTipStyle,
+        "--box-bg-color": props.toolTipStyle.background || "initial",
+    };
+
     // const { isOver, setNodeRef } = useDroppable({
     //     id: props.id,
     //     disabled: props.disabled,
@@ -60,7 +65,7 @@ const Kugel = (props, ref) => {
                 sum={props.sum}
                 isAnon={props.isAnon}
                 comment={props.comment}
-                style={props.toolTipStyle}
+                style={mergedToolTipStyle}
                 // ref={toolTipRef}
                 avatrSrc={props.avatrSrc}
                 onMouseLeave={props.toolTiponMouseLeave}

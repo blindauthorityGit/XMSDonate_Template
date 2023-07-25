@@ -47,7 +47,7 @@ const Raster = (props) => {
     }, [ballsPerTree, treeAnzahl, currentTree]);
 
     useEffect(() => {
-        console.log(anzahlRows, userList);
+        console.log(anzahlRows, userList, isMobile);
     });
 
     return (
@@ -138,11 +138,11 @@ const Raster = (props) => {
                                         }
                                         if (e.target.classList.contains("claimedKugel")) {
                                             // e.target.classList.add("pulsate-bck");
-                                            isMobile && (e.target.style.border = "3px solid white");
+                                            e.target.style.border = "3px solid white";
                                             e.target.children[1].style.transform = "scale(0.8)";
                                             e.target.children[1].classList.remove("hidden");
                                             e.target.children[1].classList.add(
-                                                isMobile ? "scale-in-top" : "scale-in-hor-right"
+                                                isMobile ? "scale-in-top" : "scale-in-top"
                                             );
                                         }
                                     }}
@@ -152,7 +152,7 @@ const Raster = (props) => {
                                             e.currentTarget.children[1].classList.add("hidden");
                                         }
                                         if (e.target.classList.contains("claimedKugel")) {
-                                            isMobile && (e.target.style.border = "");
+                                            e.target.style.border = "";
 
                                             // e.target.classList.remove("pulsate-bck");
                                             e.target.children[1].classList.remove("block");
@@ -162,11 +162,13 @@ const Raster = (props) => {
                                     toolTiponMouseLeave={(e) => {
                                         e.target.classList.remove("block");
                                         e.target.classList.add("hidden");
+                                        if (e.target.parentNode.classList.contains("claimedKugel")) {
+                                            e.target.parentNode.style.border = "";
+                                        }
                                     }}
                                     klasse={userList.some((e) => e.id === counter - 1) ? "claimedKugel" : null}
                                     toolTipStyle={{
-                                        right: !isMobile ? kugelWidth + 16 + "px" : "",
-                                        top: isMobile ? kugelWidth + 16 + "px" : 0,
+                                        top: isMobile ? kugelWidth + 16 + "px" : kugelWidth + 16 + "px",
                                         background: userList.some((e) => e.id === counter - 1)
                                             ? userList[getIndex(userList, counter - 1)].color.toLowerCase()
                                             : "",

@@ -17,6 +17,7 @@ function MyApp({ Component, pageProps }) {
 
     //GLOBAL MODAL STATE
     const closeModal = useStore((state) => state.closeModal);
+    const setSidebarOpen = useStore((state) => state.setSidebarOpen);
 
     //GLOBAL UNCLAIMED STATE
     const setShowUnclaimed = useStore((state) => state.setShowUnclaimed);
@@ -25,6 +26,7 @@ function MyApp({ Component, pageProps }) {
     const handleOverlayClick = () => {
         setShowOverlay(false);
         closeModal();
+        setSidebarOpen();
         setShowUnclaimed(false);
     };
 

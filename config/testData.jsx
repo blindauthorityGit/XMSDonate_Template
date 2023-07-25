@@ -142,6 +142,13 @@ const TestData = [
         sum: 35,
         color: colors.kugeln[2],
     },
+    {
+        id: 59,
+        claimed: true,
+        name: "Christ Kind",
+        sum: 35,
+        color: colors.kugeln[4],
+    },
 ];
 
 export { TestData, dataFiller };

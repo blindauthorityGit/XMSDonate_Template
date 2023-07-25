@@ -4,6 +4,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
 
+:root {
+  --tooltip-bg-color: #f0f0f0; /* Replace this color with your desired background color */
+}
+
 html,
 body {
   padding: 0;
@@ -49,4 +53,15 @@ a {
   );
   pointer-events: none;
   z-index: 1; /* Make sure the shine is below the content of the kugel */
+}
+
+.tooltip::before {
+  content: "■";
+  position: absolute;
+  color: var(--box-bg-color, #333);
+  transform: translate(-50%, -50%) rotate(45deg); /* Center the ::before element and apply rotation */
+  font-size: 2rem;
+  top: 0%;
+  left: 50%;
+  z-index: 1; /* Set z-index higher to be above the tooltip content */
 }

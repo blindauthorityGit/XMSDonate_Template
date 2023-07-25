@@ -12,7 +12,7 @@ const Full = dynamic(() => import("../components/graphics/full"), {
 import { StartText } from "../components/text";
 import { StartFloaterFull } from "../components/floater";
 import Goal from "../components/goal";
-import { ModalOne } from "../components/modal";
+import { ModalOne, ModalSidebar } from "../components/modal";
 
 //DEV
 import { TestData } from "../config/testData";
@@ -34,6 +34,9 @@ export default function Home() {
     const isModalOpen = useStore((state) => state.isModalOpen);
     const modalPosition = useStore((state) => state.modalPosition);
     const closeModal = useStore((state) => state.closeModal);
+    //SIDEBAR
+    const isSidebarOpen = useStore((state) => state.isSidebarOpen);
+    const setSidebarOpen = useStore((state) => state.setSidebarOpen);
     //OVERLAY
     const setShowOverlay = useStore((state) => state.setShowOverlay);
     //UNCLAIMED
@@ -50,7 +53,13 @@ export default function Home() {
             </Head>
             <Snow />
             {/* // FLOAT BUTTONS */}
-            <StartFloaterFull></StartFloaterFull>
+            <StartFloaterFull
+                onClickPeople={() => {
+                    setSidebarOpen(true);
+                    setShowOverlay(true);
+                    console.log("BUBUBU");
+                }}
+            ></StartFloaterFull>
             {isModalOpen && (
                 <ModalOne
                     isOpen={isModalOpen}
@@ -61,6 +70,16 @@ export default function Home() {
                     }}
                     x={modalPosition.x}
                     y={modalPosition.y}
+                />
+            )}
+            {isSidebarOpen && (
+                <ModalSidebar
+                    isOpen={isModalOpen}
+                    onClose={() => {
+                        setSidebarOpen(false);
+                        setShowOverlay(false);
+                        setShowUnclaimed(false);
+                    }}
                 />
             )}
             <div className="col-span-12 container mx-auto grid grid-cols-12 h-screen z-20 px-8 lg:px-0">

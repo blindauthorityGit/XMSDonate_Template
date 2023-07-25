@@ -5,34 +5,33 @@ import FloaterButton from "./floatButton";
 // ICONS
 import { BsFillPeopleFill, BsFillInfoCircleFill } from "react-icons/bs";
 
-const StartFloaterFull = () => {
-
+const StartFloaterFull = (props) => {
     const sidebar = {
         open: (height = 1000) => ({
-          clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
-          transition: {
-            type: "spring",
-            stiffness: 20,
-            restDelta: 2
-          }
+            clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
+            transition: {
+                type: "spring",
+                stiffness: 20,
+                restDelta: 2,
+            },
         }),
         closed: {
-          clipPath: "circle(30px at 40px 40px)",
-          transition: {
-            delay: 0.5,
-            type: "spring",
-            stiffness: 400,
-            damping: 40
-          }
-        }
-      };
+            clipPath: "circle(30px at 40px 40px)",
+            transition: {
+                delay: 0.5,
+                type: "spring",
+                stiffness: 400,
+                damping: 40,
+            },
+        },
+    };
 
     return (
-        <div className="absolute z-10 right-0 top-8">
-            <FloaterButton klasse="flex justify-center items-center mb-2">
+        <div className="absolute z-50 right-0 top-8">
+            <FloaterButton klasse="flex justify-center items-center mb-2" onClick={props.onClickPeople}>
                 <BsFillPeopleFill />
             </FloaterButton>
-            <FloaterButton klasse="flex justify-center items-center">
+            <FloaterButton klasse="flex justify-center items-center" onClick={props.onClickInfo}>
                 <BsFillInfoCircleFill />
             </FloaterButton>
         </div>
