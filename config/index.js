@@ -1,7 +1,7 @@
 const colors = {
     background: "#fff",
     primaryColor: "#7d866f",
-    bgColors: ["rgb(235, 69, 17)", "rgb(220, 223, 220)", "rgb(0, 0, 0)", "rgb(255, 255, 255)"],
+    bgColors: ["#870F3B", "#335381", "#F26522", "#EC008C", "#FFF200"],
     kugeln: [
         {
             kugel1: "#EB4511",

@@ -72,7 +72,6 @@ const Raster = (props) => {
                             counter = counter + 1;
                             //CHECK IF BALL IS CLAIMED OR NOT
                             let claimed = userList.some((e) => e.id === counter - 1);
-
                             return (
                                 <Kugel
                                     key={i + "kugel"}
@@ -102,7 +101,7 @@ const Raster = (props) => {
                                             ? userList[getIndex(userList, counter - 1)].color.toLowerCase() ===
                                                   "rgb(255, 255, 255)" ||
                                               userList[getIndex(userList, counter - 1)].color.toLowerCase() ===
-                                                  "rgb(220, 223, 220)"
+                                                  "rgb(220, 224, 0)"
                                                 ? "text-black"
                                                 : "text-white"
                                             : ""
@@ -168,7 +167,7 @@ const Raster = (props) => {
                                     }}
                                     klasse={userList.some((e) => e.id === counter - 1) ? "claimedKugel" : null}
                                     toolTipStyle={{
-                                        top: isMobile ? kugelWidth + 16 + "px" : kugelWidth + 16 + "px",
+                                        top: isMobile ? kugelWidth - 10 + "px" : kugelWidth + 16 + "px",
                                         background: userList.some((e) => e.id === counter - 1)
                                             ? userList[getIndex(userList, counter - 1)].color.toLowerCase()
                                             : "",
@@ -177,8 +176,7 @@ const Raster = (props) => {
                                         userList.some((e) => e.id === counter - 1)
                                             ? userList[getIndex(userList, counter - 1)].color.toLowerCase() ===
                                                   "rgb(255, 255, 255)" ||
-                                              userList[getIndex(userList, counter - 1)].color.toLowerCase() ===
-                                                  "rgb(220, 223, 220)" ||
+                                              userList[getIndex(userList, counter - 1)].color === "#FFF200" ||
                                               !userList[getIndex(userList, counter - 1)].color.toLowerCase() ===
                                                   "rgb(235, 69, 17)"
                                                 ? "text-black"

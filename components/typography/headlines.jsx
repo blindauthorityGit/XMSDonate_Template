@@ -9,8 +9,8 @@ const H2 = ({ children }) => {
     return <h2 className="text-2xl font-bold">{children}</h2>;
 };
 
-const H3 = ({ children }) => {
-    return <h2 className="text-2xl font-bold">{children}</h2>;
+const H3 = ({ children, klasse }) => {
+    return <h2 className={`text-2xl font-bold ${klasse}`}>{children}</h2>;
 };
 
 // Add more headline components for H3, H4, etc.

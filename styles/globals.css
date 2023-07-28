@@ -1,21 +1,19 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
-
 :root {
-  --tooltip-bg-color: #f0f0f0; /* Replace this color with your desired background color */
+  --tooltip-bg-color: #f0f0f0;
+  /* Replace this color with your desired background color */
 }
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
-
 
 a {
   color: inherit;
@@ -23,16 +21,16 @@ a {
 }
 
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .claimedKugel {
   /* Your existing styles for the claimedKugel element */
   position: relative;
-  box-shadow: 3px 3px 0px 0px rgba(0,0,0,0.21);
-
+  -webkit-box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.21);
+          box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.21);
 }
-
 
 .shine {
   position: relative;
@@ -46,22 +44,29 @@ a {
   width: 80%;
   height: 80%;
   border-radius: 50%;
-  background: radial-gradient(
-    circle at top left,
-    rgba(255, 255, 255, 0.3) 20%,
-    rgba(255, 255, 255, 0) 50%
-  );
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.3) 20%, rgba(255, 255, 255, 0) 50%);
   pointer-events: none;
-  z-index: 1; /* Make sure the shine is below the content of the kugel */
+  z-index: 1;
+  /* Make sure the shine is below the content of the kugel */
 }
 
 .tooltip::before {
   content: "■";
   position: absolute;
   color: var(--box-bg-color, #333);
-  transform: translate(-50%, -50%) rotate(45deg); /* Center the ::before element and apply rotation */
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+          transform: translate(-50%, -50%) rotate(45deg);
+  /* Center the ::before element and apply rotation */
   font-size: 2rem;
   top: 0%;
   left: 50%;
-  z-index: 1; /* Set z-index higher to be above the tooltip content */
+  z-index: 1;
+  /* Set z-index higher to be above the tooltip content */
 }
+
+.pagination .active {
+  background-color: #870F3B;
+  border-radius: 100%;
+  color: white;
+}
+/*# sourceMappingURL=globals.css.map */

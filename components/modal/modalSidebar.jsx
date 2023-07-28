@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import useStore from "../../store/store";
 
-const ModalSidebar = ({ onClose }) => {
+import { AiOutlineClose } from "react-icons/ai";
+
+const ModalSidebar = (props) => {
     const isSidebarOpen = useStore((state) => state.isSidebarOpen);
     const closeModal = useStore((state) => state.closeModal);
 
@@ -41,7 +43,7 @@ const ModalSidebar = ({ onClose }) => {
                     animate={animationProps.animate}
                     exit={animationProps.exit}
                     transition={{ duration: 0.5 }}
-                    className="sidebar-container z-50 h-screen w-[33%]"
+                    className="sidebar-container z-50 h-screen w-[85%] lg:w-[33%]"
                     style={{
                         background: "#fff",
                         borderRadius: "0",
@@ -52,8 +54,13 @@ const ModalSidebar = ({ onClose }) => {
                     }}
                 >
                     {/* Your sidebar content goes here */}
-                    <button onClick={onClose}>Close Sidebar</button>
-                    oikheioheoi
+                    <AiOutlineClose
+                        className="right-4 top-4 cursor-pointer xl:text-3xl absolute transition-all duration-200 hover:text-4xl"
+                        onClick={props.onClose}
+                    >
+                        Close Sidebar
+                    </AiOutlineClose>
+                    {props.children}
                 </motion.div>
             )}
         </AnimatePresence>

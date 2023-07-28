@@ -21,6 +21,12 @@ const useStore = create((set) => ({
     isSidebarOpen: false,
     // Add a setter function for isSidebarOpen
     setSidebarOpen: (value) => set({ isSidebarOpen: value }),
+    listItemHeight: 0,
+    setListItemHeight: (height) => set({ listItemHeight: height }),
+    // Initially, userData is an empty object
+    userData: {},
+    setUserData: (data) => set({ userData: data }),
+    resetUserData: () => set({ userData: {} }),
 }));
 
 export default useStore;

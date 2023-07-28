@@ -13,6 +13,8 @@ import { StartText } from "../components/text";
 import { StartFloaterFull } from "../components/floater";
 import Goal from "../components/goal";
 import { ModalOne, ModalSidebar } from "../components/modal";
+import DonatorList from "../components/modalContent/donatorList/donatorList";
+import { Desktop } from "../components/modalContent/donation";
 
 //DEV
 import { TestData } from "../config/testData";
@@ -70,7 +72,9 @@ export default function Home() {
                     }}
                     x={modalPosition.x}
                     y={modalPosition.y}
-                />
+                >
+                    <Desktop />
+                </ModalOne>
             )}
             {isSidebarOpen && (
                 <ModalSidebar
@@ -80,7 +84,9 @@ export default function Home() {
                         setShowOverlay(false);
                         setShowUnclaimed(false);
                     }}
-                />
+                >
+                    <DonatorList></DonatorList>
+                </ModalSidebar>
             )}
             <div className="col-span-12 container mx-auto grid grid-cols-12 h-screen z-20 px-8 lg:px-0">
                 <div className="col-span-12 lg:col-span-5 min-h-screen flex flex-col pt-[10%] relative">

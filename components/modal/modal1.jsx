@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import useStore from "../../store/store";
+import { AiOutlineClose } from "react-icons/ai";
 
-const Modal = ({ onClose }) => {
+const Modal = ({ onClose, children }) => {
+    const resetUserData = useStore((state) => state.resetUserData);
+
     const isModalOpen = useStore((state) => state.isModalOpen);
     const modalPosition = useStore((state) => state.modalPosition);
     const closeModal = useStore((state) => state.closeModal);
@@ -75,19 +78,27 @@ const Modal = ({ onClose }) => {
                     animate={animationProps.animate}
                     exit={animationProps.exit}
                     transition={{ duration: 2.6 }}
-                    className="modal-container z-50 h-[80%] xl:w-[40%]"
+                    className="modal-container z-50 h-[80%] xl:w-[40%] p-8 xl:p-12"
                     style={{
                         background: "#fff",
                         borderRadius: "8px",
-                        padding: "20px",
+
                         position: "fixed",
                         left: "10%",
                         transform: "translate(0%, 0%)",
                     }}
                 >
                     {/* Your modal content goes here */}
-                    <button onClick={onClose}>Close Modal</button>
-                    oikheioheoi
+                    <AiOutlineClose
+                        className="right-4 top-4 cursor-pointer xl:text-3xl absolute transition-all duration-200 hover:text-4xl"
+                        onClick={() => {
+                            onClose();
+                            resetUserData();
+                        }}
+                    >
+                        Close Sidebar
+                    </AiOutlineClose>
+                    {children}
                 </motion.div>
             )}
         </AnimatePresence>
