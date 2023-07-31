@@ -23,14 +23,14 @@ const Goal = (props) => {
         if ((sum / goal) * 100 <= 100) {
             setPercentage((sum / goal) * 100);
         } else {
-            // When the goal is reached, update the goal to the next value (goal + 1000)
-            setGoal(Math.ceil(sum / goalStep) * 1000);
+            // When the goal is reached, update the goal to the next value (goal + goalSum)
+            setGoal(Math.ceil(sum / goalStep) * goalSum);
         }
     }, [sum]);
 
     // SET PERCENTAGE AFTER REASSESING GOAL FOR PROGRESS BAR
     useEffect(() => {
-        setGoalsReached(Math.floor(sum / 1000));
+        setGoalsReached(Math.floor(sum / goalSum));
         setPercentage((sum / goal) * 100);
     }, [goal]);
 
@@ -53,7 +53,7 @@ const Goal = (props) => {
                     EUR {goal.toLocaleString("de")},-
                 </div>
 
-                <div className="balken border border-dashed h-3 rounded-3xl border-darkText sm:h-4 w-full relative">
+                <div className="balken border  border-dashed h-3 rounded-3xl border-darkText sm:h-4 w-full relative">
                     <motion.div
                         className={`inner rounded-l-3xl ${
                             goalsReached >= 1 ? "bg-[#00A651]" : "bg-darkText"
@@ -64,7 +64,7 @@ const Goal = (props) => {
                             width: 0,
                         }}
                         animate={{ width: percentage + "%" }}
-                        transition={{ duration: "300ms", delay: 1.35, type: "spring" }}
+                        transition={{ duration: "300ms", stiffness: 200, delay: 1.35, type: "spring" }}
                     >
                         <div
                             ref={countRef}

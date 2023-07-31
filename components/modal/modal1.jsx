@@ -78,7 +78,7 @@ const Modal = ({ onClose, children }) => {
                     animate={animationProps.animate}
                     exit={animationProps.exit}
                     transition={{ duration: 2.6 }}
-                    className="modal-container z-50 h-[80%] xl:w-[40%] p-8 xl:p-12"
+                    className="modal-container z-50 h-[80%] xl:w-[40%] p-8 xl:p-12 overflow-hidden"
                     style={{
                         background: "#fff",
                         borderRadius: "8px",

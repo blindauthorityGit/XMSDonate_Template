@@ -89,7 +89,7 @@ export default function Home() {
                 </ModalSidebar>
             )}
             <div className="col-span-12 container mx-auto grid grid-cols-12 h-screen z-20 px-8 lg:px-0">
-                <div className="col-span-12 lg:col-span-5 min-h-screen flex flex-col pt-[10%] relative">
+                <div className="col-span-12 lg:col-span-5 min-h-screen flex flex-col pt-[10%] relative overflow-hidden">
                     <Goal
                         data={TestData}
                         klasse="w-full lg:mb-20 xl:mb-36 absolute lg:relative bottom-32 lg:bottom-auto lg:top-0"

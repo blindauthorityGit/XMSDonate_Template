@@ -11,12 +11,13 @@ import { H1, H3, P } from "../../../typography";
 
 //Fcuntions
 import addToUserData from "../../../../functions/addToUserData";
+import hexToRGB from "../../../../functions/hexToRGB";
 
 //Store
 import useStore from "../../../../store/store";
 
 function BallChoice(props) {
-    const [checked, setChecked] = useState(0);
+    const [checked, setChecked] = useState(-1);
     const userData = useStore((state) => state.userData);
 
     const ballRef = useRef();
@@ -44,16 +45,30 @@ function BallChoice(props) {
         // setKugelColor({ ...kugelColor, color: e.currentTarget.style.backgroundColor });
     };
 
+    const addChecked = (index) => {
+        let arr = Array.from(ballRef.current.querySelectorAll(".colorBall"));
+        console.log(arr);
+        arr.map((e) => e.children[0].classList.add("hidden"));
+        arr[index].children[0].classList.remove("hidden");
+        arr[index].children[0].classList.add("block");
+    };
+
     useEffect(() => {
-        console.log(userData);
-    }, [userData]);
+        const hexedColors = colors.bgColors.map((e) => hexToRGB(e));
+        // console.log(userData);
+        const selectedColorIndex = hexedColors.findIndex((color) => color === userData.color);
+        console.log(selectedColorIndex);
+        // Set the checked state to the index if the color is found, otherwise set it to -1 (no color selected)
+        setChecked(selectedColorIndex !== -1 ? selectedColorIndex : -1);
+        selectedColorIndex !== -1 ? addChecked(selectedColorIndex) : null;
+    }, []);
 
     return (
         <motion.div
             className={`colors w-full}`}
             key="ball-choice" // Add a unique key to the motion.div
             initial={{ x: -100, opacity: 0 }}
-            animate={{ opacity: 1, x: 0, transition: { type: "spring", stiffness: 120, delay: 0.2 } }}
+            animate={{ opacity: 1, x: 0, transition: { type: "spring", stiffness: 1000, damping: 80, delay: 0.1 } }}
             exit={{ x: -1000, opacity: 1 }}
         >
             <div className="grid grid-cols-12">
@@ -73,11 +88,12 @@ function BallChoice(props) {
                     <div className={`wrapper flex justify-between ${props.wrapperKlasse}`} ref={ballRef}>
                         {colors.bgColors.map((e, i) => {
                             const ballVariants = {
-                                hidden: { opacity: 0, scale: 0 },
+                                hidden: { opacity: 0, scale: 0, y: -30 },
                                 visible: {
+                                    y: 0,
                                     opacity: 1,
                                     scale: 1,
-                                    transition: { type: "spring", stiffness: 800, delay: i * 0.1 },
+                                    transition: { type: "just", delay: i * 0.05 },
                                 },
                                 exit: {
                                     // Define the exit animation variant

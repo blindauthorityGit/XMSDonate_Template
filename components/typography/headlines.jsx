@@ -6,7 +6,7 @@ const H1 = ({ children, klasse }) => {
 };
 
 const H2 = ({ children }) => {
-    return <h2 className="text-2xl font-bold">{children}</h2>;
+    return <h2 className="text-4xl mb-4 font-bold">{children}</h2>;
 };
 
 const H3 = ({ children, klasse }) => {

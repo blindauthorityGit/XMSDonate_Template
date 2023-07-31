@@ -34,8 +34,8 @@ const anzahlBaumKugeln = 75;
 const baumstumpfHeight = 0.1512;
 
 const showGoal = false;
-const goalSum = 1000;
-const goalStep = 1000;
+const goalSum = 5000;
+const goalStep = 5000;
 
 // IMAGES
 const maxSize = 1; // in MB
