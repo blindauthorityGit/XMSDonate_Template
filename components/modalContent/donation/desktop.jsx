@@ -2,10 +2,10 @@ import React from "react";
 
 import { StepOne } from "./desktop/index";
 
-const Desktop = () => {
+const Desktop = (props) => {
     return (
         <>
-            <StepOne />
+            <StepOne isDropped={props.isDropped} isDragging={props.isDragging} />
         </>
     );
 };

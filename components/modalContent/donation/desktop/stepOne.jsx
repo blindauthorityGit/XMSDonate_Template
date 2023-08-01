@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 //COMPS
-import { BallChoice, Sum, Anonymus, Name } from "../steps/index";
+import { BallChoice, Sum, Anonymus, Name, Avatar, Comment, DragBall } from "../steps/index";
 import { MainButton } from "../../../buttons";
 
 //Store
@@ -11,7 +11,7 @@ import useStore from "../../../../store/store";
 //FUNCTIONS
 import isStepDataValid from "../../../../functions/isStepDataValid";
 
-const StepOne = ({ onContinue }) => {
+const StepOne = (props) => {
     // GLOABAL STATE
     const userData = useStore((state) => state.userData);
     //STEPS
@@ -27,13 +27,21 @@ const StepOne = ({ onContinue }) => {
     const [isDisabled, setIsDisabled] = useState(true);
 
     const handleContinue = () => {
-        setCurrentStep(currentStep + 1);
-        setIsDisabled(true);
+        if (currentStep == 3 && userData.isAnonymous) {
+            console.log("ANONÜÜÜM");
+            setCurrentStep(currentStep + 2);
+            setIsDisabled(true);
+        } else {
+            setCurrentStep(currentStep + 1);
+            setIsDisabled(true);
+        }
     };
     const handleBack = () => {
-        setCurrentStep(currentStep - 1);
-
-        // setIsDisabled(true);
+        if (currentStep == 5 && userData.isAnonymous) {
+            setCurrentStep(currentStep - 2);
+        } else {
+            setCurrentStep(currentStep - 1);
+        }
     };
 
     useEffect(() => {
@@ -83,6 +91,34 @@ const StepOne = ({ onContinue }) => {
                     onNext={() => {
                         handleNext();
                     }}
+                />
+            );
+            break;
+        case 5:
+            currentStepComponent = (
+                <Avatar
+                    onNext={() => {
+                        handleNext();
+                    }}
+                />
+            );
+            break;
+        case 6:
+            currentStepComponent = (
+                <Comment
+                    onNext={() => {
+                        handleNext();
+                    }}
+                />
+            );
+        case 7:
+            currentStepComponent = (
+                <DragBall
+                    onNext={() => {
+                        handleNext();
+                    }}
+                    isDropped={props.isDropped}
+                    isDragging={props.isDragging}
                 />
             );
             break;

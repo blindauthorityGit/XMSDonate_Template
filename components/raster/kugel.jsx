@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef, forwardRef } from "react";
 import { motion } from "framer-motion";
 import ToolTip from "./toolTip";
-// import { useDroppable } from "@dnd-kit/core";
+import { useDroppable } from "@dnd-kit/core";
 
-// import Droppable from "../dragNDrop/droppable";
+import Droppable from "../dragNDrop/droppable";
 
 //ASSETS
 import Shine from "../../assets/shine.svg";
@@ -19,24 +19,24 @@ const Kugel = (props, ref) => {
         "--box-bg-color": props.toolTipStyle.background || "initial",
     };
 
-    // const { isOver, setNodeRef } = useDroppable({
-    //     id: props.id,
-    //     disabled: props.disabled,
-    // });
-    // const style = {
-    //     color: isOver ? "green" : undefined,
-    // };
+    const { isOver, setNodeRef } = useDroppable({
+        id: props.id,
+        disabled: props.disabled,
+    });
+    const style = {
+        color: isOver ? "green" : undefined,
+    };
 
     return (
         <div
-            className={`kugel mx-1 lg:mx-1 flex h-full items-center text-bold  justify-center text-white ${props.size} ${props.klasse} rounded-full ${props.color} ${props.textColor}`}
-            // className={`kugel relative mx-1 lg:mx-1 flex h-full items-center text-bold ${
-            //     isOver ? "bg-red-600 " : ""
-            // } justify-center text-white ${props.size} ${props.klasse} rounded-full ${props.color} ${props.textColor}`}
+            // className={`kugel mx-1 lg:mx-1 flex h-full items-center text-bold  justify-center text-white ${props.size} ${props.klasse} rounded-full ${props.color} ${props.textColor}`}
+            className={`kugel relative mx-1 lg:mx-1 flex h-full items-center text-bold ${
+                isOver ? "bg-red-600 " : ""
+            } justify-center text-white ${props.size} ${props.klasse} rounded-full ${props.color} ${props.textColor}`}
             id={props.id}
             data-isClaimed={props.isClaimed}
             cat={props.cat}
-            // ref={setNodeRef}
+            ref={setNodeRef}
             style={props.style}
             key={props.key}
             onMouseEnter={props.onMouseEnter}

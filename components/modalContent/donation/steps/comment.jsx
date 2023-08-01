@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { GiCheckMark } from "react-icons/gi";
 import { colors } from "../../../../config";
-import { BsPersonCircle } from "react-icons/bs";
+import { BiCommentDots } from "react-icons/bi";
 import { motion } from "framer-motion";
 
 // Typo
@@ -13,13 +13,14 @@ import addToUserData from "../../../../functions/addToUserData";
 // Store
 import useStore from "../../../../store/store";
 
-function Name(props) {
+function Comment(props) {
     const userData = useStore((state) => state.userData);
+    const [isAnonymous, setIsAnonymous] = useState(userData.isAnonymous || false);
 
     const nameRef = useRef();
 
     const handleChange = (e) => {
-        const value = { name: e.target.value };
+        const value = { comment: e.target.value };
         addToUserData(value);
     };
 
@@ -48,22 +49,26 @@ function Name(props) {
                 exit={{ x: -1000, opacity: 1 }}
             >
                 <div className="col-span-12 xl:mb-6 mt-6">
-                    <H2>Ihr Name</H2>
-                    <P>Nennen Sie uns Ihren Namen. Dieser wird dann auf Ihrer Spendenkugel angezeigt </P>
+                    <H2>Ihr Kommentar</H2>
+                    <P>Gerne können Sie auch einen Kommentar abgeben (optional, max 60 Zeichen). </P>
                 </div>
                 <div className="col-span-2 flex items-center justify-center">
                     <div data-tip={props.dataTip} className="text-5xl font-black opacity-50 text-[#C6D5DD]">
-                        <BsPersonCircle />
+                        <BiCommentDots />
                     </div>
                 </div>
                 <div className="col-span-9 md:col-span-9 xl:col-span-9 mt-4">
                     <div className={`wrapper flex justify-between ${props.wrapperKlasse}`} ref={nameRef}>
-                        <input
-                            type="text"
-                            className="border-b-2 w-full text-3xl py-4 font-bold pl-4"
+                        <textarea
+                            className="text-base sm:text-xl p-4 font-semibold w-full "
+                            rows="2"
+                            cols="40"
+                            name="comment"
+                            id="comment"
+                            maxLength="60"
+                            placeholder="Ihr Kommentar (max 60 Zeichen)"
                             onChange={handleChange}
-                            placeholder="Ihr Name"
-                            value={userData.name}
+                            value={userData.comment}
                         />
                     </div>
                 </div>
@@ -72,4 +77,4 @@ function Name(props) {
     );
 }
 
-export default Name;
+export default Comment;

@@ -21,7 +21,7 @@ import useStore from "../../store/store"; // Import the same store from the prev
 // DEV
 import { baumstumpfHeight } from "../../config";
 
-const Full = () => {
+const Full = (props) => {
     const dimensions = useStore((state) => state.dimensions);
 
     useEffect(() => {
@@ -44,7 +44,7 @@ const Full = () => {
                     className={`w-full lg:pl-12`}
                     style={{ height: dimensions.height - dimensions.height * baumstumpfHeight + "px" }}
                 >
-                    <Raster></Raster>
+                    <Raster parent={props.parent}></Raster>
                 </div>
                 {/* BaumGraphic component */}
                 <Baum />

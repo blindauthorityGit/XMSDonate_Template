@@ -16,6 +16,9 @@ import useStore from "../../store/store"; // Import the zustand store
 import { isMobile } from "react-device-detect";
 import getIndex from "../../functions/getIndex";
 
+//DND STUFF
+import Draggable from "../dragNDrop/draggable";
+
 const Raster = (props) => {
     const [masterCounter, setMasterCounter] = useState(0);
     let counter = masterCounter;
@@ -23,6 +26,9 @@ const Raster = (props) => {
     const [ballsPerTree, setBallsPerTree] = useState(anzahlBaumKugeln);
     const [treeAnzahl, setTreeAnzahl] = useState(0);
     const [currentTree, setCurrentTree] = useState(0);
+
+    //GLOBAL USER DATA STATE
+    const userData = useStore((state) => state.userData);
 
     //CONTAINER REF
     const allRef = useRef();
@@ -46,9 +52,26 @@ const Raster = (props) => {
         setMasterCounter(ballsPerTree * currentTree);
     }, [ballsPerTree, treeAnzahl, currentTree]);
 
+    // OPACITY CHECK DROPZONE WHEN DROPPED
     useEffect(() => {
-        console.log(anzahlRows, userList, isMobile);
-    });
+        let check = false;
+        if (props.parent) {
+            console.log(props.parent, "PARENT CHECK");
+            check = true;
+        }
+        if (check) {
+            let arr = Array.from(allRef.current.querySelectorAll(".kugel"));
+            arr.map((e, i) => {
+                if (i === props.parent) {
+                    console.log("ISISISISIS");
+                    e.classList.add("opacity-100");
+                    e.classList.add("outline", "outline-offset-2", "outline-pink-500");
+                } else {
+                    e.classList.remove("opacity-100");
+                }
+            });
+        }
+    }, [props.parent]);
 
     return (
         <div className="h-full" ref={allRef}>
@@ -219,22 +242,22 @@ const Raster = (props) => {
                                 >
                                     {props.parent === counter - 1 ? (
                                         <Draggable
-                                            klasse={`draggable absolute touch-none rounded-full indent-[9999px] sm:indent-0 flex items-center justify-center ${
-                                                kugelColor.color == "rgb(255, 255, 255)" ||
-                                                kugelColor.color == "rgb(220, 223, 220)"
+                                            klasse={`draggable z-50 absolute touch-none rounded-full indent-[9999px] sm:indent-0 flex items-center justify-center ${
+                                                userData.color == "rgb(255, 255, 255)" ||
+                                                userData.color == "rgb(220, 223, 220)"
                                                     ? "text-black border-4"
                                                     : "text-white"
                                             }`}
                                             style={{
                                                 width: kugelWidth + "px",
                                                 height: kugelWidth + "px",
-                                                background: kugelColor.color,
+                                                background: userData.color,
                                             }}
                                             id="draggable"
                                         >
-                                            {kugelColor.anon
+                                            {userData.isAnonymous
                                                 ? "Anon"
-                                                : kugelColor.name
+                                                : userData.name
                                                       .split(" ")
                                                       .map((n) => n[0])
                                                       .join(".")}

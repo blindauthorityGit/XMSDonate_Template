@@ -1,3 +1,12 @@
+// Import the SVG images from your assets folder
+import Bob from "../assets/bob.svg";
+import Jessy from "../assets/jessy.svg";
+import Mika from "../assets/mika.svg";
+import Jerome from "../assets/jerome.svg";
+
+// Define the array of images
+const avatars = [Bob, Jessy, Mika, Jerome];
+
 const colors = {
     background: "#fff",
     primaryColor: "#7d866f",
@@ -56,4 +65,5 @@ export {
     local,
     maxSize,
     bgColors,
+    avatars,
 };
