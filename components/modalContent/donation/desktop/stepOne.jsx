@@ -1,9 +1,12 @@
 import React, { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { createPortal } from "react-dom";
+import { DragOverlay } from "@dnd-kit/core";
 
 //COMPS
 import { BallChoice, Sum, Anonymus, Name, Avatar, Comment, DragBall } from "../steps/index";
 import { MainButton } from "../../../buttons";
+import Item from "../../../dragNDrop/item";
 
 //Store
 import useStore from "../../../../store/store";
@@ -18,6 +21,9 @@ const StepOne = (props) => {
     const [currentStep, setCurrentStep] = useState(1);
     //BackState
     const [disabledBack, setDisabledBack] = useState(true);
+
+    //SIZE FOR DRAG BALL
+    const [size, setSize] = useState(56);
 
     const variants = {
         open: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 120, delay: 0.2 } },
@@ -70,6 +76,7 @@ const StepOne = (props) => {
         case 2:
             currentStepComponent = (
                 <Sum
+                    key="sum"
                     onNext={() => {
                         handleNext();
                     }}
@@ -79,6 +86,7 @@ const StepOne = (props) => {
         case 3:
             currentStepComponent = (
                 <Anonymus
+                    key="anon"
                     onNext={() => {
                         handleNext();
                     }}
@@ -88,6 +96,7 @@ const StepOne = (props) => {
         case 4:
             currentStepComponent = (
                 <Name
+                    key="namer"
                     onNext={() => {
                         handleNext();
                     }}
@@ -97,6 +106,7 @@ const StepOne = (props) => {
         case 5:
             currentStepComponent = (
                 <Avatar
+                    key="avatar"
                     onNext={() => {
                         handleNext();
                     }}
@@ -106,6 +116,7 @@ const StepOne = (props) => {
         case 6:
             currentStepComponent = (
                 <Comment
+                    key="comment"
                     onNext={() => {
                         handleNext();
                     }}
@@ -114,6 +125,7 @@ const StepOne = (props) => {
         case 7:
             currentStepComponent = (
                 <DragBall
+                    key="dragor"
                     onNext={() => {
                         handleNext();
                     }}
@@ -131,11 +143,8 @@ const StepOne = (props) => {
         <>
             {" "}
             {/* Add AnimatePresence here */}
-            <AnimatePresence>
-                {currentStepComponent}
-
-                <button onClick={handleContinue}></button>
-            </AnimatePresence>
+            {currentStepComponent}
+            <button onClick={handleContinue}></button>
             <div className="absolute bottom-8 left-8 right-8 grid grid-cols-12 ">
                 <div className="col-span-6">
                     {" "}
@@ -150,6 +159,23 @@ const StepOne = (props) => {
                     </MainButton>
                 </div>
             </div>
+            {createPortal(
+                <DragOverlay
+                    dropAnimation={{
+                        duration: 300,
+                        easing: "cubic-bezier(0.18, 0.67, 0.6, 1.22)",
+                    }}
+                >
+                    {props.activeId ? (
+                        <Item
+                            style={{ width: size + "px", height: size + "px", background: userData.color }}
+                            value={`Item ${props.activeId}`}
+                            klasse="rounded-full touch-none"
+                        />
+                    ) : null}
+                </DragOverlay>,
+                document.body
+            )}
         </>
     );
 };

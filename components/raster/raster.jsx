@@ -63,9 +63,10 @@ const Raster = (props) => {
             let arr = Array.from(allRef.current.querySelectorAll(".kugel"));
             arr.map((e, i) => {
                 if (i === props.parent) {
-                    console.log("ISISISISIS");
+                    console.log("ISISISISIS", e);
+                    e.classList.remove("opacity-50");
                     e.classList.add("opacity-100");
-                    e.classList.add("outline", "outline-offset-2", "outline-pink-500");
+                    e.classList.add("outline", "outline-offset-2", "outline-white");
                 } else {
                     e.classList.remove("opacity-100");
                 }
@@ -112,7 +113,7 @@ const Raster = (props) => {
                                               }`
                                     }`}
                                     onAnimationEnd={(e) => {
-                                        // e.target.classList.remove("scale-in-center");
+                                        e.target.classList.remove("scale-in-center");
                                     }}
                                     color={
                                         userList.some((e) => e.id === counter - 1)
@@ -255,12 +256,12 @@ const Raster = (props) => {
                                             }}
                                             id="draggable"
                                         >
-                                            {userData.isAnonymous
+                                            {/* {userData.isAnonymous
                                                 ? "Anon"
                                                 : userData.name
                                                       .split(" ")
                                                       .map((n) => n[0])
-                                                      .join(".")}
+                                                      .join(".")} */}
                                         </Draggable>
                                     ) : (
                                         ""

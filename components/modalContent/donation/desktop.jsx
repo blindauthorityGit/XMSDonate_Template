@@ -5,7 +5,7 @@ import { StepOne } from "./desktop/index";
 const Desktop = (props) => {
     return (
         <>
-            <StepOne isDropped={props.isDropped} isDragging={props.isDragging} />
+            <StepOne activeId={props.activeId} isDropped={props.isDropped} isDragging={props.isDragging} />
         </>
     );
 };
