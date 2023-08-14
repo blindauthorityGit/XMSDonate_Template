@@ -31,7 +31,7 @@ function Sum(props) {
 
     return (
         <div className="grid grid-cols-12">
-            <div className="col-span-12 xl:mb-6">
+            <div className="col-span-12 xl:mb-6 hidden lg:block">
                 <H1>Schenken Sie Freude</H1>
                 <P>Mit Ihrer Spende lassen wir die Wünsche unserer Kinder und Jugendlichen wahr werden. </P>
             </div>
@@ -42,7 +42,7 @@ function Sum(props) {
                 animate={{ opacity: 1, x: 0, transition: { type: "spring", stiffness: 1000, damping: 80, delay: 0.1 } }}
                 exit={{ x: -1000, opacity: 1 }}
             >
-                <div className="col-span-12 xl:mb-6 mt-6">
+                <div className="col-span-12 xl:mb-6 lg:mt-6">
                     <H2>Spendensumme</H2>
                     <P>
                         Ihre Spende hilft uns, den Alltag unserer Kinder und Jugendlichen schöner zu gestalten. Mit
@@ -54,11 +54,11 @@ function Sum(props) {
                         <GiPayMoney />
                     </div>
                 </div>
-                <div className="col-span-9 md:col-span-9 xl:col-span-9">
+                <div className="col-span-9 md:col-span-9 xl:col-span-9 mt-2 lg:mt-0">
                     <div className={`wrapper flex justify-between ${props.wrapperKlasse}`} ref={sumRef}>
                         <input
                             type="number"
-                            className="border-b-2 w-full text-5xl py-4 font-bold pl-4"
+                            className="border-b-2 w-full text-xl lg:text-5xl py-4 font-bold pl-4"
                             onChange={handleChange}
                             placeholder="EUR 20,-"
                             value={userData.sum}

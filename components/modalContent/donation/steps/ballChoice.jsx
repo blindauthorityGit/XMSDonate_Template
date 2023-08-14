@@ -77,14 +77,14 @@ function BallChoice(props) {
                     <P klasse="xl:mt-16 xl:mb-12">
                         Wir sammeln Spenden für die Kinder und Jugendlichen des Kinder- und Familienzentrum Monikahaus.
                     </P>
-                    <H3 klasse="font-bold">Wählen Sie Ihre Kugel: </H3>
+                    <H3 klasse="font-bold mt-4 lg:mt-0">Wählen Sie Ihre Kugel: </H3>
                 </div>
                 <div className="col-span-2 flex items-center ">
                     <div data-tip={props.dataTip} className="text-5xl font-black opacity-50 text-[#C6D5DD]">
                         <BiSolidColor />
                     </div>
                 </div>
-                <div className="col-span-9 md:col-span-6 xl:col-span-8">
+                <div className="col-span-9 md:col-span-6 xl:col-span-8 flex flex-col justify-center">
                     <div className={`wrapper flex justify-between ${props.wrapperKlasse}`} ref={ballRef}>
                         {colors.bgColors.map((e, i) => {
                             const ballVariants = {
@@ -107,7 +107,7 @@ function BallChoice(props) {
                                 <motion.div
                                     className={`colorBall shine shadow-md rounded-full flex items-center justify-center ${
                                         e === "#fff" || e === "rgb(255, 255, 255)" ? "border-4" : ""
-                                    } hover:scale-110 transition cursor-pointer`}
+                                    } hover:scale-110 transition cursor-pointer w-7 h-7 lg:w-12 lg:h-12`}
                                     onClick={(e) => {
                                         onChangeColor(e);
                                         e.target.classList.add("jello-horizontal");
@@ -119,8 +119,8 @@ function BallChoice(props) {
                                     data-id={i}
                                     key={`farbKugel${i}`}
                                     style={{
-                                        width: props.size + "px",
-                                        height: props.size + "px",
+                                        // width: props.size + "px",
+                                        // height: props.size + "px",
                                         background: e,
                                     }}
                                     variants={ballVariants}
@@ -129,7 +129,7 @@ function BallChoice(props) {
                                     whileHover={{ borderRadius: "50%", borderWidth: "8px" }}
                                     exit="exit"
                                 >
-                                    <div className="icon hidden text-2xl">
+                                    <div className="icon hidden text-base lg:text-2xl">
                                         <GiCheckMark color={checked == 4 ? "black" : "white"}></GiCheckMark>
                                     </div>
                                 </motion.div>

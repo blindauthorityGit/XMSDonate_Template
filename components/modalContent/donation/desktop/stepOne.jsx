@@ -145,7 +145,7 @@ const StepOne = (props) => {
             {/* Add AnimatePresence here */}
             {currentStepComponent}
             <button onClick={handleContinue}></button>
-            <div className="absolute bottom-8 left-8 right-8 grid grid-cols-12 ">
+            <div className="absolute bottom-8 left-8 right-8 grid grid-cols-12 gap-4">
                 <div className="col-span-6">
                     {" "}
                     <MainButton disabled={disabledBack} onClick={handleBack} klasse="border-2 text-darkText">

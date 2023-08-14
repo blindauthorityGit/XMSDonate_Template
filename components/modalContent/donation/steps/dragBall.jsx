@@ -66,19 +66,19 @@ function DragBall(props) {
                             className={`w-[45%] 
                              text-right pr-5 font-bold text-primaryColor`}
                         >
-                            {isMobile ? "Rauf ziehen" : "Rüber ziehen"}
+                            {isMobile ? "Rauf ziehen" : "Zum Baum ziehen"}
                         </div>
                         <Draggable
                             id="draggable"
                             value="bubu"
                             style={{
-                                width: 36 + "px",
-                                height: 36 + "px",
+                                // width: 48 + "px",
+                                // height: 48 + "px",
                                 background: userData.color,
                             }}
                             klasse={`${props.isDropped ? "hidden" : "block"} ${
                                 props.isDragging ? "opacity-30" : ""
-                            } rounded-full flex items-center justify-center touch-none heartbeat w-2/4  ${
+                            } w-7 h-7 lg:h-12 lg:w-12 rounded-full flex items-center shine justify-center touch-none heartbeat w-2/4  ${
                                 userData.color == "rgb(255, 255, 255)" || userData.color == "rgb(220, 223, 220)"
                                     ? "text-black border-4"
                                     : "text-white"

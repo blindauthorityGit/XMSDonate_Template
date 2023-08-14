@@ -30,15 +30,14 @@ const Modal = ({ onClose, children }) => {
     const calculateAnimationProps = () => {
         if (window.innerWidth <= 768) {
             return {
-                initial: { opacity: 0, scale: 0.8, y: "50%", x: "-50%" },
+                initial: { opacity: 0, scale: 0.8 },
                 animate: {
                     opacity: 1,
                     scale: 1,
-                    y: "50%",
-                    x: 0,
+
                     transition: { type: "spring", stiffness: 300, damping: 25 },
                 },
-                exit: { opacity: 0, scale: 0.8, y: "50%" },
+                exit: { opacity: 0, scale: 0.8 },
             };
         } else {
             return {
@@ -78,14 +77,12 @@ const Modal = ({ onClose, children }) => {
                     animate={animationProps.animate}
                     exit={animationProps.exit}
                     transition={{ duration: 2.6 }}
-                    className="modal-container z-50 h-[80%] xl:w-[40%] p-8 xl:p-12 overflow-hidden"
+                    className="modal-container z-50 bottom-0 sm:bottom-auto h-[45%] sm:h-[80%] xl:w-[40%] sm:left-[12%] p-8 xl:p-12 overflow-hidden"
                     style={{
                         background: "#fff",
                         borderRadius: "8px",
 
                         position: "fixed",
-                        left: "10%",
-                        transform: "translate(0%, 0%)",
                     }}
                 >
                     {/* Your modal content goes here */}

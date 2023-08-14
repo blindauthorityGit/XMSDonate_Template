@@ -66,7 +66,7 @@ function Avatar(props) {
 
     return (
         <div className="grid grid-cols-12">
-            <div className="col-span-12 xl:mb-6">
+            <div className="col-span-12 xl:mb-6 hidden lg:block">
                 <H1>Schenken Sie Freude</H1>
                 <P>Mit Ihrer Spende lassen wir die Wünsche unserer Kinder und Jugendlichen wahr werden.</P>
             </div>
@@ -78,7 +78,7 @@ function Avatar(props) {
                 animate={{ opacity: 1, x: 0, transition: { type: "spring", stiffness: 1000, damping: 80, delay: 0.1 } }}
                 exit={{ x: -1000, opacity: 1 }}
             >
-                <div className="col-span-12 xl:mb-6 mt-6">
+                <div className="col-span-12 xl:mb-6 lg:mt-6">
                     <H2>Ihr Bild</H2>
                     <P>
                         Wenn Sie möchten, können Sie Ihren Beitrag noch persönlicher gestalten. Stellen Sie uns ein Bild
@@ -90,7 +90,7 @@ function Avatar(props) {
                         <BsPersonCircle />
                     </div>
                 </div>
-                <div className="col-span-9 md:col-span-9 xl:col-span-9 ">
+                <div className="col-span-10 md:col-span-9 xl:col-span-9 ">
                     <ImageUploading
                         multiple
                         value={images}
@@ -121,13 +121,13 @@ function Avatar(props) {
                                     Bild wählen ...
                                 </button>
                                 {imageList.map((image, index) => (
-                                    <div key={index} className="image-item col-span-12 sm:col-span-8 p-4 flex ">
+                                    <div key={index} className="image-item  col-span-12 sm:col-span-8 p-4 flex ">
                                         <div
-                                            className="rounded-full h-20 w-20 bg-cover"
+                                            className="rounded-full h-12 w-12 lg:h-20 lg:w-20 bg-cover"
                                             style={{ backgroundImage: `url(${image["data_url"]})`, aspectRatio: "1/1" }}
                                             alt=""
                                         />
-                                        <div className="image-item__btn-wrapper w-full sm:w-full ml-4">
+                                        <div className="image-item__btn-wrapper w-full sm:w-full ml-4 flex lg:block">
                                             <button
                                                 className="font-bold px-6 py-2 hover:bg-gray-200 mr-4 bg-gray-100 text-xs rounded-xl"
                                                 onClick={() => onImageUpdate(index)}
@@ -135,7 +135,7 @@ function Avatar(props) {
                                                 Update
                                             </button>
                                             <button
-                                                className="font-bold mt-4 hover:bg-gray-600 px-6 py-2 text-gray-50 bg-black text-xs rounded-xl"
+                                                className="font-bold lg:mt-4 hover:bg-gray-600 px-6 py-2 text-gray-50 bg-black text-xs rounded-xl"
                                                 onClick={() => onImageRemove(index)}
                                             >
                                                 Löschen

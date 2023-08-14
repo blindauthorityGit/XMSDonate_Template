@@ -63,7 +63,7 @@ const Raster = (props) => {
             let arr = Array.from(allRef.current.querySelectorAll(".kugel"));
             arr.map((e, i) => {
                 if (i === props.parent) {
-                    console.log("ISISISISIS", e);
+                    console.log("ISISISISIS", e, userData);
                     e.classList.remove("opacity-50");
                     e.classList.add("opacity-100");
                     e.classList.add("outline", "outline-offset-2", "outline-white");
@@ -243,16 +243,17 @@ const Raster = (props) => {
                                 >
                                     {props.parent === counter - 1 ? (
                                         <Draggable
-                                            klasse={`draggable z-50 absolute touch-none rounded-full indent-[9999px] sm:indent-0 flex items-center justify-center ${
+                                            klasse={`draggable w-7 h-7 lg:w-12 lg:h-12 shine z-50 absolute touch-none rounded-full indent-[9999px] sm:indent-0 flex items-center justify-center ${
                                                 userData.color == "rgb(255, 255, 255)" ||
                                                 userData.color == "rgb(220, 223, 220)"
                                                     ? "text-black border-4"
                                                     : "text-white"
                                             }`}
                                             style={{
-                                                width: kugelWidth + "px",
-                                                height: kugelWidth + "px",
+                                                // width: kugelWidth + "px",
+                                                // height: kugelWidth + "px",
                                                 background: userData.color,
+                                                aspectRatio: 1 / 1,
                                             }}
                                             id="draggable"
                                         >

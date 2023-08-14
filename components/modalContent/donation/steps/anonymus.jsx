@@ -36,7 +36,7 @@ function Anonymous(props) {
 
     return (
         <div className="grid grid-cols-12">
-            <div className="col-span-12 xl:mb-6">
+            <div className="col-span-12 xl:mb-6 hidden lg:block">
                 <H1>Schenken Sie Freude</H1>
                 <P>Mit Ihrer Spende lassen wir die Wünsche unserer Kinder und Jugendlichen wahr werden.</P>
             </div>
@@ -48,19 +48,19 @@ function Anonymous(props) {
                 animate={{ opacity: 1, x: 0, transition: { type: "spring", stiffness: 1000, damping: 80, delay: 0.1 } }}
                 exit={{ x: -1000, opacity: 1 }}
             >
-                <div className="col-span-12 xl:mb-6 mt-6">
+                <div className="col-span-12 xl:mb-6 lg:mt-6">
                     <H2>Anonyme Spende?</H2>
                     <P>
                         Wir möchten sicherstellen, dass Sie sich wohl fühlen. Möchten Sie Ihre Spende anonym tätigen
                         oder Ihre Daten mit uns teilen?
                     </P>
                 </div>
-                <div className="col-span-2 flex items-center justify-center">
+                <div className="col-span-2 flex items-center justify-center mt-4 lg:mt-0">
                     <div data-tip={props.dataTip} className="text-5xl font-black opacity-50 text-[#C6D5DD]">
                         <BsIncognito />
                     </div>
                 </div>
-                <div className="col-span-9 md:col-span-9 xl:col-span-9 mt-4">
+                <div className="col-span-9 md:col-span-9 xl:col-span-9 mt-6 lg:mt-4">
                     <div className={`wrapper flex justify-between ${props.wrapperKlasse}`} ref={sumRef}>
                         {/* Use the custom switch component for the anonymous toggle */}
                         <div className="flex items-center text-xl">
@@ -84,7 +84,7 @@ function Anonymous(props) {
                         </div>
                     </div>
                 </div>
-                <div className="col-span-12 bg-greenColor-50 p-4 mt-8">
+                <div className="col-span-12 bg-greenColor-50 p-4 mt-8 hidden lg:block">
                     {isAnonymous ? (
                         <div>Ihre Spende bleibt anonym. Name und Bild werden nicht angezeigt.</div>
                     ) : (
