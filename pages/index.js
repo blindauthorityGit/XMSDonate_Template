@@ -95,7 +95,7 @@ export default function Home() {
     }, []);
 
     return (
-        <MainContainer width="w-full h-full">
+        <MainContainer width="w-full h-full min-h-screen">
             <Head>
                 <title>Site title</title>
             </Head>
@@ -135,7 +135,7 @@ export default function Home() {
                         <DonatorList></DonatorList>
                     </ModalSidebar>
                 )}
-                <div className="col-span-12 container mx-auto grid grid-cols-12 min-h-screen z-20 px-8 lg:px-0">
+                <div className="col-span-12 container mx-auto grid grid-cols-12 min-h-[100svh] z-20 px-8 lg:px-0">
                     <div className="col-span-12 lg:col-span-5 min-h-screen flex flex-col pt-[10%] relative overflow-hidden">
                         <Goal
                             data={TestData}
