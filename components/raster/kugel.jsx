@@ -35,7 +35,7 @@ const Kugel = (props, ref) => {
             } justify-center text-white ${props.size} ${props.klasse} rounded-full ${props.color} ${props.textColor}`}
             id={props.id}
             data-isclaimed={props.isClaimed}
-            cat={props.cat}
+            // cat={props.cat}
             ref={setNodeRef}
             style={props.style}
             key={props.key}
