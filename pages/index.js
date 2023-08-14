@@ -95,7 +95,7 @@ export default function Home() {
     }, []);
 
     return (
-        <MainContainer width="w-full h-full min-h-screen">
+        <MainContainer width="w-full h-full min-h-[100svh]">
             <Head>
                 <title>Site title</title>
             </Head>
