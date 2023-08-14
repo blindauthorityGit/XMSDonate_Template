@@ -30,7 +30,7 @@ function DragBall(props) {
     const handleAnonymousToggle = () => {
         const updatedIsAnonymous = !isAnonymous;
         setIsAnonymous(updatedIsAnonymous);
-        addToUserData({ isAnonymous: updatedIsAnonymous });
+        addToUserData({ isAnonymous: updatedIsAnonymous, isClaimed: true });
     };
 
     useEffect(() => {

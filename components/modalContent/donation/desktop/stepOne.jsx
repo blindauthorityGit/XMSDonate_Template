@@ -17,6 +17,8 @@ import isStepDataValid from "../../../../functions/isStepDataValid";
 const StepOne = (props) => {
     // GLOABAL STATE
     const userData = useStore((state) => state.userData);
+    const userList = useStore((state) => state.userList);
+    const setUserList = useStore((state) => state.setUserList);
     //STEPS
     const [currentStep, setCurrentStep] = useState(1);
     //BackState
@@ -37,6 +39,10 @@ const StepOne = (props) => {
             console.log("ANONÜÜÜM");
             setCurrentStep(currentStep + 2);
             setIsDisabled(true);
+        } else if (currentStep == 7) {
+            console.log(userData, userList);
+            const newData = userList.push(userData);
+            console.log(newData);
         } else {
             setCurrentStep(currentStep + 1);
             setIsDisabled(true);
@@ -128,6 +134,7 @@ const StepOne = (props) => {
                     key="dragor"
                     onNext={() => {
                         handleNext();
+                        console.log("here we go sateliete radio");
                     }}
                     isDropped={props.isDropped}
                     isDragging={props.isDragging}

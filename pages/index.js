@@ -86,6 +86,7 @@ export default function Home() {
         setUserData({
             ...userData,
             id: over ? over.id : null,
+            claimed: true,
             // winner: Array.from(document.querySelectorAll(".kugel"))[over.id].dataset.iswinner == "true" ? true : false,
         });
     }
@@ -93,6 +94,10 @@ export default function Home() {
     useEffect(() => {
         setUserList(TestData);
     }, []);
+
+    useEffect(() => {
+        console.log(userList);
+    }, [userList]);
 
     return (
         <MainContainer width="w-full h-full min-h-[100svh]">
