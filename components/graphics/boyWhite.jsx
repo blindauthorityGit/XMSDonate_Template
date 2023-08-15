@@ -18,7 +18,7 @@ const BoyWhiteGraphic = () => {
                 height="251px" // Set the desired height of the background image
                 width="169px"
                 style={{ aspectRatio: "126 / 198" }}
-                className="z-30 lg:z-[20] bottom-[23%] lg:bottom-[9%] lg:top-auto left-[38%] lg:left-[32%] xl:bottom-[100px] xl:left-[32%] w-[25vw] lg:w-[12vw] h-[auto] xl:w-[234px] xl:h-[367px]"
+                className="z-30 lg:z-[10] bottom-[23%] lg:bottom-[9%] lg:top-auto left-[38%] lg:left-[32%] xl:bottom-[100px] xl:left-[32%] w-[25vw] lg:w-[12vw] h-[auto] xl:w-[234px] xl:h-[367px]"
             />
         </>
     );

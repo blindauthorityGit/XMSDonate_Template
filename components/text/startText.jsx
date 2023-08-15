@@ -42,7 +42,7 @@ const StartText = () => {
                     setShowOverlay(true);
                     handleModal(e);
                 }}
-                klasse={"bg-primaryColor hover:bg-primaryColor-950 mt-8 text-white"}
+                klasse={"bg-primaryColor hover:bg-primaryColor-950 mt-8 text-white z-[60]"}
             >
                 Jetzt Spenden
             </MainButton>
