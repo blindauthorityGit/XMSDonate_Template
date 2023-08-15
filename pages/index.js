@@ -114,7 +114,7 @@ export default function Home() {
     }, [userList]);
 
     return (
-        <MainContainer width="w-full h-full min-h-[100svh]">
+        <MainContainer width="w-full h-full min-h-[100svh] relative">
             <Head>
                 <title>Site title</title>
             </Head>

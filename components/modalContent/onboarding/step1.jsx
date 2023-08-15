@@ -7,7 +7,7 @@ import { MainButton } from "../../buttons";
 import Logo from "../../../assets/logo.png";
 const Step1 = ({ onNext }) => {
     return (
-        <div width=" grid grid-cols-12 relative h-full">
+        <div width=" grid grid-cols-12 relative h-full absolute top-0 left-0 w-full h-full overflow-y-auto">
             <div className="col-span-12 p-4 lg:pt-4 xl:pt-10 sm:pt-0 lg:p-10">
                 <H2>Kleiner Beitrag – große Wirkung</H2>
                 <div className="mb-6 xl:mb-8"></div>
@@ -33,7 +33,7 @@ const Step1 = ({ onNext }) => {
                 <div className="mb-4 xl:mb-66"></div>
 
                 <img src={Logo.src} alt="" />
-                <MainButton onClick={onNext} klasse="border-2 text-darkText">
+                <MainButton onClick={onNext} klasse="border-2 mt-4 text-darkText">
                     Weiter
                 </MainButton>
             </div>
