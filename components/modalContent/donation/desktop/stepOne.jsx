@@ -19,6 +19,12 @@ const StepOne = (props) => {
     const userData = useStore((state) => state.userData);
     const userList = useStore((state) => state.userList);
     const setUserList = useStore((state) => state.setUserList);
+    //MODAL
+    //OVERLAY
+    const setShowOverlay = useStore((state) => state.setShowOverlay);
+    //UNCLAIMED
+    const setShowUnclaimed = useStore((state) => state.setShowUnclaimed);
+    const closeModal = useStore((state) => state.closeModal);
     //STEPS
     const [currentStep, setCurrentStep] = useState(1);
     //BackState
@@ -41,8 +47,12 @@ const StepOne = (props) => {
             setIsDisabled(true);
         } else if (currentStep == 7) {
             console.log(userData, userList);
-            const newData = userList.push(userData);
-            console.log(newData);
+            const newUserList = [...userList, userData]; // Create a new array with the updated user data
+            setUserList(newUserList); // Update the userList state with the new array
+            console.log(newUserList);
+            closeModal();
+            setShowOverlay(false);
+            setShowUnclaimed(false);
         } else {
             setCurrentStep(currentStep + 1);
             setIsDisabled(true);

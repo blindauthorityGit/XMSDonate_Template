@@ -13,7 +13,12 @@ import { StartText } from "../components/text";
 import { StartFloaterFull } from "../components/floater";
 import Goal from "../components/goal";
 import { ModalOne, ModalSidebar } from "../components/modal";
+const OnBoardModal = dynamic(() => import("../components/modal/onBoardModal"), {
+    ssr: false,
+});
 import DonatorList from "../components/modalContent/donatorList/donatorList";
+import OnboardingContent from "../components/modalContent/onboarding";
+import Info from "../components/modalContent/info";
 import { Desktop } from "../components/modalContent/donation";
 
 //DND STUFF
@@ -50,6 +55,14 @@ export default function Home() {
     const setShowOverlay = useStore((state) => state.setShowOverlay);
     //UNCLAIMED
     const setShowUnclaimed = useStore((state) => state.setShowUnclaimed);
+
+    //MODAL COMPONENT
+    const [activeComponent, setActiveComponent] = useState(null);
+    const [onBoarding, setOnboarding] = useState(true);
+
+    const handleToggleComponent = (componentName) => {
+        setActiveComponent(componentName);
+    };
 
     //DND STUFF
     function droppedZone(id, state) {
@@ -93,6 +106,7 @@ export default function Home() {
 
     useEffect(() => {
         setUserList(TestData);
+        setShowOverlay(true);
     }, []);
 
     useEffect(() => {
@@ -106,10 +120,32 @@ export default function Home() {
             </Head>
             <Snow />
             {/* // FLOAT BUTTONS */}
+            {onBoarding ? (
+                <>
+                    <OnBoardModal
+                        isOpen={onBoarding}
+                        onClose={() => {
+                            setOnboarding(false);
+                            setShowOverlay(false);
+                            setShowUnclaimed(false);
+                        }}
+                    >
+                        <OnboardingContent />
+                    </OnBoardModal>{" "}
+                    <p>BUBUBUBUBU</p>
+                </>
+            ) : null}
             <StartFloaterFull
                 onClickPeople={() => {
                     setSidebarOpen(true);
                     setShowOverlay(true);
+                    handleToggleComponent("donorList");
+                    console.log("BUBUBU");
+                }}
+                onClickInfo={() => {
+                    setSidebarOpen(true);
+                    setShowOverlay(true);
+                    handleToggleComponent("info");
                     console.log("BUBUBU");
                 }}
             ></StartFloaterFull>
@@ -137,7 +173,8 @@ export default function Home() {
                             setShowUnclaimed(false);
                         }}
                     >
-                        <DonatorList></DonatorList>
+                        {activeComponent === "info" && <Info />}
+                        {activeComponent === "donorList" && <DonatorList />}
                     </ModalSidebar>
                 )}
                 <div className="col-span-12 container mx-auto grid grid-cols-12 min-h-[100svh] z-20 px-8 lg:px-0">

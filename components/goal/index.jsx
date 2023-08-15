@@ -2,8 +2,11 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { showGoal, goalSum } from "../../config";
 import { dev, goalStep } from "../../config";
+//STORE
+import useStore from "../../store/store"; // Import the zustand store
 
 const Goal = (props) => {
+    const userList = useStore((state) => state.userList);
     const [data, setData] = useState(props.data);
     const [sum, setSum] = useState(0);
     const [goal, setGoal] = useState(goalSum);
@@ -14,10 +17,10 @@ const Goal = (props) => {
     const countRef = useRef();
 
     useEffect(() => {
-        dev
-            ? setSum(userList.map((e) => e.sum).reduce((a, b) => a + b))
-            : setSum(data.map((e) => e.sum).reduce((a, b) => a + b));
-    }, [data]);
+        if (userList.length > 0) {
+            setSum(userList.map((e) => e.sum).reduce((a, b) => a + b));
+        }
+    }, [userList]);
 
     useEffect(() => {
         if ((sum / goal) * 100 <= 100) {

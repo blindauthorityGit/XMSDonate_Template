@@ -47,7 +47,7 @@ const goalSum = 5000;
 const goalStep = 5000;
 
 // IMAGES
-const maxSize = 1; // in MB
+const maxSize = 5; // in MB
 
 const dev = false;
 const local = false;

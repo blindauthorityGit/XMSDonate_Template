@@ -1,16 +1,20 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useEffect } from "react";
 import { BsPersonCircle } from "react-icons/bs";
 
 //ASSETS
 import Avatar from "../../assets/avatar.svg";
 
 const ToolTip = (props) => {
+    useEffect(() => {
+        // console.log(props.avatrSrc[0].data_url);
+    }, [props.avatrSrc]);
+
     return (
         <div onMouseLeave={props.onMouseLeave} className={`tooltip font-sans z-50 ${props.klasse}`} style={props.style}>
             {props.avatrSrc ? (
                 <div className="grid grid-cols-12 items-center relative z-50">
                     <div className="col-span-3 lg:col-span-4 h-full">
-                        <div className="avatar w-8 sm:w-12 lg:w-10 xl:w-12 h-full">
+                        <div className="avatar w-8 h-8 sm:w-12 lg:w-10 xl:w-12 lg:h-full">
                             {props.isAnon || !props.avatrSrc ? (
                                 <div className="text-3xl md:text-4xl">
                                     <img src={Avatar.src} alt="" />
@@ -23,9 +27,12 @@ const ToolTip = (props) => {
                                     <div
                                         onClick={props.onClickAvatar}
                                         className="avatar text-3xl md:text-4xl w-full h-full  rounded-full bg-cover bg-center"
-                                        style={{ backgroundImage: `url(${props.avatrSrc})`, height: "auto" }}
+                                        style={{
+                                            backgroundImage: `url(${props.avatrSrc[0].data_url})`,
+                                            aspectRatio: "1/1",
+                                        }}
                                     >
-                                        <img className="rounded-full" src={props.avatrSrc} alt="avtrImg" />
+                                        {/* <img className="rounded-full" src={props.avatrSrc[0].data_url} alt="avtrImg" /> */}
                                     </div>
                                 </div>
                             )}

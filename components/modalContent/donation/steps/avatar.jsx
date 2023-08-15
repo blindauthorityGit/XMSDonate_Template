@@ -107,7 +107,7 @@ function Avatar(props) {
                             isDragging,
                             dragProps,
                         }) => (
-                            <div className={`upload__image-wrapper  grid grid-cols-12`}>
+                            <div className={`upload__image-wrapper  grid grid-cols-12 mt-4 lg:mt-0`}>
                                 <button
                                     style={isDragging ? { color: "red" } : undefined}
                                     className={`${
@@ -145,10 +145,10 @@ function Avatar(props) {
                                 ))}
                                 <div className="error col-span-6">
                                     {error && (
-                                        <span className="text-red-600  font-bold">
+                                        <p className="text-red-600 text-xs font-bold">
                                             Bild zu groß ({size.toFixed(2)}MB)<br></br>Max {maxSize}MB, bitte anderes
                                             Bild wählen
-                                        </span>
+                                        </p>
                                     )}
                                 </div>
                             </div>

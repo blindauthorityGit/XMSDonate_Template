@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import useStore from "../../store/store";
 import { AiOutlineClose } from "react-icons/ai";
 
-const Modal = ({ onClose, children }) => {
+const OnBoardModal = ({ onClose, children, isOpen }) => {
     const resetUserData = useStore((state) => state.resetUserData);
 
     const isModalOpen = useStore((state) => state.isModalOpen);
@@ -24,7 +24,7 @@ const Modal = ({ onClose, children }) => {
         return () => {
             document.removeEventListener("keydown", handleEscapeKey);
         };
-    }, [isModalOpen]);
+    }, [isOpen]);
 
     // Function to calculate animation props based on screen size
     const calculateAnimationProps = () => {
@@ -70,14 +70,14 @@ const Modal = ({ onClose, children }) => {
 
     return (
         <AnimatePresence>
-            {isModalOpen && (
+            {isOpen && (
                 <motion.div
-                    key={isModalOpen ? "open" : "closed"} // Use the key prop to force re-render on animation changes
+                    key={isOpen ? "open" : "closed"} // Use the key prop to force re-render on animation changes
                     initial={animationProps.initial}
                     animate={animationProps.animate}
                     exit={animationProps.exit}
                     transition={{ duration: 2.6 }}
-                    className="modal-container z-50 bottom-0 sm:bottom-auto h-[47%] sm:h-[80%] xl:w-[40%] sm:left-[12%] p-8 xl:p-12 overflow-hidden"
+                    className="z-[60] left-0 right-0 top-0 bopttom-0 m-auto modal-container ONBOARDING  bottom-0 w-[90%] sm:bottom-auto h-[95%] sm:h-[80%] xl:w-[40%] sm:left-[12%] p-4 xl:p-12 overflow-hidden"
                     style={{
                         background: "#fff",
                         borderRadius: "8px",
@@ -102,4 +102,4 @@ const Modal = ({ onClose, children }) => {
     );
 };
 
-export default Modal;
+export default OnBoardModal;

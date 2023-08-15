@@ -21,7 +21,7 @@ function Sum(props) {
     const sumRef = useRef();
 
     const handleChange = (e) => {
-        const value = { sum: e.target.value };
+        const value = { sum: Number(e.target.value) };
         addToUserData(value);
     };
 

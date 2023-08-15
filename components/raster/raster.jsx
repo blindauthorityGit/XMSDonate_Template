@@ -207,14 +207,14 @@ const Raster = (props) => {
                                                 : "text-white"
                                             : ""
                                     }
-                                    name={
-                                        userList.some((e) => e.id === counter - 1)
-                                            ? userList[getIndex(userList, counter - 1)].name
-                                                  .split(" ")
-                                                  .map((n) => n[0])
-                                                  .join(".")
-                                            : ""
-                                    }
+                                    // name={
+                                    //     userList.some((e) => e.id === counter - 1)
+                                    //         ? userList[getIndex(userList, counter - 1)].name
+                                    //               .split(" ")
+                                    //               .map((n) => n[0])
+                                    //               .join(".")
+                                    //         : ""
+                                    // }
                                     abstand={kugelWidth}
                                     // check ob Index in dem Kunden Array vorhanden ist
                                     fullName={
