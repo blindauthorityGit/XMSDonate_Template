@@ -82,7 +82,7 @@ function Avatar(props) {
                     <H2>Ihr Bild</H2>
                     <P>
                         Wenn Sie möchten, können Sie Ihren Beitrag noch persönlicher gestalten. Stellen Sie uns ein Bild
-                        zur Verfügung, das neben Ihrem Namen erscheint (optional, max. 1 MB).
+                        zur Verfügung, das neben Ihrem Namen erscheint (optional, max. 5 MB).
                     </P>
                 </div>
                 <div className="col-span-2 flex items-center justify-center">

@@ -43,7 +43,7 @@ const StepOne = (props) => {
     const handleContinue = () => {
         if (currentStep == 3 && userData.isAnonymous) {
             console.log("ANONÜÜÜM");
-            setCurrentStep(currentStep + 2);
+            setCurrentStep(currentStep + 1);
             setIsDisabled(true);
         } else if (currentStep == 7) {
             console.log(userData, userList);
@@ -138,6 +138,7 @@ const StepOne = (props) => {
                     }}
                 />
             );
+            break;
         case 7:
             currentStepComponent = (
                 <DragBall
