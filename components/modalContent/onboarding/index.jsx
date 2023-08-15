@@ -17,18 +17,13 @@ const Index = ({ onClose }) => {
             case 2:
                 return <Step2 onNext={handleNextStep} />;
             case 3:
-                return <Step3 onNext={handleNextStep} />;
+                return <Step3 onNext={onClose} />;
             default:
                 return null;
         }
     };
 
-    return (
-        <div>
-            {renderStep()}
-            <button onClick={onClose}>Close</button>
-        </div>
-    );
+    return <div>{renderStep()}</div>;
 };
 
 export default Index;

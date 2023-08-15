@@ -130,7 +130,13 @@ export default function Home() {
                             setShowUnclaimed(false);
                         }}
                     >
-                        <OnboardingContent />
+                        <OnboardingContent
+                            onClose={() => {
+                                setOnboarding(false);
+                                setShowOverlay(false);
+                                setShowUnclaimed(false);
+                            }}
+                        />
                     </OnBoardModal>{" "}
                     <p>BUBUBUBUBU</p>
                 </>
