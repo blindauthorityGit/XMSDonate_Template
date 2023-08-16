@@ -6,8 +6,8 @@ import Logo from "../../../assets/logo.png";
 
 const Info = () => {
     return (
-        <div width=" grid grid-cols-12 relative h-full">
-            <div className="col-span-12 p-4 lg:pt-4 xl:pt-10 sm:pt-0 lg:p-10">
+        <div width=" grid grid-cols-12 relative h-full bg-white">
+            <div className="col-span-12 p-4 lg:pt-4 xl:pt-10 sm:pt-0 lg:p-10 bg-white">
                 <H2>
                     Das Familienzentrum
                     <br /> Monikahaus
