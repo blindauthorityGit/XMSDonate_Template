@@ -22,12 +22,16 @@ function MyApp({ Component, pageProps }) {
     //GLOBAL UNCLAIMED STATE
     const setShowUnclaimed = useStore((state) => state.setShowUnclaimed);
 
+    //MODAL COMPONENT
+    const setOnBoarding = useStore((state) => state.setOnBoarding); // Get the setter function
+
     // Function to handle overlay click
     const handleOverlayClick = () => {
         setShowOverlay(false);
         closeModal();
         setSidebarOpen();
         setShowUnclaimed(false);
+        setOnBoarding(false);
     };
 
     useEffect(() => {

@@ -3,15 +3,18 @@ import React from "react";
 //TYPO
 import { H2, P } from "../../typography";
 import { MainButton } from "../../buttons";
+
+//ASSETS
+import BaumFull from "../../../assets/baumFull.svg";
+
 const Step3 = ({ onNext }) => {
     return (
         <div width=" grid grid-cols-12  h-full absolute top-0 left-0 w-full h-full overflow-y-auto">
             <div className="col-span-12 p-4 lg:pt-4 xl:pt-10 sm:pt-0 lg:p-10">
                 <H2>Kleiner Beitrag – große Wirkung</H2>
                 <div className="mb-6 xl:mb-8"></div>
-                <h3>
-                    <strong> Unterstützen Sie das Familienzentrum Monikahaus</strong>
-                </h3>
+
+                <img src={BaumFull.src} alt="" />
                 <div className="mb-4 xl:mb-8"></div>
 
                 <P>
@@ -26,14 +29,16 @@ const Step3 = ({ onNext }) => {
                     Kindern und Jugendlichen mehr Teilhabe am gesellschaftlichen Leben und damit eine bessere Zukunft.
                 </P>
                 <div className="mb-4 xl:mb-66"></div>
-                <P>Machen Sie mit! Jeder Beitrag zählt! </P>
+                <P klasse="font-semibold">Machen Sie mit! Jeder Beitrag zählt! </P>
                 {/* <img src={Logo.src} alt="" /> */}
                 <div className="mb-4 xl:mb-66"></div>
-
-                <MainButton onClick={onNext} klasse="border-2 bg-greenColor mt-4 text-darkText">
-                    Los gehts!
-                </MainButton>
+                <div className="flex justify-end w-full mb-12">
+                    <MainButton onClick={onNext} klasse="border-2 text-greenColor-50 bg-greenColor mt-4 text-darkText">
+                        Los gehts!
+                    </MainButton>
+                </div>
             </div>
+            <div className=" text-center font-semibold absolute bottom-8 right-8">3 / 3</div>
         </div>
     );
 };

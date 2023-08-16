@@ -26,17 +26,22 @@ const Step1 = ({ onNext }) => {
                     Monikahausschule und Erweiterten Schulischen Betreuung.
                 </P>
                 <div className="mb-4 xl:mb-66"></div>
-                <P>
+                <P klasse="font-semibold">
                     Machen Sie mit bei unserer Spendenaktion und unterstützen Sie das Familienzentrum Monikahaus dabei,
                     unseren Kindern und Jugendlichen eine bessere Perspektive zu bieten.{" "}
                 </P>
                 <div className="mb-4 xl:mb-66"></div>
 
-                {/* <img src={Logo.src} alt="" /> */}
-                <MainButton onClick={onNext} klasse="border-2 mt-4 text-darkText">
-                    Weiter
-                </MainButton>
+                <img src={Logo.src} alt="" />
+                <div className="mb-4 xl:mb-66"></div>
+                <div className="flex justify-end w-full">
+                    <MainButton onClick={onNext} klasse="border-2 mt-4 text-darkText mb-12">
+                        Weiter
+                    </MainButton>
+                </div>
             </div>
+
+            <div className=" text-center font-semibold absolute bottom-8 right-8 ">1 / 3</div>
         </div>
         // <div>
         //     <h2>Step 1</h2>

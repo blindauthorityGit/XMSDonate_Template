@@ -27,6 +27,10 @@ const useStore = create((set) => ({
     userData: {},
     setUserData: (data) => set({ userData: data }),
     resetUserData: () => set({ userData: {} }),
+    // Initially, onBoarding is set to true
+    onBoarding: true,
+    // Add a setter function for onBoarding
+    setOnBoarding: (value) => set({ onBoarding: value }),
 }));
 
 export default useStore;

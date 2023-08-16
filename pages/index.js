@@ -57,8 +57,11 @@ export default function Home() {
     const setShowUnclaimed = useStore((state) => state.setShowUnclaimed);
 
     //MODAL COMPONENT
+    const onBoarding = useStore((state) => state.onBoarding); // Get the onBoarding state
+    const setOnBoarding = useStore((state) => state.setOnBoarding); // Get the setter function
+
     const [activeComponent, setActiveComponent] = useState(null);
-    const [onBoarding, setOnboarding] = useState(true);
+    // const [onBoarding, setOnboarding] = useState(true);
 
     const handleToggleComponent = (componentName) => {
         setActiveComponent(componentName);
@@ -114,87 +117,90 @@ export default function Home() {
     }, [userList]);
 
     return (
-        <MainContainer width="w-full h-full min-h-[100svh] relative">
-            <Head>
-                <title>Site title</title>
-            </Head>
-            <Snow />
-            {/* // FLOAT BUTTONS */}
+        <>
+            {" "}
             {onBoarding ? (
                 <>
                     <OnBoardModal
                         isOpen={onBoarding}
                         onClose={() => {
-                            setOnboarding(false);
+                            setOnBoarding(false);
                             setShowOverlay(false);
                             setShowUnclaimed(false);
                         }}
                     >
                         <OnboardingContent
                             onClose={() => {
-                                setOnboarding(false);
+                                setOnBoarding(false);
                                 setShowOverlay(false);
                                 setShowUnclaimed(false);
                             }}
                         />
                     </OnBoardModal>{" "}
-                    <p>BUBUBUBUBU</p>
                 </>
             ) : null}
-            <StartFloaterFull
-                onClickPeople={() => {
-                    setSidebarOpen(true);
-                    setShowOverlay(true);
-                    handleToggleComponent("donorList");
-                    console.log("BUBUBU");
-                }}
-                onClickInfo={() => {
-                    setSidebarOpen(true);
-                    setShowOverlay(true);
-                    handleToggleComponent("info");
-                    console.log("BUBUBU");
-                }}
-            ></StartFloaterFull>
-            <DndContext collisionDetection={closestCenter} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
-                {isModalOpen && (
-                    <ModalOne
-                        isOpen={isModalOpen}
-                        onClose={() => {
-                            closeModal();
-                            setShowOverlay(false);
-                            setShowUnclaimed(false);
-                        }}
-                        x={modalPosition.x}
-                        y={modalPosition.y}
-                    >
-                        <Desktop activeId={activeId} isDropped={isDropped} isDragging={isDragging} />
-                    </ModalOne>
-                )}
-                {isSidebarOpen && (
-                    <ModalSidebar
-                        isOpen={isModalOpen}
-                        onClose={() => {
-                            setSidebarOpen(false);
-                            setShowOverlay(false);
-                            setShowUnclaimed(false);
-                        }}
-                    >
-                        {activeComponent === "info" && <Info />}
-                        {activeComponent === "donorList" && <DonatorList />}
-                    </ModalSidebar>
-                )}
-                <div className="col-span-12 container mx-auto grid grid-cols-12 min-h-[100svh] z-20 px-8 lg:px-0">
-                    <div className="col-span-12 lg:col-span-5 h-full  flex flex-col pt-[10%] relative overflow-hidden">
-                        <Goal
-                            data={TestData}
-                            klasse="w-full lg:mb-20 xl:mb-36 absolute lg:relative bottom-32 lg:bottom-auto lg:top-0"
-                        ></Goal>
-                        <StartText />
+            <MainContainer width="w-full h-full min-h-[100svh] relative">
+                <Head>
+                    <title>Site title</title>
+                </Head>
+                <Snow />
+                {/* // FLOAT BUTTONS */}
+
+                <StartFloaterFull
+                    onClickPeople={() => {
+                        setSidebarOpen(true);
+                        setShowOverlay(true);
+                        handleToggleComponent("donorList");
+                        console.log("BUBUBU");
+                    }}
+                    onClickInfo={() => {
+                        setSidebarOpen(true);
+                        setShowOverlay(true);
+                        handleToggleComponent("info");
+                        console.log("BUBUBU");
+                    }}
+                ></StartFloaterFull>
+                <DndContext collisionDetection={closestCenter} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
+                    {isModalOpen && (
+                        <ModalOne
+                            isOpen={isModalOpen}
+                            onClose={() => {
+                                closeModal();
+                                setShowOverlay(false);
+                                setShowUnclaimed(false);
+                            }}
+                            x={modalPosition.x}
+                            y={modalPosition.y}
+                        >
+                            <Desktop activeId={activeId} isDropped={isDropped} isDragging={isDragging} />
+                        </ModalOne>
+                    )}
+                    {isSidebarOpen && (
+                        <ModalSidebar
+                            isOpen={isModalOpen}
+                            onClose={() => {
+                                setSidebarOpen(false);
+                                setShowOverlay(false);
+                                setShowUnclaimed(false);
+                            }}
+                        >
+                            {activeComponent === "info" && <Info />}
+                            {activeComponent === "donorList" && <DonatorList />}
+                        </ModalSidebar>
+                    )}
+                    <div className="col-span-12 container mx-auto grid grid-cols-12 min-h-[100svh] z-20 px-8 lg:px-0">
+                        <div className="col-span-12 lg:col-span-5 h-full  flex flex-col pt-[10%] relative overflow-hidden">
+                            <Goal
+                                data={TestData}
+                                klasse="w-full lg:mb-20 xl:mb-36 absolute lg:relative bottom-32 lg:bottom-auto lg:top-0"
+                            ></Goal>
+                            <StartText />
+                        </div>
                     </div>
-                </div>
-                {/* // GRAPHICS */}
-                <Full parent={parent} />
-            </DndContext>
-        </MainContainer>
+                    {/* // GRAPHICS */}
+                    <Full parent={parent} />
+                </DndContext>
+            </MainContainer>
+        </>
     );
 }

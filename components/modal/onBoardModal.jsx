@@ -73,16 +73,16 @@ const OnBoardModal = ({ onClose, children, isOpen }) => {
             {isOpen && (
                 <motion.div
                     key={isOpen ? "open" : "closed"} // Use the key prop to force re-render on animation changes
-                    initial={animationProps.initial}
-                    animate={animationProps.animate}
-                    exit={animationProps.exit}
+                    // initial={animationProps.initial}
+                    // animate={animationProps.animate}
+                    // exit={animationProps.exit}
                     transition={{ duration: 2.6 }}
-                    className="z-[60] left-0 right-0 top-0 bopttom-0 m-auto modal-container ONBOARDING  bottom-0 w-[90%] sm:bottom-auto h-[95%] sm:h-[80%] xl:w-[40%] sm:left-[12%] p-4 xl:p-12 overflow-hidden"
+                    className="z-[60] left-0 right-0 top-0  m-auto modal-container ONBOARDING   w-[90%]  min-h-[95%] sm:bottom-0 sm:h-[80%] lg:w-[50%] xl:w-[40%]  p-4 xl:p-12 "
                     style={{
                         background: "#fff",
                         borderRadius: "8px",
 
-                        position: "fixed",
+                        position: "absolute",
                     }}
                 >
                     {/* Your modal content goes here */}
