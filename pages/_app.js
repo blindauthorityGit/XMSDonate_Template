@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import LoadingScreen from "../components/loading";
 import Overlay from "../components/overlay";
 
+import scrollToTop from "../functions/scrollToTop";
+
 //STORE
 import useStore from "../store/store"; // Import the zustand store
 
@@ -27,6 +29,7 @@ function MyApp({ Component, pageProps }) {
 
     // Function to handle overlay click
     const handleOverlayClick = () => {
+        scrollToTop();
         setShowOverlay(false);
         closeModal();
         setSidebarOpen();
