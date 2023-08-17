@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import useStore from "../../store/store";
 import { AiOutlineClose } from "react-icons/ai";
 
-const Modal = ({ onClose, children }) => {
+const RoundModal = ({ onClose, children }) => {
     const resetUserData = useStore((state) => state.resetUserData);
 
     const isModalOpen = useStore((state) => state.isModalOpen);
@@ -103,4 +103,4 @@ const Modal = ({ onClose, children }) => {
     );
 };
 
-export default Modal;
+export default RoundModal;

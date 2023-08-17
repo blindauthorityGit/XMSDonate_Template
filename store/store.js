@@ -31,6 +31,10 @@ const useStore = create((set) => ({
     onBoarding: true,
     // Add a setter function for onBoarding
     setOnBoarding: (value) => set({ onBoarding: value }),
+
+    modalHeight: "h-[60%]", // Default modal height, you can set any default value you want
+
+    setModalHeight: (height) => set({ modalHeight: height }),
 }));
 
 export default useStore;

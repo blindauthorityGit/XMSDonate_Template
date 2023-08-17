@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@dnd-kit/core": "^6.0.5",
+    "firebase": "^10.1.0",
     "framer-motion": "^10.12.22",
     "next": "^13.4.5",
     "react": "18.2.0",

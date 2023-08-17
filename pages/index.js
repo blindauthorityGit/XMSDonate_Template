@@ -12,7 +12,7 @@ const Full = dynamic(() => import("../components/graphics/full"), {
 import { StartText } from "../components/text";
 import { StartFloaterFull } from "../components/floater";
 import Goal from "../components/goal";
-import { ModalOne, ModalSidebar } from "../components/modal";
+import { ModalOne, ModalSidebar, RoundModal } from "../components/modal";
 const OnBoardModal = dynamic(() => import("../components/modal/onBoardModal"), {
     ssr: false,
 });
@@ -26,6 +26,7 @@ import { DndContext, closestCenter } from "@dnd-kit/core";
 
 //DEV
 import { TestData } from "../config/testData";
+import { fetchFirestoreData } from "../config/firebase";
 
 // FX
 import { Snow } from "../components/fx";
@@ -108,9 +109,23 @@ export default function Home() {
     }
 
     useEffect(() => {
-        setUserList(TestData);
+        // setUserList(TestData);
         setShowOverlay(true);
+        console.log(process.env.NEXT_PUBLIC_DEV, typeof JSON.parse(process.env.NEXT_PUBLIC_DEV));
+        JSON.parse(process.env.NEXT_PUBLIC_DEV)
+            ? setUserList(TestData)
+            : fetchFirestoreData("donation")
+                  .then((data) => {
+                      setUserList(data);
+                  })
+                  .catch((error) => {
+                      console.error("Error fetching data:", error);
+                  });
     }, []);
+
+    useEffect(() => {
+        console.log(userList);
+    }, [userList]);
 
     useEffect(() => {
         console.log(userList);

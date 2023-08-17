@@ -76,5 +76,11 @@ module.exports = {
             },
         },
     },
+    variants: {
+        extend: {
+            height: ["responsive"],
+            width: ["responsive"],
+        },
+    },
     plugins: [],
 };

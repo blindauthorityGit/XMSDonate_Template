@@ -14,6 +14,10 @@ import useStore from "../../../../store/store";
 //FUNCTIONS
 import isStepDataValid from "../../../../functions/isStepDataValid";
 
+//DATABASE
+import saveUserDataToFirestore from "../../../../functions/saveDataToFirestore"; // Import the saveUserDataToFirestore function
+import { fetchFirestoreData } from "../../../../config/firebase";
+
 const StepOne = (props) => {
     // GLOABAL STATE
     const userData = useStore((state) => state.userData);
@@ -47,9 +51,29 @@ const StepOne = (props) => {
             setIsDisabled(true);
         } else if (currentStep == 7) {
             console.log(userData, userList);
-            const newUserList = [...userList, userData]; // Create a new array with the updated user data
-            setUserList(newUserList); // Update the userList state with the new array
-            console.log(newUserList);
+            if (JSON.parse(process.env.NEXT_PUBLIC_DEV)) {
+                const newUserList = [...userList, userData]; // Create a new array with the updated user data
+                setUserList(newUserList); // Update the userList state with the new array
+                console.log(newUserList);
+            } else {
+                saveUserDataToFirestore(userData)
+                    .then(() => {
+                        console.log("User data saved successfully");
+
+                        fetchFirestoreData("donation")
+                            .then((data) => {
+                                setUserList(data);
+                            })
+                            .catch((error) => {
+                                console.error("Error fetching data:", error);
+                            });
+                        // setShowThankYou(true); // Show the "Thank you" message
+                    })
+                    .catch((error) => {
+                        console.error("Error saving user data:", error);
+                    });
+            }
+
             closeModal();
             setShowOverlay(false);
             setShowUnclaimed(false);
@@ -58,6 +82,7 @@ const StepOne = (props) => {
             setIsDisabled(true);
         }
     };
+
     const handleBack = () => {
         if (currentStep == 5 && userData.isAnonymous) {
             setCurrentStep(currentStep - 2);

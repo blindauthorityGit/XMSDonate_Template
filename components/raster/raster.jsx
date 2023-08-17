@@ -201,8 +201,8 @@ const Raster = (props) => {
                                             ? userList[getIndex(userList, counter - 1)].color.toLowerCase() ===
                                                   "rgb(255, 255, 255)" ||
                                               userList[getIndex(userList, counter - 1)].color === "#FFF200" ||
-                                              !userList[getIndex(userList, counter - 1)].color.toLowerCase() ===
-                                                  "rgb(235, 69, 17)"
+                                              userList[getIndex(userList, counter - 1)].color.toLowerCase() ===
+                                                  "rgb(255, 242, 0)"
                                                 ? "text-black"
                                                 : "text-white"
                                             : ""
