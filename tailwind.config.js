@@ -23,6 +23,7 @@ module.exports = {
             fontFamily: {
                 ...fontFamily,
                 sans: ["Helvetica", "Arial", "sans-serif"],
+                success: ["Lobster", "cursive"],
             },
             colors: {
                 primaryColor: {

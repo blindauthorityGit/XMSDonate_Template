@@ -9,8 +9,8 @@ const H1 = ({ children, klasse }) => {
     );
 };
 
-const H2 = ({ children }) => {
-    return <h2 className="text-xl lg:text-4xl mb-4 font-bold">{children}</h2>;
+const H2 = ({ children, klasse }) => {
+    return <h2 className={`text-xl lg:text-4xl mb-4 font-bold ${klasse}`}>{children}</h2>;
 };
 
 const H3 = ({ children, klasse }) => {

@@ -27,7 +27,7 @@ const StartFloaterFull = (props) => {
     };
 
     return (
-        <div className="absolute z-50 right-0 top-8">
+        <div className="absolute z-[29] right-0 top-8">
             <FloaterButton klasse="flex justify-center items-center mb-2" onClick={props.onClickPeople}>
                 <BsFillPeopleFill />
             </FloaterButton>

@@ -33,6 +33,8 @@ const StepOne = (props) => {
     const [currentStep, setCurrentStep] = useState(1);
     //BackState
     const [disabledBack, setDisabledBack] = useState(true);
+    // SUCCESS
+    const setShowSuccess = useStore((state) => state.setShowSuccess);
 
     //SIZE FOR DRAG BALL
     const [size, setSize] = useState(56);
@@ -50,11 +52,11 @@ const StepOne = (props) => {
             setCurrentStep(currentStep + 1);
             setIsDisabled(true);
         } else if (currentStep == 7) {
-            console.log(userData, userList);
             if (JSON.parse(process.env.NEXT_PUBLIC_DEV)) {
                 const newUserList = [...userList, userData]; // Create a new array with the updated user data
-                setUserList(newUserList); // Update the userList state with the new array
-                console.log(newUserList);
+                setUserList(newUserList);
+                setShowOverlay(true); // Update the userList state with the new array
+                setShowSuccess(true);
             } else {
                 saveUserDataToFirestore(userData)
                     .then(() => {
@@ -63,6 +65,8 @@ const StepOne = (props) => {
                         fetchFirestoreData("donation")
                             .then((data) => {
                                 setUserList(data);
+                                setShowOverlay(true);
+                                setShowSuccess(true);
                             })
                             .catch((error) => {
                                 console.error("Error fetching data:", error);
@@ -75,7 +79,7 @@ const StepOne = (props) => {
             }
 
             closeModal();
-            setShowOverlay(false);
+            // setShowOverlay(false);
             setShowUnclaimed(false);
         } else {
             setCurrentStep(currentStep + 1);

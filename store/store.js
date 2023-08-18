@@ -1,5 +1,6 @@
 // store.js
 import create from "zustand";
+import Cookies from "js-cookie";
 
 const useStore = create((set) => ({
     dimensions: { width: 0, height: 0 },
@@ -28,13 +29,35 @@ const useStore = create((set) => ({
     setUserData: (data) => set({ userData: data }),
     resetUserData: () => set({ userData: {} }),
     // Initially, onBoarding is set to true
+    // Define the onBoarding state
     onBoarding: true,
-    // Add a setter function for onBoarding
-    setOnBoarding: (value) => set({ onBoarding: value }),
+    // Initialize onBoarding state from the cookie if available
+    initializeOnBoarding: () => {
+        const cookieValue = Cookies.get("onBoarding");
+        if (cookieValue !== undefined) {
+            set({ onBoarding: cookieValue === "true" });
+        }
+    },
+    // Custom action to set onBoarding state and cookie
+    setOnBoardingAndCookie: (value) => {
+        set({ onBoarding: value });
+
+        // Set the cookie based on the onBoarding value
+        const cookieValue = value ? "true" : "false";
+        Cookies.set("onBoarding", cookieValue, {
+            expires: new Date("9999-12-31T23:59:59Z"), // Set your preferred expiration date
+            path: "/", // Adjust as needed
+        });
+    },
 
     modalHeight: "h-[60%]", // Default modal height, you can set any default value you want
 
     setModalHeight: (height) => set({ modalHeight: height }),
+    showSuccess: false, // Default value is false
+    setShowSuccess: (value) => set(() => ({ showSuccess: value })),
 }));
+
+// Initialize onBoarding state from the cookie
+useStore.getState().initializeOnBoarding();
 
 export default useStore;

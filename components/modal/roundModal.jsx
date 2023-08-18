@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import useStore from "../../store/store";
-import { AiOutlineClose } from "react-icons/ai";
+import { AiFillCloseCircle } from "react-icons/ai";
 
-const RoundModal = ({ onClose, children }) => {
+const RoundModal = ({ onClose, isOpen, children }) => {
     const resetUserData = useStore((state) => state.resetUserData);
 
     const isModalOpen = useStore((state) => state.isModalOpen);
@@ -32,14 +32,13 @@ const RoundModal = ({ onClose, children }) => {
     const calculateAnimationProps = () => {
         if (window.innerWidth <= 768) {
             return {
-                initial: { opacity: 0, scale: 0.8 },
+                initial: { opacity: 0 },
                 animate: {
                     opacity: 1,
-                    scale: 1,
 
                     transition: { type: "spring", stiffness: 300, damping: 25 },
                 },
-                exit: { opacity: 0, scale: 0.8 },
+                exit: { opacity: 0 },
             };
         } else {
             return {
@@ -72,33 +71,29 @@ const RoundModal = ({ onClose, children }) => {
 
     return (
         <AnimatePresence>
-            {isModalOpen && (
-                <motion.div
-                    key={isModalOpen ? "open" : "closed"} // Use the key prop to force re-render on animation changes
-                    initial={animationProps.initial}
-                    animate={animationProps.animate}
-                    exit={animationProps.exit}
-                    transition={{ duration: 2.6 }}
-                    className={`modal-container z-50 bottom-0 sm:bottom-auto ${modalHeight} h-[47%]  sm:h-[80%] xl:w-[40%] sm:left-[12%] p-4 lg:p-8 xl:p-12 overflow-hidden`}
-                    style={{
-                        background: "#fff",
-                        borderRadius: "8px",
-                        position: "fixed",
+            <motion.div
+                key={isOpen ? "open" : "closed"} // Use the key prop to force re-render on animation changes
+                initial={animationProps.initial}
+                animate={animationProps.animate}
+                exit={animationProps.exit}
+                transition={{ duration: 2.6 }}
+                className={`ROUNDMODAL w-[80%] px-8 py-4 rounded-full modal-container z-50 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`}
+                style={{
+                    background: "#fff",
+                    aspectRatio: "1/1",
+                }}
+            >
+                {/* Your modal content goes here */}
+                <AiFillCloseCircle
+                    className="right-4 top-4 cursor-pointer text-3xl text-white xl:text-3xl absolute transition-all duration-200 hover:text-4xl"
+                    onClick={() => {
+                        onClose();
                     }}
                 >
-                    {/* Your modal content goes here */}
-                    <AiOutlineClose
-                        className="right-4 top-4 cursor-pointer xl:text-3xl absolute transition-all duration-200 hover:text-4xl"
-                        onClick={() => {
-                            onClose();
-                            resetUserData();
-                        }}
-                    >
-                        Close Sidebar
-                    </AiOutlineClose>
-                    {children}
-                </motion.div>
-            )}
+                    Close Sidebar
+                </AiFillCloseCircle>
+                {children}
+            </motion.div>
         </AnimatePresence>
     );
 };

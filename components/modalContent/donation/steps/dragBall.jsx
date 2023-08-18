@@ -27,12 +27,6 @@ function DragBall(props) {
         addToUserData(value);
     };
 
-    const handleAnonymousToggle = () => {
-        const updatedIsAnonymous = !isAnonymous;
-        setIsAnonymous(updatedIsAnonymous);
-        addToUserData({ isAnonymous: updatedIsAnonymous, isClaimed: true });
-    };
-
     useEffect(() => {
         console.log(userData);
     }, [userData]);

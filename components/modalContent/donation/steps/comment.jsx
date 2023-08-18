@@ -24,12 +24,6 @@ function Comment(props) {
         addToUserData(value);
     };
 
-    const handleAnonymousToggle = () => {
-        const updatedIsAnonymous = !isAnonymous;
-        setIsAnonymous(updatedIsAnonymous);
-        addToUserData({ isAnonymous: updatedIsAnonymous });
-    };
-
     useEffect(() => {
         console.log(userData);
     }, [userData]);

@@ -24,8 +24,11 @@ function MyApp({ Component, pageProps }) {
     //GLOBAL UNCLAIMED STATE
     const setShowUnclaimed = useStore((state) => state.setShowUnclaimed);
 
+    //GLOBAL SUCCESS STATE
+    const setShowSuccess = useStore((state) => state.setShowSuccess);
+
     //MODAL COMPONENT
-    const setOnBoarding = useStore((state) => state.setOnBoarding); // Get the setter function
+    const setOnBoardingAndCookie = useStore((state) => state.setOnBoardingAndCookie); // Get the setter function
 
     // Function to handle overlay click
     const handleOverlayClick = () => {
@@ -34,7 +37,8 @@ function MyApp({ Component, pageProps }) {
         closeModal();
         setSidebarOpen();
         setShowUnclaimed(false);
-        setOnBoarding(false);
+        setOnBoardingAndCookie(false);
+        setShowSuccess(false);
     };
 
     useEffect(() => {
