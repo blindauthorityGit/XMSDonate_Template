@@ -8,7 +8,8 @@ export default async function handler(req, res) {
     try {
         const { email, userData } = req.body;
         // Generate the PDF using the userData
-        const pdfPath = await generatePDF(userData);
+        // const pdfPath = await generatePDF(userData);
+        const pdfData = await generatePDF(userData);
 
         // Create a transporter using Nodemailer
         const transporter = nodemailer.createTransport({
@@ -19,7 +20,7 @@ export default async function handler(req, res) {
                 user: process.env.NEXT_W4YUSER,
                 pass: process.env.NEXT_W4YPASSWORD,
             },
-            socketTimeout: 60000, // Example: 60 seconds
+            // socketTimeout: 60000,
         });
 
         // Send the email
@@ -29,8 +30,16 @@ export default async function handler(req, res) {
             subject: "Quittung für Ihre Spende",
             html: `<p>Hallo ${userData.name}, </p>
             <p>vielen Dank für die Spende von EUR ${userData.sum},-! </p>
+            <p>Hier ist Ihre Quittung:</p>
+            <a href="${pdfData.downloadURL}">Klicken Sie hier, um die Quittung herunterzuladen</a>
             `,
-            attachments: [{ path: pdfPath }],
+
+            // attachments: [
+            //     {
+            //         filename: "quittung.pdf", // Name of the attachment
+            //         content: pdfBuffer, // Buffer of the PDF content
+            //     },
+            // ],
         });
 
         // Find and update the user document with the email
