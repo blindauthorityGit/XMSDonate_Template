@@ -44,10 +44,47 @@ export async function generatePDF(userData) {
                 resolve({ pdfBuffer, downloadURL });
             });
 
+            // Start building the PDF content
+            pdfDoc.font("Helvetica");
+            pdfDoc.fontSize(12);
+
             // Add content based on userData
-            pdfDoc.text(`Receipt for ${userData.name}`);
-            pdfDoc.text(`Amount: ${userData.sum}`);
-            // Add more content as needed
+            pdfDoc.text("Sozialdienst katholischer Frauen e.V.");
+            pdfDoc.text("Kriegkstraße 32-36, 60326 Frankfurt/Main");
+            // Add logo image using pdfDoc.image(imagePath, x, y, { width, height });
+            pdfDoc.text("Bestätigung", { font: "Helvetica-Bold" });
+
+            pdfDoc.text(
+                "über Geldzuwendungen/Mitgliedsbeitrag im Sinne des § 10 b des Einkommensteuergesetzes an eine der in § 5 Abs. 1 Nr. 9 des Körperschaftssteuergesetzes bezeichneten Körperschaften, Personenvereinigungen oder Vermögensmassen"
+            );
+            // Add table using pdfDoc.table(table, x, y, options);
+            pdfDoc.text(userData.name);
+            pdfDoc.text(userData.sum);
+            pdfDoc.text("current Date DD-MM-YYYY");
+
+            pdfDoc.text(
+                "Wir sind nach dem letzten uns zugegangenen Steuerbescheid/Freistellungsbescheid des Finanzamtes als gemeinnützig und mildtätigen Zwecken dienend anerkannt und nach § 5 Abs.1 Nr. 9 des Körperschaftsteuergesetzes von der Körperschaftsteuer und nach § 3 Nr. 6 des Gewerbesteuergesetzes von der Gewerbesteuer befreit."
+            );
+            // Add another table
+            pdfDoc.text("Bezeichnung des Finanzamts");
+            pdfDoc.text("Frankfurt am Main");
+            pdfDoc.text("Steuernummer");
+            pdfDoc.text("47 250 33178");
+            pdfDoc.text("Verzeichnisnummer");
+            pdfDoc.text("XIII./001");
+            pdfDoc.text("Datum des Bescheides");
+            pdfDoc.text("current Date DD-MM-YYYY");
+
+            pdfDoc.text(`Frankfurt, den DATUM`);
+            // Add image next to the paragraph
+
+            pdfDoc.text("Hinweis:", { font: "Helvetica-Bold" });
+            pdfDoc.text(
+                "Wer vorsätzlich oder grob fahrlässig eine unrichtige Zuwendungsbestätigung erstellt oder wer veranlasst, dass Zuwendungen nicht zu den in der Zuwendungsbestätigung angegebenen steuerbegünstigten Zwecken verwendet werden, haftet für die entgangene Steuer (§ 10 Abs. 4 EstG, § 9 Abs. 3 KStG, § 9 Nr. 5 GewStG)."
+            );
+            pdfDoc.text(
+                "Diese Bestätigung wird nicht als Nachweis für die steuerliche Berücksichtigung der Zuwendung anerkannt, wenn das Datum des Freistellungsbescheides länger als 5 Jahre bzw. das Datum der Feststellung der Einhaltung der satzungsmäßigen Voraussetzungen nach § 60a Abs. 1 AO länger als 3 Jahre seit Ausstellung des Bescheides zurückliegt (§ 63 Abs. 5 AO)"
+            );
 
             pdfDoc.end();
         } catch (error) {

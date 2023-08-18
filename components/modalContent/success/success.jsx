@@ -33,7 +33,7 @@ const Success = ({ onNext }) => {
                 userData: userData,
             });
 
-            setSuccessMessage(response.data.message);
+            setSuccessMessage("Email versand, sehen Sie in Ihr Postfach.");
         } catch (error) {
             setErrorMessage("Error sending email. Please try again.");
         } finally {
@@ -52,7 +52,7 @@ const Success = ({ onNext }) => {
 
                     <P klasse="font-semibold text-center">Benötigen Sie eine Quittung?</P>
                     <div className="w-full flex flex-col items-center">
-                        <form onSubmit={handleSendEmail}>
+                        <form className="w-full flex flex-col items-center" onSubmit={handleSendEmail}>
                             <input
                                 type="email"
                                 placeholder="Recipient Email"
@@ -73,7 +73,7 @@ const Success = ({ onNext }) => {
                                                 type="submit"
                                                 className="bg-darkText rounded-sm font-semibold text-white text-sm px-4 py-2"
                                             >
-                                                Send Email
+                                                Quittung zuschicken
                                             </button>
                                         )}
                                     </>
