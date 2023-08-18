@@ -52,7 +52,7 @@ function ListItem(props, ref) {
                             {props.e.image ? (
                                 <div
                                     className="avatar w-10 h-10 lg:w-12 lg:h-12 xl:w-16 xl:h-16 bg-cover rounded-full"
-                                    style={{ backgroundImage: `url(${props.e.image[0].data_url})` }}
+                                    style={{ backgroundImage: `url(${props.e.image})` }}
                                 ></div>
                             ) : (
                                 <img className="w-10 h-10 lg:w-12 lg:h-12 xl:w-16 xl:h-16" src={Avatar.src} alt="" />

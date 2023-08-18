@@ -28,7 +28,7 @@ const ToolTip = (props) => {
                                         onClick={props.onClickAvatar}
                                         className="avatar text-3xl md:text-4xl w-full h-full  rounded-full bg-cover bg-center"
                                         style={{
-                                            backgroundImage: `url(${props.avatrSrc[0].data_url})`,
+                                            backgroundImage: `url(${props.avatrSrc})`,
                                             aspectRatio: "1/1",
                                         }}
                                     >

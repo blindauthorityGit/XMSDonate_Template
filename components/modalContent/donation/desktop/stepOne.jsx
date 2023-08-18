@@ -13,6 +13,7 @@ import useStore from "../../../../store/store";
 
 //FUNCTIONS
 import isStepDataValid from "../../../../functions/isStepDataValid";
+import { handleContinue } from "../../../../functions/handleContinue";
 
 //DATABASE
 import saveUserDataToFirestore from "../../../../functions/saveDataToFirestore"; // Import the saveUserDataToFirestore function
@@ -46,45 +47,62 @@ const StepOne = (props) => {
 
     const [isDisabled, setIsDisabled] = useState(true);
 
-    const handleContinue = () => {
-        if (currentStep == 3 && userData.isAnonymous) {
-            console.log("ANONÜÜÜM");
-            setCurrentStep(currentStep + 1);
-            setIsDisabled(true);
-        } else if (currentStep == 7) {
-            if (JSON.parse(process.env.NEXT_PUBLIC_DEV)) {
-                const newUserList = [...userList, userData]; // Create a new array with the updated user data
-                setUserList(newUserList);
-                setShowOverlay(true); // Update the userList state with the new array
-                setShowSuccess(true);
-            } else {
-                saveUserDataToFirestore(userData)
-                    .then(() => {
-                        console.log("User data saved successfully");
+    // const handleContinue = () => {
+    //     if (currentStep == 3 && userData.isAnonymous) {
+    //         console.log("ANONÜÜÜM");
+    //         setCurrentStep(currentStep + 1);
+    //         setIsDisabled(true);
+    //     } else if (currentStep == 7) {
+    //         if (JSON.parse(process.env.NEXT_PUBLIC_DEV)) {
+    //             const newUserList = [...userList, userData]; // Create a new array with the updated user data
+    //             setUserList(newUserList);
+    //             setShowOverlay(true); // Update the userList state with the new array
+    //             setShowSuccess(true);
+    //         } else {
+    //             saveUserDataToFirestore(userData)
+    //                 .then(() => {
+    //                     console.log("User data saved successfully");
 
-                        fetchFirestoreData("donation")
-                            .then((data) => {
-                                setUserList(data);
-                                setShowOverlay(true);
-                                setShowSuccess(true);
-                            })
-                            .catch((error) => {
-                                console.error("Error fetching data:", error);
-                            });
-                        // setShowThankYou(true); // Show the "Thank you" message
-                    })
-                    .catch((error) => {
-                        console.error("Error saving user data:", error);
-                    });
-            }
+    //                     fetchFirestoreData("donation")
+    //                         .then((data) => {
+    //                             setUserList(data);
+    //                             setShowOverlay(true);
+    //                             setShowSuccess(true);
+    //                         })
+    //                         .catch((error) => {
+    //                             console.error("Error fetching data:", error);
+    //                         });
+    //                     // setShowThankYou(true); // Show the "Thank you" message
+    //                 })
+    //                 .catch((error) => {
+    //                     console.error("Error saving user data:", error);
+    //                 });
+    //         }
 
-            closeModal();
-            // setShowOverlay(false);
-            setShowUnclaimed(false);
-        } else {
-            setCurrentStep(currentStep + 1);
-            setIsDisabled(true);
-        }
+    //         closeModal();
+    //         // setShowOverlay(false);
+    //         setShowUnclaimed(false);
+    //     } else {
+    //         setCurrentStep(currentStep + 1);
+    //         setIsDisabled(true);
+    //     }
+    // };
+
+    const handleContinueClick = () => {
+        handleContinue(
+            currentStep,
+            userData,
+            setCurrentStep,
+            setIsDisabled,
+            userList,
+            setUserList,
+            setShowOverlay,
+            setShowSuccess,
+            closeModal,
+            setShowUnclaimed,
+            saveUserDataToFirestore,
+            fetchFirestoreData
+        );
     };
 
     const handleBack = () => {
@@ -191,7 +209,7 @@ const StepOne = (props) => {
             {" "}
             {/* Add AnimatePresence here */}
             {currentStepComponent}
-            <button onClick={handleContinue}></button>
+            <button onClick={handleContinueClick}></button>
             <div className="absolute bottom-8 left-8 right-8 grid grid-cols-12 gap-4">
                 <div className="col-span-6">
                     {" "}
@@ -201,7 +219,7 @@ const StepOne = (props) => {
                 </div>
                 <div className="col-span-6 flex justify-end">
                     {" "}
-                    <MainButton disabled={isDisabled} onClick={handleContinue} klasse="border-2 text-darkText">
+                    <MainButton disabled={isDisabled} onClick={handleContinueClick} klasse="border-2 text-darkText">
                         Weiter
                     </MainButton>
                 </div>
