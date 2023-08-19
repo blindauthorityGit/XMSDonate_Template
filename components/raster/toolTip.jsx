@@ -10,7 +10,11 @@ const ToolTip = (props) => {
     }, [props.avatrSrc]);
 
     return (
-        <div onMouseLeave={props.onMouseLeave} className={`tooltip font-sans z-50 ${props.klasse}`} style={props.style}>
+        <div
+            onMouseLeave={props.onMouseLeave}
+            className={`tooltip font-sans z-[51] ${props.klasse}`}
+            style={props.style}
+        >
             {props.avatrSrc ? (
                 <div className="grid grid-cols-12 items-center relative z-50">
                     <div className="col-span-3 lg:col-span-4 h-full">
@@ -39,7 +43,7 @@ const ToolTip = (props) => {
                         </div>
                     </div>
                     <div className="col-span-9 sm:col-span-8 pl-4 lg:pl-4 text-xs sm:text-base lg:text-sm">
-                        <div className="font-rucksack font-normal sm:font-bold">{props.name}</div>
+                        <div className="font-rucksack  font-bold">{props.name}</div>
                         <div>EUR {props.sum} ,-</div>
                     </div>
                 </div>

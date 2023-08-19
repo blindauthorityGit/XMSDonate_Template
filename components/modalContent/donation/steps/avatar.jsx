@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 //Image Upload STuff
 import ImageUploading from "react-images-uploading";
 import Resizer from "react-image-file-resizer";
+import imageCompression from "browser-image-compression";
 
 // Typo
 import { H1, H2, H3, P } from "../../../typography";
@@ -54,14 +55,36 @@ function Avatar(props) {
         console.log(userData);
     }, [userData]);
 
+    // useEffect(() => {
+    //     console.log(images, images[0]);
+    //     if (images.length != 0) {
+    //         addToUserData({ image: images });
+    //         // setUserData({ ...userData, image: images });
+    //     } else {
+    //         addToUserData({ image: null });
+    //     }
+    // }, [images]);
     useEffect(() => {
-        console.log(images, images[0]);
-        if (images.length != 0) {
-            addToUserData({ image: images });
-            // setUserData({ ...userData, image: images });
-        } else {
-            addToUserData({ image: null });
-        }
+        const compressAndAddToUserData = async () => {
+            if (images.length !== 0) {
+                const compressedBlob = await imageCompression(images[0].file, {
+                    maxSizeMB: 1, // Set your desired max size
+                    maxWidthOrHeight: 400, // Set your desired max width or height
+                });
+
+                // Convert Blob to File
+                const compressedFile = new File([compressedBlob], images[0].file.name, {
+                    type: images[0].file.type,
+                    lastModified: images[0].file.lastModified,
+                });
+
+                addToUserData({ image: compressedFile });
+            } else {
+                addToUserData({ image: null });
+            }
+        };
+
+        compressAndAddToUserData();
     }, [images]);
 
     return (

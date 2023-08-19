@@ -5,7 +5,7 @@ const saveUserDataToFirestore = async (userData) => {
     try {
         // Specify the collection name where you want to store the data
         const collectionRef = collection(db, "donation");
-
+        console.log("LOG UISERDATA: ", userData);
         // Add the user data to the collection
         await addDoc(collectionRef, userData);
 

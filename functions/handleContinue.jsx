@@ -24,15 +24,16 @@ export const handleContinue = async (
 
             if (userData.image) {
                 // Upload the image and get the URL
-                console.log(userData.image[0].file);
-                const imageDownloadURL = await uploadImageAndGetURL(userData.image[0].file);
-
+                console.log(userData.image);
+                const imageDownloadURL = await uploadImageAndGetURL(userData.image);
+                console.log(imageDownloadURL);
                 // Update the userData with the image download URL
                 updatedUserData = {
                     ...updatedUserData,
                     image: imageDownloadURL,
                 };
             }
+            console.log("updatedUserData", updatedUserData);
 
             if (JSON.parse(process.env.NEXT_PUBLIC_DEV)) {
                 const newUserList = [...userList, updatedUserData];

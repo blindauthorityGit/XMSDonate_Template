@@ -11,9 +11,12 @@
   "dependencies": {
     "@dnd-kit/core": "^6.0.5",
     "axios": "^1.4.0",
+    "browser-image-compression": "^2.0.2",
     "firebase": "^10.1.0",
     "framer-motion": "^10.12.22",
     "fs": "^0.0.1-security",
+    "image-size": "^1.0.2",
+    "jimp": "^0.22.10",
     "js-cookie": "^3.0.5",
     "next": "^13.4.5",
     "nodemailer": "^6.9.4",

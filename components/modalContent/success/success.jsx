@@ -66,8 +66,10 @@ const Success = ({ onNext }) => {
                                     <div className="animate-spin rounded-full h-6 w-6 border-t-2 border-b-2 border-darkText"></div>
                                 ) : (
                                     <>
-                                        {errorMessage && <div className="text-red-500">{errorMessage}</div>}
-                                        {successMessage && <div className="text-green-500">{successMessage}</div>}
+                                        {errorMessage && <div className="text-red-500 text-xs">{errorMessage}</div>}
+                                        {successMessage && (
+                                            <div className="text-green-500 text-xs">{successMessage}</div>
+                                        )}
                                         {!errorMessage && !successMessage && (
                                             <button
                                                 type="submit"
