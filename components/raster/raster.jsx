@@ -243,7 +243,7 @@ const Raster = (props) => {
                                 >
                                     {props.parent === counter - 1 ? (
                                         <Draggable
-                                            klasse={`draggable w-7 h-7 lg:w-12 lg:h-12 shine z-50 absolute touch-none rounded-full indent-[9999px] sm:indent-0 flex items-center justify-center ${
+                                            klasse={`draggable w-7 h-7 sm:w-10 sm:h-10 lg:w-12 lg:h-12 shine z-50 absolute touch-none rounded-full indent-[9999px] sm:indent-0 flex items-center justify-center ${
                                                 userData.color == "rgb(255, 255, 255)" ||
                                                 userData.color == "rgb(220, 223, 220)"
                                                     ? "text-black border-4"

@@ -72,9 +72,9 @@ function BallChoice(props) {
             exit={{ x: -1000, opacity: 1 }}
         >
             <div className="grid grid-cols-12">
-                <div className="col-span-12 xl:mb-6">
+                <div className="col-span-12 sm:mb-4 xl:mb-6">
                     <H1 klasse="xl:text-6xl">Schenken Sie Hoffnung!</H1>
-                    <P klasse="xl:mt-16 xl:mb-12">
+                    <P klasse=" xl:mt-16 xl:mb-12">
                         Wir sammeln Spenden für die Kinder und Jugendlichen des Kinder- und Familienzentrum Monikahaus.
                     </P>
                     <H3 klasse="font-bold mt-4 lg:mt-0">Wählen Sie Ihre Kugel: </H3>

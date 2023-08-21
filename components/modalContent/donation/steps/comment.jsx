@@ -42,7 +42,7 @@ function Comment(props) {
                 animate={{ opacity: 1, x: 0, transition: { type: "spring", stiffness: 1000, damping: 80, delay: 0.1 } }}
                 exit={{ x: -1000, opacity: 1 }}
             >
-                <div className="col-span-12 xl:mb-6 lg:mt-6">
+                <div className="col-span-12 xl:mb-6 lg:mt-6 sm:mb-4">
                     <H2>Ihr Kommentar</H2>
                     <P>Gerne können Sie auch einen Kommentar abgeben (optional, max 60 Zeichen). </P>
                 </div>

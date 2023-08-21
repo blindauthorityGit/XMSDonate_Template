@@ -37,7 +37,7 @@ const Full = (props) => {
             <div
                 // ref={aspectRatioRef}
                 style={{ aspectRatio: "618 / 877" }}
-                className="absolute  lg:block z-30 lg:z-30 top-[3%] lg:top-[7%] xl:top-[auto] xl:bottom-[100px] left-1/2 lg:left-auto transform -translate-x-1/2 lg:-translate-x-0 lg:right-[10%] w-[72vw] h-[auto] lg:w-[32vw] xl:h-[auto]"
+                className="absolute  lg:block z-30 lg:z-30 top-[3%] lg:top-[7%] xl:top-[auto] xl:bottom-[100px] left-1/2 lg:left-auto transform -translate-x-1/2 lg:-translate-x-0 lg:right-[10%] w-[72vw] sm:w-[60vw] h-[auto] lg:w-[32vw] xl:h-[auto]"
             >
                 {" "}
                 <div

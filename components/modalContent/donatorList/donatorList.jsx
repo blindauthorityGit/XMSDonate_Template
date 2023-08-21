@@ -144,7 +144,7 @@ const DonatorList = () => {
 
     return (
         <div width=" grid grid-cols-12 relative h-full">
-            <div className="col-span-12 p-4 lg:pt-4 xl:pt-10 sm:pt-0 lg:p-10">
+            <div className="col-span-12 p-4 lg:pt-4 xl:pt-10 pt-0 sm:pt-4 lg:p-10">
                 <H2>Vielen Dank an:</H2>
                 <div className="mb-6 xl:mb-8"></div>
                 {items && (

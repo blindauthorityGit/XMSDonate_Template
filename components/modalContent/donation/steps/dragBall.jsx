@@ -33,7 +33,7 @@ function DragBall(props) {
 
     return (
         <div className="grid grid-cols-12">
-            <div className="col-span-12 xl:mb-6">
+            <div className="col-span-12 xl:mb-6 sm:mb-4">
                 <H1>Schmücken Sie den Baum</H1>
                 <P>Nun können Sie Ihre Kugel auf ein freies Feld bewegen. Wo möchten Sie die Kugel hinziehen?</P>
             </div>
@@ -45,7 +45,7 @@ function DragBall(props) {
                 animate={{ opacity: 1, x: 0, transition: { type: "spring", stiffness: 1000, damping: 80, delay: 0.1 } }}
                 exit={{ x: -1000, opacity: 1 }}
             >
-                <div className="col-span-2 flex items-center justify-center">
+                <div className="col-span-2 flex items-center justify-center ">
                     <div data-tip={props.dataTip} className="text-5xl font-black opacity-50 text-[#C6D5DD]">
                         <BsPersonCircle />
                     </div>

@@ -48,7 +48,7 @@ function Anonymous(props) {
                 animate={{ opacity: 1, x: 0, transition: { type: "spring", stiffness: 1000, damping: 80, delay: 0.1 } }}
                 exit={{ x: -1000, opacity: 1 }}
             >
-                <div className="col-span-12 xl:mb-6 lg:mt-6">
+                <div className="col-span-12 xl:mb-6 lg:mt-6 sm:mb-4">
                     <H2>Anonyme Spende?</H2>
                     <P>
                         Wir möchten sicherstellen, dass Sie sich wohl fühlen. Möchten Sie Ihre Spende anonym tätigen
@@ -65,7 +65,14 @@ function Anonymous(props) {
                         {/* Use the custom switch component for the anonymous toggle */}
                         <div className="flex items-center text-xl">
                             {/* Conditionally render "Sichtbar" or "Anonym" */}
-                            <span className={`mr-2 ${isAnonymous ? "font-bold" : null}`}>Anonym</span>
+                            <span
+                                onClick={() => {
+                                    setIsAnonymous(true);
+                                }}
+                                className={`mr-2 ${isAnonymous ? "font-bold" : null}`}
+                            >
+                                Anonym
+                            </span>
                             <div
                                 className={`w-16 h-6 rounded-full cursor-pointer transition flex items-center ${
                                     isAnonymous ? "bg-gray-300" : "bg-greenColor"
@@ -80,7 +87,14 @@ function Anonymous(props) {
                                     {/* {!isAnonymous && <GiCheckMark color="white" className="mx-2" />} */}
                                 </div>
                             </div>
-                            <span className={`ml-2 ${!isAnonymous ? "font-bold" : null}`}>Sichtbar</span>
+                            <span
+                                onClick={() => {
+                                    setIsAnonymous(false);
+                                }}
+                                className={`ml-2 ${!isAnonymous ? "font-bold" : null}`}
+                            >
+                                Sichtbar
+                            </span>
                         </div>
                     </div>
                 </div>

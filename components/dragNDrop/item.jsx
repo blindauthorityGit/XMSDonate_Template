@@ -13,7 +13,7 @@ const Item = ({ children, ...props }, ref) => {
             ref={ref}
             style={props.style}
             initial={{ scale: 1 }}
-            whileDrag={{ scale: 2.2 }}
+            whileDrag={{ scale: 1.2 }}
             {...props}
             className={`tester w-10 h-10 bg-red-500 ${props.klasse}`}
         >

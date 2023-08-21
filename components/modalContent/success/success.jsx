@@ -1,7 +1,7 @@
 // Step1.jsx
 import React, { useState } from "react";
 //TYPO
-import { H2, P } from "../../typography";
+import { H1, H2, P } from "../../typography";
 import { MainButton } from "../../buttons";
 
 import SuccessKids from "../../../assets/successKidsSmall.svg";
@@ -47,7 +47,7 @@ const Success = ({ onNext }) => {
 
             <div width=" grid grid-cols-12  h-full absolute top-0 left-0 w-full h-full overflow-y-auto">
                 <div className="col-span-12 p-4 lg:pt-4 xl:pt-10 sm:pt-0 lg:p-10">
-                    <H2 klasse="font-success text-primaryColor text-center">Vielen Dank für Ihre Unterstützung!</H2>
+                    <H1 klasse="font-success text-primaryColor text-center">Vielen Dank für Ihre Unterstützung!</H1>
                     <div className="mb-6 xl:mb-8"></div>
 
                     <P klasse="font-semibold text-center">Benötigen Sie eine Quittung?</P>
@@ -55,7 +55,7 @@ const Success = ({ onNext }) => {
                         <form className="w-full flex flex-col items-center" onSubmit={handleSendEmail}>
                             <input
                                 type="email"
-                                placeholder="Recipient Email"
+                                placeholder="Ihre Email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 className="border border-gray-300 rounded-sm px-3 py-2"
