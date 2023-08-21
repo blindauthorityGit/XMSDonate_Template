@@ -15,8 +15,7 @@ export const handleContinue = async (
     fetchFirestoreData
 ) => {
     if (currentStep === 3 && userData.isAnonymous) {
-        console.log("ANONÜÜÜM");
-        setCurrentStep(currentStep + 1);
+        setCurrentStep(currentStep + 2);
         setIsDisabled(true);
     } else if (currentStep === 7) {
         try {
@@ -24,7 +23,6 @@ export const handleContinue = async (
 
             if (userData.image) {
                 // Upload the image and get the URL
-                console.log(userData.image);
                 const imageDownloadURL = await uploadImageAndGetURL(userData.image);
                 console.log(imageDownloadURL);
                 // Update the userData with the image download URL

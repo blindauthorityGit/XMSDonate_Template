@@ -47,48 +47,8 @@ const StepOne = (props) => {
 
     const [isDisabled, setIsDisabled] = useState(true);
 
-    // const handleContinue = () => {
-    //     if (currentStep == 3 && userData.isAnonymous) {
-    //         console.log("ANONÜÜÜM");
-    //         setCurrentStep(currentStep + 1);
-    //         setIsDisabled(true);
-    //     } else if (currentStep == 7) {
-    //         if (JSON.parse(process.env.NEXT_PUBLIC_DEV)) {
-    //             const newUserList = [...userList, userData]; // Create a new array with the updated user data
-    //             setUserList(newUserList);
-    //             setShowOverlay(true); // Update the userList state with the new array
-    //             setShowSuccess(true);
-    //         } else {
-    //             saveUserDataToFirestore(userData)
-    //                 .then(() => {
-    //                     console.log("User data saved successfully");
-
-    //                     fetchFirestoreData("donation")
-    //                         .then((data) => {
-    //                             setUserList(data);
-    //                             setShowOverlay(true);
-    //                             setShowSuccess(true);
-    //                         })
-    //                         .catch((error) => {
-    //                             console.error("Error fetching data:", error);
-    //                         });
-    //                     // setShowThankYou(true); // Show the "Thank you" message
-    //                 })
-    //                 .catch((error) => {
-    //                     console.error("Error saving user data:", error);
-    //                 });
-    //         }
-
-    //         closeModal();
-    //         // setShowOverlay(false);
-    //         setShowUnclaimed(false);
-    //     } else {
-    //         setCurrentStep(currentStep + 1);
-    //         setIsDisabled(true);
-    //     }
-    // };
-
-    const handleContinueClick = () => {
+    const handleContinueClick = (e) => {
+        console.log(!!userData.id);
         handleContinue(
             currentStep,
             userData,
@@ -219,7 +179,13 @@ const StepOne = (props) => {
                 </div>
                 <div className="col-span-6 flex justify-end">
                     {" "}
-                    <MainButton disabled={isDisabled} onClick={handleContinueClick} klasse="border-2 text-darkText">
+                    <MainButton
+                        disabled={isDisabled}
+                        onClick={(e) => {
+                            handleContinueClick(e);
+                        }}
+                        klasse="border-2 text-darkText"
+                    >
                         Weiter
                     </MainButton>
                 </div>
