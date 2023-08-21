@@ -60,7 +60,7 @@ function Name(props) {
                     <div className={`wrapper flex justify-between ${props.wrapperKlasse}`} ref={nameRef}>
                         <input
                             type="text"
-                            className="border-b-2 w-full text-xl lg:text-3xl py-4 font-bold pl-4"
+                            className="border-b-2 w-full text-xl xl:text-3xl py-4 font-bold pl-4"
                             onChange={handleChange}
                             placeholder="Ihr Name"
                             value={userData.name}

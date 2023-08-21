@@ -135,7 +135,7 @@ function Avatar(props) {
                                     style={isDragging ? { color: "red" } : undefined}
                                     className={`${
                                         images.length == 0 ? "" : "hidden"
-                                    }  text-base sm:text-2xl p-4 text-[#C6D5DD]" font-semibold opacity-30 col-span-6 sm:col-span-6 text-left hover:opacity-100`}
+                                    }  text-base sm:text-xl xl:text-2xl p-4 font-semibold opacity-30 col-span-6 sm:col-span-6 text-left hover:opacity-100`}
                                     onClick={() => {
                                         onImageUpload();
                                     }}

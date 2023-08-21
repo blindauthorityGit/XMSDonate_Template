@@ -37,11 +37,11 @@ const Full = (props) => {
             <div
                 // ref={aspectRatioRef}
                 style={{ aspectRatio: "618 / 877" }}
-                className="absolute  lg:block z-30 lg:z-30 top-[3%] lg:top-[7%] xl:top-[auto] xl:bottom-[100px] left-1/2 lg:left-auto transform -translate-x-1/2 lg:-translate-x-0 lg:right-[10%] w-[72vw] sm:w-[60vw] h-[auto] lg:w-[32vw] xl:h-[auto]"
+                className="absolute  lg:block z-30 lg:z-30 top-[3%] lg:top-[7%] xl:top-[auto] xl:bottom-[100px] left-1/2 lg:left-auto transform -translate-x-1/2 lg:-translate-x-0 lg:right-[10%] 2xl:right-[13%] w-[72vw] sm:w-[60vw] h-[auto] lg:w-[32vw] xl:h-[auto] 2xl:w-[58vh] 3xl:w-[40vw]"
             >
                 {" "}
                 <div
-                    className={`w-full lg:pl-12`}
+                    className={`w-full lg:pl-6 xl:pl-12`}
                     style={{ height: dimensions.height - dimensions.height * baumstumpfHeight + "px" }}
                 >
                     <Raster parent={props.parent}></Raster>

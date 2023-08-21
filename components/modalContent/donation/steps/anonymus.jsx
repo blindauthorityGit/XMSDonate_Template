@@ -98,9 +98,9 @@ function Anonymous(props) {
                         </div>
                     </div>
                 </div>
-                <div className="col-span-12 bg-greenColor-50 p-4 mt-8 hidden lg:block">
+                <div className="col-span-12 bg-greenColor-50 p-4 mt-8 hidden lg:block lg:text-sm">
                     {isAnonymous ? (
-                        <div>Ihre Spende bleibt anonym. Name und Bild werden nicht angezeigt.</div>
+                        <div>Ihre Spende bleibt anonym. Name wird nicht angezeigt.</div>
                     ) : (
                         <div>
                             Sie können in den nächsten Schritten Ihren Namen eingeben und ein Bild hinzufügen, das neben

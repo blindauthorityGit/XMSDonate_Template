@@ -13,19 +13,23 @@ export default async function handler(req, res) {
 
         // Create a transporter using Nodemailer
         const transporter = nodemailer.createTransport({
-            host: "smtp.world4you.com",
+            host: process.env.NEXT_PUBLIC_LIVE_MAIL == "true" ? "smtp.office365.com" : "smtp.world4you.com",
             port: 587,
             secure: false,
             auth: {
-                user: process.env.NEXT_W4YUSER,
-                pass: process.env.NEXT_W4YPASSWORD,
+                user:
+                    process.env.NEXT_PUBLIC_LIVE_MAIL == "true" ? process.env.NEXT_LIVE_USER : process.env.NEXT_W4YUSER,
+                pass:
+                    process.env.NEXT_PUBLIC_LIVE_MAIL == "true"
+                        ? process.env.NEXT_LIVE_PASSWORD
+                        : process.env.NEXT_W4YPASSWORD,
             },
             // socketTimeout: 60000,
         });
 
         // Send the email
         await transporter.sendMail({
-            from: "office@atelierbuchner.at", // Your email address
+            from: process.env.NEXT_PUBLIC_LIVE_MAIL == "true" ? process.env.NEXT_LIVE_USER : process.env.NEXT_W4YUSER,
             to: email, // Recipient's email address
             subject: "Quittung für Ihre Spende",
             html: `<p>Hallo ${userData.name}, </p>

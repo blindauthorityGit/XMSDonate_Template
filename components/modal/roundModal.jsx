@@ -42,15 +42,13 @@ const RoundModal = ({ onClose, isOpen, children }) => {
             };
         } else {
             return {
-                initial: { opacity: 0, scale: 0.4, y: "-200%", x: "0%" },
+                initial: { opacity: 0 },
                 animate: {
                     opacity: 1,
-                    scale: 1,
-                    y: "10%",
-                    x: 0,
+
                     transition: { type: "spring", stiffness: 300, damping: 25 },
                 },
-                exit: { opacity: 0, scale: 0.8, y: "50%" },
+                exit: { opacity: 0 },
             };
         }
     };
@@ -77,7 +75,7 @@ const RoundModal = ({ onClose, isOpen, children }) => {
                 animate={animationProps.animate}
                 exit={animationProps.exit}
                 transition={{ duration: 2.6 }}
-                className={`ROUNDMODAL w-[80%] px-8 py-4 rounded-full modal-container z-50 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`}
+                className={`ROUNDMODAL w-[80%] lg:w-[50%] px-8 py-4 rounded-full modal-container z-50 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`}
                 style={{
                     background: "#fff",
                     aspectRatio: "1/1",
@@ -85,7 +83,7 @@ const RoundModal = ({ onClose, isOpen, children }) => {
             >
                 {/* Your modal content goes here */}
                 <AiFillCloseCircle
-                    className="right-4 top-4 cursor-pointer text-3xl text-white xl:text-3xl absolute transition-all duration-200 hover:text-4xl"
+                    className="right-4 top-4 lg:right-20 cursor-pointer text-3xl text-white xl:text-3xl absolute transition-all duration-200 hover:text-4xl"
                     onClick={() => {
                         onClose();
                     }}

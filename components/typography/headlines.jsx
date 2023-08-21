@@ -3,14 +3,14 @@ import React from "react";
 
 const H1 = ({ children, klasse }) => {
     return (
-        <h1 className={`text-2xl lg:text-5xl xl:text-7xl font-black mb-4 lg:mb-6 font-sans text-darkText ${klasse}`}>
+        <h1 className={`text-2xl lg:text-4xl xl:text-7xl font-black mb-4 lg:mb-6 font-sans text-darkText ${klasse}`}>
             {children}
         </h1>
     );
 };
 
 const H2 = ({ children, klasse }) => {
-    return <h2 className={`text-xl lg:text-4xl mb-4 font-bold ${klasse}`}>{children}</h2>;
+    return <h2 className={`text-xl lg:text-2xl xl:text-4xl mb-4 font-bold ${klasse}`}>{children}</h2>;
 };
 
 const H3 = ({ children, klasse }) => {

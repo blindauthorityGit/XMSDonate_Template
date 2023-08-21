@@ -54,11 +54,11 @@ function Sum(props) {
                         <GiPayMoney />
                     </div>
                 </div>
-                <div className="col-span-9 md:col-span-9 xl:col-span-9 mt-2 lg:mt-0">
+                <div className="col-span-9 md:col-span-9 lg:col-span-10 mt-2 lg:mt-0">
                     <div className={`wrapper flex justify-between ${props.wrapperKlasse}`} ref={sumRef}>
                         <input
                             type="number"
-                            className="border-b-2 w-full text-xl lg:text-5xl py-4 font-bold pl-4"
+                            className="border-b-2 w-full text-xl lg:text-2xl xl:text-5xl py-4 font-bold pl-4"
                             onChange={handleChange}
                             placeholder="Ihre Spendensumme in EUR"
                             value={userData.sum}
