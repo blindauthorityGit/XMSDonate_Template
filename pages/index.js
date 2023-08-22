@@ -25,7 +25,7 @@ import { SuccessModalContent } from "../components/modalContent/success";
 import { DndContext, closestCenter } from "@dnd-kit/core";
 
 //DEV
-import { TestData } from "../config/testData";
+import { TestData, dataFiller } from "../config/testData";
 import { fetchFirestoreData } from "../config/firebase";
 
 // FX
@@ -112,7 +112,9 @@ export default function Home() {
         // setUserList(TestData);
         onBoarding ? setShowOverlay(true) : null;
         JSON.parse(process.env.NEXT_PUBLIC_DEV)
-            ? setUserList(TestData)
+            ? process.env.NEXT_PUBLIC_FILLER
+                ? setUserList(dataFiller())
+                : setUserList(TestData)
             : fetchFirestoreData("donation")
                   .then((data) => {
                       setUserList(data);
