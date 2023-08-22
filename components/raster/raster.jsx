@@ -19,19 +19,24 @@ import getIndex from "../../functions/getIndex";
 //DND STUFF
 import Draggable from "../dragNDrop/draggable";
 
+// SWIPER STUFF
+import { useSwipeable } from "react-swipeable";
+
 const Raster = (props) => {
-    const [masterCounter, setMasterCounter] = useState(0);
-    let counter = masterCounter;
-
-    const [ballsPerTree, setBallsPerTree] = useState(anzahlBaumKugeln);
-    const [treeAnzahl, setTreeAnzahl] = useState(0);
-    const [currentTree, setCurrentTree] = useState(0);
-
     //GLOBAL USER DATA STATE
     const userData = useStore((state) => state.userData);
 
     //CONTAINER REF
     const allRef = useRef();
+
+    // MULTI TREES
+    const [ballsPerTree, setBallsPerTree] = useState(anzahlBaumKugeln);
+    const [treeAnzahl, setTreeAnzahl] = useState(0);
+    const [currentTree, setCurrentTree] = useState(0);
+
+    const [masterCounter, setMasterCounter] = useState(0);
+    let counter = masterCounter;
+    // MULTI TREES
 
     //GLOBAL UNCLAIMED STATE
     const showUnclaimed = useStore((state) => state.showUnclaimed);
@@ -46,11 +51,24 @@ const Raster = (props) => {
     // WIDTH OF BALLS
     const [kugelWidth, setKugelWidth] = useState(50);
 
+    // SWIPE STUFF
+    const handlers = useSwipeable({
+        onSwiped: (eventData) => console.log("User Swiped!", eventData),
+    });
+
     useEffect(() => {
         console.log("Counter: ", ballsPerTree * (treeAnzahl - 1));
         console.log("currentTree: ", currentTree);
         setMasterCounter(ballsPerTree * currentTree);
     }, [ballsPerTree, treeAnzahl, currentTree]);
+
+    useEffect(() => {
+        // SET TREE NUMBER
+        setTreeAnzahl(Math.ceil((userList.length + 1) / ballsPerTree));
+        setCurrentTree(Math.ceil((userList.length + 1) / ballsPerTree) - 1);
+        console.log("Tree Anzahl: ", Math.ceil((userList.length + 1) / ballsPerTree));
+        console.log("Current Tree: ", Math.ceil((userList.length + 1) / ballsPerTree));
+    }, []);
 
     // OPACITY CHECK DROPZONE WHEN DROPPED
     useEffect(() => {

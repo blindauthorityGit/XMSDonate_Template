@@ -56,9 +56,11 @@ export async function generatePDF(userData) {
             pdfDoc.fontSize(12);
 
             // Add content based on userData
-            pdfDoc.fontSize(18).text("Sozialdienst katholischer Frauen e.V.");
-            pdfDoc.fontSize(18).text("Kriegkstraße 32-36, 60326 Frankfurt/Main");
+            pdfDoc.fontSize(18).font("Times-Roman").text("Sozialdienst katholischer Frauen e.V.", { bold: true });
+            pdfDoc.fontSize(18).font("Times-Roman").text("Kriegkstraße 32-36, 60326 Frankfurt/Main", { bold: true });
             // pdfDoc.image("/skfLogoSmall.jpg", 0, 15, { width: 300 })
+            const imagePath = `${process.cwd()}/public/skfLogoSmall.jpg`;
+            pdfDoc.image(imagePath, 520, 70, { width: 50 });
 
             pdfDoc.moveDown();
 
@@ -76,7 +78,7 @@ export async function generatePDF(userData) {
             pdfDoc.moveDown();
             pdfDoc.moveDown();
 
-            pdfDoc.fontSize(12).text(userData.name, { underline: true });
+            pdfDoc.fontSize(12).text(userData.name ? userData.name : "Anonymer Spender", { underline: true });
             pdfDoc.fontSize(6).text("Name des Zuwendenden");
             pdfDoc.moveDown();
 
@@ -125,21 +127,33 @@ export async function generatePDF(userData) {
             pdfDoc
                 .fontSize(10)
                 .text(
-                    "Es wird bestätigt, dass die Zuwendung nur zur Förderung der Jugendhilfe und Wohlfahrtspflege verwendet wird",
+                    "Es wird bestätigt, dass die Zuwendung nur zur Förderung der Jugendhilfe und Wohlfahrtspflege verwendet wird.",
                     { bold: true }
                 );
             pdfDoc.moveDown();
             pdfDoc.moveDown();
             pdfDoc.text(`Frankfurt, den ${formattedDate}`);
             // Add image next to the paragraph
+            const imagePath2 = `${process.cwd()}/public/unterschrift.jpg`;
+            pdfDoc.image(imagePath2, 55, 545, { width: 100 });
+            pdfDoc.moveDown();
+            pdfDoc.moveDown();
+            pdfDoc.moveDown();
+            pdfDoc.moveDown();
+
+            pdfDoc.fontSize(8).text("Unterschrift", { underline: true });
+            pdfDoc.moveDown();
             pdfDoc.moveDown();
             pdfDoc.moveDown();
             pdfDoc.fontSize(8).text("Hinweis:", { font: "Helvetica-Bold" });
+            pdfDoc.moveDown();
+
             pdfDoc
                 .fontSize(6)
                 .text(
                     "Wer vorsätzlich oder grob fahrlässig eine unrichtige Zuwendungsbestätigung erstellt oder wer veranlasst, dass Zuwendungen nicht zu den in der Zuwendungsbestätigung angegebenen steuerbegünstigten Zwecken verwendet werden, haftet für die entgangene Steuer (§ 10 Abs. 4 EstG, § 9 Abs. 3 KStG, § 9 Nr. 5 GewStG)."
                 );
+            pdfDoc.moveDown();
             pdfDoc
                 .fontSize(6)
                 .text(

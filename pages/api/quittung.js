@@ -32,7 +32,7 @@ export default async function handler(req, res) {
             from: process.env.NEXT_PUBLIC_LIVE_MAIL == "true" ? process.env.NEXT_LIVE_USER : process.env.NEXT_W4YUSER,
             to: email, // Recipient's email address
             subject: "Quittung für Ihre Spende",
-            html: `<p>Hallo ${userData.name}, </p>
+            html: `<p>Hallo ${userData.name ? userData.name : "Anonymer Spender"}, </p>
             <p>vielen Dank für die Spende von EUR ${userData.sum},-! </p>
             <p>Hier ist Ihre Quittung:</p>
             <a href="${pdfData.downloadURL}">Klicken Sie hier, um die Quittung herunterzuladen</a>
