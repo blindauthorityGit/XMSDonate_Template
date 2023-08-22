@@ -66,8 +66,8 @@ const StepOne = (props) => {
     };
 
     const handleBack = () => {
-        if (currentStep == 5 && userData.isAnonymous) {
-            setCurrentStep(currentStep - 2);
+        if (currentStep == 6 && userData.isAnonymous) {
+            setCurrentStep(currentStep - 3);
         } else {
             setCurrentStep(currentStep - 1);
         }

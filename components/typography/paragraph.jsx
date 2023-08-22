@@ -3,7 +3,9 @@ import React from "react";
 
 const P = ({ children, klasse }) => {
     return (
-        <p className={`text-xs sm:text-base lg:text-sm xl:text-lg ${klasse} font-regular text-darkText`}>{children}</p>
+        <p className={`text-xs sm:text-base lg:text-sm xl:text-base ${klasse} font-regular text-darkText`}>
+            {children}
+        </p>
     );
 };
 

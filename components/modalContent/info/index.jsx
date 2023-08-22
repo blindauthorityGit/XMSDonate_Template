@@ -2,7 +2,7 @@ import React from "react";
 //TYPO
 import { H2, P } from "../../typography";
 
-import Logo from "../../../assets/logo.png";
+import Logo from "../../../assets/logoFull.svg";
 
 const Info = () => {
     return (
@@ -16,7 +16,7 @@ const Info = () => {
                 <P>
                     In unserem Familienzentrum Monikahaus bieten wir unter einem Dach vielfältige, integrierte und
                     miteinander vernetzte Hilfen für Familien an. Jeder Ratsuchende erhält so eine bedarfsorientierte
-                    und passgenaue Unterstützung. „Schritt für Schritt Hand in Hand“ auf der Grundlage einer
+                    und passgenaue Unterstützung. „Schritt für Schritt &mdash; Hand in Hand“ auf der Grundlage einer
                     vertrauensvollen Beziehung begleiten wir Familien in ihrem Leben.
                 </P>
                 <div className="mb-4 xl:mb-66"></div>
@@ -34,13 +34,22 @@ const Info = () => {
                     Ortsverein Frankfurt am Main<br></br>
                     Kriegkstraße 32–36<br></br>
                     60326 Frankfurt am Main
+                    <br></br>
+                    <br></br>
+                    <a className="font-semibold underline hover:opacity-70" href="https://www.monikahaus.de">
+                        www.monikahaus.de
+                    </a>
+                    <br></br>
+                    <a className="font-semibold underline hover:opacity-70" href="mailto:spenden@skf-frankfurt.de">
+                        spenden@skf-frankfurt.de
+                    </a>
                 </P>
                 <div className="mb-4 xl:mb-66"></div>
                 <P>
                     <span className="font-bold">Bankverbindung</span>
                     <br />
                     Sozialdienst katholischer Frauen e.V. Ortsverein Frankfurt<br></br>
-                    Frankfurter Volksbank6<br></br>
+                    Frankfurter Volksbank<br></br>
                     IBAN: DE10 5019 0000 6000 0225 41
                     <br />
                     BIC: FFVBDEFF
@@ -51,7 +60,7 @@ const Info = () => {
                     <br />
                     <a href="https://www..sabocon.com">Sabocon GmbH</a>
                 </P>
-                <img src={Logo.src} alt="" />
+                <img src={Logo.src} className="mt-6" alt="" />
             </div>
         </div>
     );

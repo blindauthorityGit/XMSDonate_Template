@@ -108,7 +108,7 @@ export async function generatePDF(userData) {
             pdfDoc.fontSize(6).text("Bezeichnung des Finanzamts");
             pdfDoc.moveDown();
 
-            pdfDoc.fontSize(12).text("E47 250 33178", { underline: true });
+            pdfDoc.fontSize(12).text("47 250 33178", { underline: true });
             pdfDoc.fontSize(6).text("Steuernummer");
             pdfDoc.moveDown();
 

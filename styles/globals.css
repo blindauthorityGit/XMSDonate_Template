@@ -69,4 +69,22 @@ a {
   border-radius: 100%;
   color: white;
 }
+
+.SUMINPUTwrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.SUMINPUT::after {
+  content: "€";
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  font-size: 16px;
+  color: #333;
+  background-color: red;
+  /* Add a background color for debugging */
+}
 /*# sourceMappingURL=globals.css.map */

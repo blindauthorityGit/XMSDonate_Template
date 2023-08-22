@@ -49,7 +49,7 @@ function Name(props) {
             >
                 <div className="col-span-12 xl:mb-6 lg:mt-6 sm:mb-4">
                     <H2>Ihr Name</H2>
-                    <P>Nennen Sie uns Ihren Namen. Dieser wird dann auf Ihrer Spendenkugel angezeigt </P>
+                    <P>Nennen Sie uns Ihren Namen. Dieser wird dann auf Ihrer Spendenkugel angezeigt. </P>
                 </div>
                 <div className="col-span-2 flex items-center justify-center mt-4 lg:mt-0">
                     <div data-tip={props.dataTip} className="text-5xl font-black opacity-50 text-[#C6D5DD]">

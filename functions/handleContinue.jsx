@@ -15,7 +15,7 @@ export const handleContinue = async (
     fetchFirestoreData
 ) => {
     if (currentStep === 3 && userData.isAnonymous) {
-        setCurrentStep(currentStep + 2);
+        setCurrentStep(currentStep + 3);
         setIsDisabled(true);
     } else if (currentStep === 7) {
         try {

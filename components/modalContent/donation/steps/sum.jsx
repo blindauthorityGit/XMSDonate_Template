@@ -17,17 +17,22 @@ import useStore from "../../../../store/store";
 function Sum(props) {
     const [opacity, setOpacity] = useState(0.3);
     const userData = useStore((state) => state.userData);
-
+    const [inputValue, setInputValue] = useState("");
     const sumRef = useRef();
 
     const handleChange = (e) => {
-        const value = { sum: Number(e.target.value) };
+        const value = { sum: parseFloat(e.target.value) };
+        setInputValue(e.target.value);
         addToUserData(value);
     };
 
+    const handleBlur = (e) => {
+        e.target.value = parseFloat(e.target.value).toFixed(2);
+    };
+
     useEffect(() => {
-        console.log(userData);
-    }, [userData]);
+        console.log(sumRef.current.children[0]);
+    }, []);
 
     return (
         <div className="grid grid-cols-12">
@@ -49,22 +54,28 @@ function Sum(props) {
                         welchem Betrag möchten Sie unsere Arbeit unterstützen?
                     </P>
                 </div>
-                <div className="col-span-2 flex items-center ">
+                {/* <div className="col-span-2 flex items-center ">
                     <div data-tip={props.dataTip} className="text-5xl font-black opacity-50 text-[#C6D5DD]">
                         <GiPayMoney />
                     </div>
-                </div>
-                <div className="col-span-9 md:col-span-9 lg:col-span-10 mt-2 lg:mt-0">
-                    <div className={`wrapper flex justify-between ${props.wrapperKlasse}`} ref={sumRef}>
+                </div> */}
+                <div className="col-span-3 md:col-span-3 lg:col-span-3 mt-2 lg:mt-0">
+                    <div className={`SUMINPUTwrapper flex justify-between ${props.wrapperKlasse}`} ref={sumRef}>
                         <input
                             type="number"
-                            className="border-b-2 w-full text-xl lg:text-2xl xl:text-5xl py-4 font-bold pl-4"
+                            className="SUMINPUT border-b-2 w-full text-xl lg:text-2xl xl:text-5xl py-4 font-bold pl-4"
                             onChange={handleChange}
-                            placeholder="Ihre Spendensumme in EUR"
-                            value={userData.sum}
+                            onBlur={handleBlur}
+                            placeholder="5,00,-"
+                            step="1"
+                            // value={userData.sum ? userData.sum.toFixed(2) : ""}
+                            value={userData.sum ? userData.sum : ""}
+                            min="1"
                         />
+                        {/* <span className="absolute inset-y-0 right-4 flex items-center">€</span> */}
                     </div>
                 </div>
+                <div className="col-span-9 py-4 flex items-center text-xl lg:text-2xl xl:text-5xl ">€</div>
             </motion.div>
         </div>
     );

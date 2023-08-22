@@ -9,8 +9,8 @@ module.exports = {
             sm: "640px",
             md: "768px",
             lg: "1024px",
-            xl: "1536px",
-            "2xl": "1990px",
+            xl: "1440px",
+            "2xl": "1900px",
             "3xl": "2600px", // Add a custom breakpoint for 2880px
         },
         container: {
@@ -18,8 +18,8 @@ module.exports = {
                 sm: "100%",
                 md: "640px",
                 lg: "840px",
-                xl: "1240px",
-                "2xl": "1800px",
+                xl: "1040px",
+                "2xl": "1370px",
                 "3xl": "2560px", // Adjust container width for 2880px
             },
         },

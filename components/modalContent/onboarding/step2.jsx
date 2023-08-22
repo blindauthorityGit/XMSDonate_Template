@@ -5,7 +5,7 @@ import { H2, P } from "../../typography";
 import { MainButton } from "../../buttons";
 
 //ASSETS
-import AsianGirl from "../../../assets/kids.svg";
+import AsianGirl from "../../../assets/kidsNew.svg";
 
 const Step2 = ({ onNext }) => {
     return (

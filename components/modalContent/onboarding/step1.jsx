@@ -4,7 +4,7 @@ import React from "react";
 import { H2, P } from "../../typography";
 import { MainButton } from "../../buttons";
 
-import Logo from "../../../assets/logo.png";
+import Logo from "../../../assets/logoFull.svg";
 const Step1 = ({ onNext }) => {
     return (
         <div width=" grid grid-cols-12  h-full absolute top-0 left-0 w-full h-full overflow-y-auto">
@@ -19,7 +19,7 @@ const Step1 = ({ onNext }) => {
                 <P>
                     In unserem Familienzentrum Monikahaus in Frankfurt am Main bieten wir unter einem Dach vielfältige,
                     integrierte und miteinander vernetzte Hilfen für Familien an. Jeder Ratsuchende erhält so eine
-                    bedarfsorientierte und passgenaue Unterstützung. „Schritt für Schritt Hand in Hand“ auf der
+                    bedarfsorientierte und passgenaue Unterstützung. „Schritt für Schritt &mdash; Hand in Hand“ auf der
                     Grundlage einer vertrauensvollen Beziehung begleiten wir Familien in ihrem Leben. Unser Angebot
                     reicht von Schwangerschaftsberatung und Frühen Hilfen über Kita, stationäre Wohngruppen und
                     teilstationäre Tagesgruppen für Kinder und Jugendliche bis hin zu Ambulanten Hilfen,

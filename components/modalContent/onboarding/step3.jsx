@@ -23,18 +23,18 @@ const Step3 = ({ onNext }) => {
                     Kugel oder spenden Sie einfach anonym.
                 </P>
                 <div className="mb-4 xl:mb-66"></div>
-                <P>
+                <P klasse="font-bold">
                     Jede Spende geht direkt an das Familienzentrum Monikahaus, das von Sozialdienst katholischer Frauen
                     e.V., Ortsverein Frankfurt, getragen wird. Damit unterstützen Sie unsere Arbeit und schenken unseren
                     Kindern und Jugendlichen mehr Teilhabe am gesellschaftlichen Leben und damit eine bessere Zukunft.
                 </P>
                 <div className="mb-4 xl:mb-66"></div>
-                <P klasse="font-semibold">Machen Sie mit! Jeder Beitrag zählt! </P>
+                <P klasse="font-bold">Machen Sie mit! Jeder Beitrag zählt! </P>
                 {/* <img src={Logo.src} alt="" /> */}
                 <div className="mb-4 xl:mb-66"></div>
                 <div className="flex justify-end w-full mb-12">
                     <MainButton onClick={onNext} klasse="border-2 text-greenColor-50 bg-greenColor mt-4 text-darkText">
-                        Los gehts!
+                        Los geht&apos;s!
                     </MainButton>
                 </div>
             </div>

@@ -33,7 +33,7 @@ const StartText = () => {
         <div className="absolute lg:static bottom-8 lg:bottom-auto w-full 3xl:mt-12">
             <H1 klasse="hidden lg:block">Schmücken Sie den Baum</H1>
             <P klasse="text-xl font-semibold tracking-wide hidden lg:block">
-                Wir sammeln Spenden für die Kinder und Jugendlichen des Familienzentrums Monikahaus.
+                Wir sammeln Spenden für die Kinder und Jugendlichen<br></br> des Familienzentrums Monikahaus.
             </P>
             <MainButton
                 onClick={(e) => {

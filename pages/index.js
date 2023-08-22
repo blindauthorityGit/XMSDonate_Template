@@ -177,13 +177,11 @@ export default function Home() {
                         setSidebarOpen(true);
                         setShowOverlay(true);
                         handleToggleComponent("donorList");
-                        console.log("BUBUBU");
                     }}
                     onClickInfo={() => {
                         setSidebarOpen(true);
                         setShowOverlay(true);
                         handleToggleComponent("info");
-                        console.log("BUBUBU");
                     }}
                 ></StartFloaterFull>
                 <DndContext collisionDetection={closestCenter} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
@@ -218,7 +216,7 @@ export default function Home() {
                         <div className="col-span-12 lg:col-span-5 h-full  flex flex-col pt-[10%] relative overflow-hidden">
                             <Goal
                                 data={TestData}
-                                klasse="w-full lg:mb-20 xl:mb-36 2xl:mb-[12rem] absolute lg:relative bottom-32 lg:bottom-auto lg:top-0"
+                                klasse="w-full lg:mb-20 xl:mb-36 2xl:mb-36 absolute lg:relative bottom-32 lg:bottom-auto lg:top-0"
                             ></Goal>
                             <StartText />
                         </div>

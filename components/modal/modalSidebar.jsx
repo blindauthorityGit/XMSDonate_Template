@@ -43,7 +43,7 @@ const ModalSidebar = (props) => {
                     animate={animationProps.animate}
                     exit={animationProps.exit}
                     transition={{ duration: 0.5 }}
-                    className="sidebar-container z-50 min-h-[100svh] w-[85%] lg:w-[40%] xl:w-[33%]"
+                    className="sidebar-container z-50 min-h-[100svh] w-[85%] lg:w-[40%] xl:w-[38%]"
                     style={{
                         background: "#fff",
                         borderRadius: "0",
