@@ -43,7 +43,7 @@ const Kugel = (props, ref) => {
             onMouseLeave={props.onMouseLeave}
             disabled={props.disabled}
             onAnimationEnd={props.onAnimationEnd}
-            data-isWinner={props.winner}
+            // data-isWinner={props.winner}
         >
             <>
                 {/* {props.isClaimed && (

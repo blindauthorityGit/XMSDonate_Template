@@ -50,11 +50,20 @@ const useStore = create((set) => ({
         });
     },
 
-    modalHeight: "h-[60%]", // Default modal height, you can set any default value you want
+    modalHeight: null, // Default modal height, you can set any default value you want
 
     setModalHeight: (height) => set({ modalHeight: height }),
     showSuccess: false, // Default value is false
     setShowSuccess: (value) => set(() => ({ showSuccess: value })),
+    // ANIMATION CLASS
+    animateTree: "", // Default value is false
+    setAnimateTree: (value) => set(() => ({ animateTree: value })),
+    // Swipe COUNT
+    swipeCount: 0, // Default value is false
+    setSwipeCount: (value) => set(() => ({ swipeCount: value })),
+    // ANIMATION END COUNT
+    animationEndCounter: "",
+    setAnimationEndCounter: (value) => set({ animationEndCounter: value }),
 }));
 
 // Initialize onBoarding state from the cookie

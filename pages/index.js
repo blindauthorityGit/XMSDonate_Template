@@ -91,14 +91,12 @@ export default function Home() {
 
     function handleDragEnd(event) {
         const { over } = event;
-        console.log(over);
-        // otherwise reset the parent to `null`
         setParent(over ? over.id : null);
         setActiveId(null);
         setIsDropped(over ? true : false);
         setIsDragging(false);
         droppedZone(over.id);
-        console.log(over.id);
+        console.log(Array.from(document.querySelectorAll(".kugel")));
         setUserData({
             ...userData,
             id: over ? over.id : null,
@@ -135,27 +133,24 @@ export default function Home() {
 
     return (
         <>
-            {" "}
-            {onBoarding ? (
-                <>
-                    <OnBoardModal
-                        isOpen={onBoarding}
+            {onBoarding && (
+                <OnBoardModal
+                    isOpen={onBoarding}
+                    onClose={() => {
+                        setOnBoardingAndCookie(false);
+                        setShowOverlay(false);
+                        setShowUnclaimed(false);
+                    }}
+                >
+                    <OnboardingContent
                         onClose={() => {
                             setOnBoardingAndCookie(false);
                             setShowOverlay(false);
                             setShowUnclaimed(false);
                         }}
-                    >
-                        <OnboardingContent
-                            onClose={() => {
-                                setOnBoardingAndCookie(false);
-                                setShowOverlay(false);
-                                setShowUnclaimed(false);
-                            }}
-                        />
-                    </OnBoardModal>{" "}
-                </>
-            ) : null}
+                    />
+                </OnBoardModal>
+            )}
             {showSuccess ? (
                 <RoundModal
                     isOpen={showSuccess}

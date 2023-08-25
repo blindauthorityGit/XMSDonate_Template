@@ -34,7 +34,7 @@ function DragBall(props) {
     return (
         <div className="grid grid-cols-12">
             <div className="col-span-12 xl:mb-6 sm:mb-4">
-                <H1>Schmücken Sie den Baum</H1>
+                <H2>Schmücken Sie den Baum</H2>
                 <P>Nun können Sie Ihre Kugel auf ein freies Feld bewegen. Wo möchten Sie die Kugel hinziehen?</P>
             </div>
 

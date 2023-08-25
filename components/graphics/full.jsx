@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 import { isBrowser, isMobile } from "react-device-detect";
 
@@ -14,6 +14,9 @@ import { Raster } from "../raster";
 // const { Raster } = dynamic(() => import("../raster"), {
 //     ssr: false,
 // });
+
+//FUNCTIONS
+import animateWithClass from "../../functions/animateWithClass";
 
 //STATE
 import useStore from "../../store/store"; // Import the same store from the previous example

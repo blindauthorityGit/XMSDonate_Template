@@ -6,6 +6,8 @@ import Row from "./row";
 const Kugel = dynamic(() => import("./kugel"), {
     ssr: false,
 });
+import { TreeCountFloater } from "../floater";
+
 // CONFIG
 import { anzahlRows, dev, anzahlBaumKugeln, bgColors } from "../../config";
 
@@ -56,10 +58,41 @@ const Raster = (props) => {
     // WIDTH OF BALLS
     const [kugelWidth, setKugelWidth] = useState(50);
 
-    // SWIPE STUFF
-    const handlers = useSwipeable({
-        onSwiped: (eventData) => console.log("User Swiped!", eventData),
+    //GLOBAL ANIMATION TREE STATE
+    const animateTree = useStore((state) => state.animateTree);
+    const setAnimateTree = useStore((state) => state.setAnimateTree);
+    const swipeCount = useStore((state) => state.swipeCount);
+    const setSwipeCount = useStore((state) => state.setSwipeCount);
+
+    //ANIMATION END TREE
+    const animationEndCounter = useStore((state) => state.animationEndCounter);
+
+    const { ref: documentRef } = useSwipeable({
+        onSwipedLeft: (e) => {
+            if (currentTree !== treeAnzahl - 1) {
+                treeChanger("true");
+                setAnimateTree("left");
+                setSwipeCount((prev) => prev + 1);
+            }
+        },
+        onSwipedRight: (e) => {
+            if (currentTree > 0) {
+                treeChanger("false");
+                setAnimateTree("right");
+                setSwipeCount((prev) => prev + 1);
+            }
+        },
+
+        preventDefaultTouchmoveEvent: true,
     });
+
+    useEffect(() => {
+        documentRef(document);
+    });
+
+    useEffect(() => {
+        console.log(animateTree);
+    }, [animateTree]);
 
     useEffect(() => {
         console.log("Counter: ", ballsPerTree * (treeAnzahl - 1));
@@ -120,32 +153,121 @@ const Raster = (props) => {
         setFreeTree(false);
         setTimeout(() => {
             setFreeTree(true);
-        }, 800);
+        }, 500);
 
         console.log("Tree change", currentTree);
     }
+
+    // useEffect(() => {
+    //     // SET TREE NUMBER
+    //     const displacementAmount = 4; // Adjust this value for the amount of displacement
+
+    //     let arr = Array.from(allRef.current.querySelectorAll(".kugel"));
+    //     // RESET UNCLAIMED BG COLOR
+    //     arr.map((e, i) => {
+    //         e.style.background = "none";
+    //         //SHUFFLE POSITION A BIT
+    //         const randomX = Math.random() * displacementAmount - displacementAmount / 2;
+    //         const randomY = Math.random() * displacementAmount - displacementAmount / 2;
+    //         // e.style.transform = `translate(${randomX}px, ${randomY}px)`;
+    //     });
+    //     let arrClaimedID = userList.map((e) => e.id);
+    //     setTimeout(() => {
+    //         setKugelWidth(Array.from(allRef.current.querySelectorAll(".kugel"))[6].clientHeight);
+    //     }, 300);
+
+    //     arrClaimedID.map((e, i) => {
+    //         let random = Math.random() * 500;
+    //         let treeMuliplicator = currentTree * ballsPerTree;
+
+    //         setTimeout(() => {
+    //             if (arr[e - treeMuliplicator] !== undefined) {
+    //                 arr[e - treeMuliplicator].classList.remove("opacity-0");
+    //                 arr[e - treeMuliplicator].classList.add("opacity-100");
+    //                 arr[e - treeMuliplicator].style.background = userList[i].color;
+    //                 arr[e - treeMuliplicator].initialOpacity = 0;
+    //                 arr[e - treeMuliplicator].classList.add("bounce-in-fwd");
+    //                 arr[e - treeMuliplicator].addEventListener("animationend", (e) => {
+    //                     e.target.classList.remove("bounce-in-fwd");
+    //                 });
+    //             }
+    //         }, random);
+    //     });
+    // }, [userList, currentTree, ballsPerTree, masterCounter, counter]);
+
+    useEffect(() => {
+        document.body.classList.remove("overflow-hidden");
+
+        let arr = Array.from(allRef.current.querySelectorAll(".kugel"));
+
+        let arrClaimedID = userList.map((e) => e.id);
+        setTimeout(() => {
+            setKugelWidth(Array.from(allRef.current.querySelectorAll(".kugel"))[6].clientHeight);
+        }, 300);
+
+        arrClaimedID.map((e, i) => {
+            // e.classList.add("shine");
+            let random = Math.random() * 100;
+            let treeMuliplicator = currentTree * ballsPerTree;
+
+            setTimeout(() => {
+                if (arr[e - treeMuliplicator] !== undefined) {
+                    arr[e - treeMuliplicator].classList.remove("opacity-0");
+                    arr[e - treeMuliplicator].classList.add("opacity-100", "shine");
+                    arr[e - treeMuliplicator].style.background = userList[i].color;
+                    arr[e - treeMuliplicator].initialOpacity = 0;
+                    arr[e - treeMuliplicator].classList.add("bounce-in-fwd");
+                    arr[e - treeMuliplicator].addEventListener("animationend", (e) => {
+                        e.target.classList.remove("bounce-in-fwd");
+                    });
+                }
+            }, random);
+        });
+    }, [animationEndCounter]);
+
+    // HIDE BALLS FOR ANIMATION
+    useEffect(() => {
+        let arr = Array.from(allRef.current.querySelectorAll(".kugel"));
+        arr.map((e, i) => {
+            e.style.background = "none";
+            e.classList.remove("shine", "shadow-md");
+        });
+    }, [masterCounter]);
 
     return (
         <>
             {" "}
             {treeAnzahl > 1 && (
                 <>
+                    <TreeCountFloater klasse="absolute left-[-10%] lg:left-0 lg:right-0 lg:bottom-[-8%] m-auto ">
+                        Baum {currentTree + 1} / {treeAnzahl}
+                    </TreeCountFloater>
                     <div
-                        className={`absolute text-4xl md:text-6xl top-[45%] left-[-10%] z-40 ${
+                        className={`absolute hover:scale-90 cursor-pointer transition-all text-4xl md:text-5xl xl:text-6xl top-[45%] left-[-10%] z-40 ${
                             currentTree == 0 ? "opacity-20" : ""
                         }`}
                         onClick={() => {
-                            treeChanger("false");
+                            if (currentTree > 0) {
+                                document.body.classList.add("overflow-hidden");
+                                treeChanger("false");
+                                setAnimateTree("right");
+                                setSwipeCount((prev) => prev + 1);
+                            }
                         }}
                     >
                         <FaChevronCircleLeft></FaChevronCircleLeft>
                     </div>
                     <div
-                        className={`absolute  text-4xl md:text-6xl  z-40 top-[45%] right-[-10%] ${
+                        className={`absolute hover:scale-90 cursor-pointer text-4xl md:text-5xl xl:text-6xl  z-40 top-[45%] right-[-10%] ${
                             currentTree == treeAnzahl - 1 ? "opacity-20" : ""
                         }`}
                         onClick={() => {
-                            treeChanger("true");
+                            if (currentTree !== treeAnzahl - 1) {
+                                document.body.classList.add("overflow-hidden");
+                                treeChanger("true");
+                                setAnimateTree("left");
+                                setSwipeCount((prev) => prev + 1);
+                            }
                         }}
                     >
                         <FaChevronCircleRight></FaChevronCircleRight>

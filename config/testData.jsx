@@ -26,14 +26,14 @@ function dataFiller() {
 
     return arr.map((e, i) => {
         let obj = new Object();
-        let random = Math.floor(Math.random() * 4);
+        let random = Math.floor(Math.random() * 5);
 
         obj = {
             id: i,
             claimed: true,
             name: i < 75 ? "Christine Buchner" : "Bubu Bernhardt",
             sum: 15,
-            color: colors.bgColors[random],
+            color: colors.kugeln[random],
             // color: i < 75 ? colors.kugeln[0].kugel1 : colors.kugeln[1].kugel2,
             comment: "Ich spende gerne viel",
         };
@@ -45,7 +45,7 @@ function dataFiller() {
 const colors = {
     background: "#fff",
     primaryColor: "#7d866f",
-    bgColors: ["rgb(235, 69, 17)", "rgb(220, 223, 220)", "rgb(0, 0, 0)", "rgb(255, 255, 255)"],
+    bgColors: ["#84153b", "rgb(220, 223, 220)", "rgb(0, 0, 0)", "rgb(255, 255, 255)"],
     kugeln: ["#870F3B", "#335381", "#F26522", "#ED1C24", "#FFF200"],
     baum: "#04151F",
 };

@@ -28,6 +28,9 @@ a {
 .claimedKugel {
   /* Your existing styles for the claimedKugel element */
   position: relative;
+}
+
+.boxShadow {
   -webkit-box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.21);
           box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.21);
 }

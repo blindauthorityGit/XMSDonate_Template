@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, forwardRef } from "react";
 import Image from "next/image";
 
 //COMPS
@@ -13,9 +13,52 @@ import useElementDimensions from "../../hooks/useDimensions";
 // STATE
 import useStore from "../../store/store";
 
+//FUNCTIONS
+import animateWithClass from "../../functions/animateWithClass";
+
 const BaumGraphic = () => {
     const { ref, dimensions } = useElementDimensions();
     const setDimensions = useStore((state) => state.setDimensions);
+
+    //GLOBAL ANIMATION TREE STATE
+    const animateTree = useStore((state) => state.animateTree);
+    const setAnimateTree = useStore((state) => state.setAnimateTree);
+    const animationEndCounter = useStore((state) => state.animationEndCounter);
+    const setAnimationEndCounter = useStore((state) => state.setAnimationEndCounter);
+
+    //ANIMATION TRACKER
+    const swipeCount = useStore((state) => state.swipeCount);
+
+    const animationEnded = () => {
+        // return setAnimationEndCounter((prev) => prev + 1);
+    };
+
+    useEffect(() => {
+        console.log("ANIMAT TREEE", animationEndCounter);
+
+        const handleAnimationEnd = () => {
+            ref.current.classList.remove(animateTree == "right" ? "slide-out-right" : "slide-out-left");
+            console.log("ANIMATION HAS ENDED");
+            const randomString = [...Array(6)]
+                .map(() => String.fromCharCode(Math.floor(Math.random() * 26) + 97))
+                .join("");
+
+            setAnimationEndCounter(randomString);
+        };
+
+        ref.current.classList.add(animateTree == "right" ? "slide-out-right" : "slide-out-left");
+
+        // Listen for the "animationend" event
+        ref.current.addEventListener("animationend", handleAnimationEnd);
+
+        return () => {
+            ref.current.removeEventListener("animationend", handleAnimationEnd);
+        };
+    }, [animateTree, swipeCount]);
+
+    useEffect(() => {
+        console.log(animationEndCounter);
+    }, [animationEndCounter]);
 
     // Use useEffect to set the dimensions once they are available
     useEffect(() => {
@@ -23,6 +66,7 @@ const BaumGraphic = () => {
             console.log(dimensions.width, dimensions.height);
             setDimensions(dimensions.width, dimensions.height);
         }
+        console.log(ref.current);
     }, [dimensions, setDimensions]);
 
     return (

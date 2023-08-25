@@ -4,7 +4,7 @@ import { createPortal } from "react-dom";
 import { DragOverlay } from "@dnd-kit/core";
 
 //COMPS
-import { BallChoice, Sum, Anonymus, Name, Avatar, Comment, DragBall } from "../steps/index";
+import { BallChoice, Sum, Anonymus, Name, Avatar, Comment, DragBall, Payment } from "../steps/index";
 import { MainButton } from "../../../buttons";
 import Item from "../../../dragNDrop/item";
 
@@ -18,6 +18,10 @@ import { handleContinue } from "../../../../functions/handleContinue";
 //DATABASE
 import saveUserDataToFirestore from "../../../../functions/saveDataToFirestore"; // Import the saveUserDataToFirestore function
 import { fetchFirestoreData } from "../../../../config/firebase";
+
+//PAYPAL
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
+import { initialOptions } from "../../../../config/paypal";
 
 const StepOne = (props) => {
     // GLOABAL STATE
@@ -36,6 +40,8 @@ const StepOne = (props) => {
     const [disabledBack, setDisabledBack] = useState(true);
     // SUCCESS
     const setShowSuccess = useStore((state) => state.setShowSuccess);
+    // SUCCESS
+    const setModalHeight = useStore((state) => state.setModalHeight);
 
     //SIZE FOR DRAG BALL
     const [size, setSize] = useState(56);
@@ -48,7 +54,7 @@ const StepOne = (props) => {
     const [isDisabled, setIsDisabled] = useState(true);
 
     const handleContinueClick = (e) => {
-        console.log(!!userData.id);
+        console.log(process.env.NEXT_PAYPAL_LIVE);
         handleContinue(
             currentStep,
             userData,
@@ -64,6 +70,10 @@ const StepOne = (props) => {
             fetchFirestoreData
         );
     };
+
+    useEffect(() => {
+        console.log(initialOptions);
+    }, []);
 
     const handleBack = () => {
         if (currentStep == 6 && userData.isAnonymous) {
@@ -152,10 +162,19 @@ const StepOne = (props) => {
                     key="dragor"
                     onNext={() => {
                         handleNext();
-                        console.log("here we go sateliete radio");
+                        setModalHeight("60%");
                     }}
                     isDropped={props.isDropped}
                     isDragging={props.isDragging}
+                />
+            );
+            break;
+        case 8:
+            currentStepComponent = (
+                <Payment
+                    onNext={() => {
+                        console.log("here we go sateliete radio");
+                    }}
                 />
             );
             break;
@@ -165,7 +184,7 @@ const StepOne = (props) => {
     }
 
     return (
-        <>
+        <PayPalScriptProvider options={initialOptions}>
             {" "}
             {/* Add AnimatePresence here */}
             {currentStepComponent}
@@ -207,7 +226,7 @@ const StepOne = (props) => {
                 </DragOverlay>,
                 document.body
             )}
-        </>
+        </PayPalScriptProvider>
     );
 };
 

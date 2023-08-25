@@ -40,7 +40,7 @@ function ListItem(props, ref) {
                 initial="closed"
                 animate="open"
                 whileHover={{ scale: 1.05 }}
-                key={props.key}
+                // key={props.keyProp}
             >
                 <div className="left pr-6 h-full">
                     {props.e.anon ? (
