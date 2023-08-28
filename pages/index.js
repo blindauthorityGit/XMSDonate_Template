@@ -37,6 +37,10 @@ import useStore from "../store/store"; // Import the zustand store
 //HOTJAR
 import Hotjar from "@hotjar/browser";
 
+//ASSETS
+import Favicon from "../assets/logoSmall.svg";
+import OGImage from "../assets/ogImage.jpg";
+
 export default function Home() {
     const userList = useStore((state) => state.userList);
     const setUserList = useStore((state) => state.setUserList);
@@ -140,7 +144,27 @@ export default function Home() {
     return (
         <>
             <Head>
-                <title>TESTTOTLE</title>
+                <title>Monikahaus Spendenaktion</title>
+                <meta
+                    name="description"
+                    content="Wir sammeln Spenden für die Kinder und Jugendlichen des Familienzentrums Monikahaus."
+                />
+                <meta
+                    name="keywords"
+                    content="Monikahaus, Frankfurt, Spenden, Spendenaktion, Kinder, Kinderhilfe, Weihnachten, Gutes tun"
+                />
+                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                <link rel="icon" href={Favicon.src} />
+                <meta property="og:title" content="Monikahaus Spendenaktion" />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://monikahaus.xmsdonate.de" />
+                <meta property="og:image" content={OGImage.src} />
+                <meta
+                    property="og:description"
+                    content="Wir sammeln Spenden für die Kinder und Jugendlichen des Familienzentrums Monikahaus."
+                />
+                <meta property="og:site_name" content="Monikahaus - Spendenaktion" />
+                <meta property="og:locale" content="de_DE" />
             </Head>
             {onBoarding && (
                 <OnBoardModal
