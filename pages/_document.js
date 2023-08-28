@@ -30,6 +30,16 @@ class MyDocument extends Document {
                     rel="stylesheet"
                 ></link>
                 <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet" />
+                <script async src="https://www.googletagmanager.com/gtag/js?id=G-6NB2QTQ381"></script>
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'G-6NB2QTQ381');`,
+                    }}
+                ></script>
 
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
