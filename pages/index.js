@@ -34,6 +34,9 @@ import { Snow } from "../components/fx";
 //STORE
 import useStore from "../store/store"; // Import the zustand store
 
+//HOTJAR
+import Hotjar from "@hotjar/browser";
+
 export default function Home() {
     const userList = useStore((state) => state.userList);
     const setUserList = useStore((state) => state.setUserList);
@@ -107,6 +110,9 @@ export default function Home() {
     }
 
     useEffect(() => {
+        //HOTJAR INIT
+        Hotjar.init(3630058, 6);
+
         // setUserList(TestData);
         onBoarding ? setShowOverlay(true) : null;
         JSON.parse(process.env.NEXT_PUBLIC_DEV)
@@ -133,6 +139,9 @@ export default function Home() {
 
     return (
         <>
+            <Head>
+                <title>TESTTOTLE</title>
+            </Head>
             {onBoarding && (
                 <OnBoardModal
                     isOpen={onBoarding}
@@ -163,9 +172,6 @@ export default function Home() {
                 </RoundModal>
             ) : null}
             <MainContainer width="w-full h-full min-h-[100svh] relative">
-                <Head>
-                    <title>Site title</title>
-                </Head>
                 <Snow />
                 {/* // FLOAT BUTTONS */}
 

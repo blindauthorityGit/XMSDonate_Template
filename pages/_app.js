@@ -51,6 +51,7 @@ function MyApp({ Component, pageProps }) {
             setLoading(false);
         };
     });
+
     return (
         <>
             {/* ...other components */}
