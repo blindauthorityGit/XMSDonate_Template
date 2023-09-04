@@ -67,12 +67,16 @@ const Raster = (props) => {
     //ANIMATION END TREE
     const animationEndCounter = useStore((state) => state.animationEndCounter);
 
+    //INITIAL FLAG
+    const [initialLoad, setInitialLoad] = useState(true);
+
     const { ref: documentRef } = useSwipeable({
         onSwipedLeft: (e) => {
             if (currentTree !== treeAnzahl - 1) {
                 treeChanger("true");
                 setAnimateTree("left");
                 setSwipeCount((prev) => prev + 1);
+                setInitialLoad(false);
             }
         },
         onSwipedRight: (e) => {
@@ -80,6 +84,7 @@ const Raster = (props) => {
                 treeChanger("false");
                 setAnimateTree("right");
                 setSwipeCount((prev) => prev + 1);
+                setInitialLoad(false);
             }
         },
 
@@ -95,8 +100,7 @@ const Raster = (props) => {
     }, [animateTree]);
 
     useEffect(() => {
-        console.log("Counter: ", ballsPerTree * (treeAnzahl - 1));
-        console.log("currentTree: ", currentTree);
+        console.log(ballsPerTree * currentTree);
         setMasterCounter(ballsPerTree * currentTree);
     }, [ballsPerTree, treeAnzahl, currentTree]);
 
@@ -104,8 +108,7 @@ const Raster = (props) => {
         // SET TREE NUMBER
         setTreeAnzahl(Math.ceil((userList.length + 1) / ballsPerTree));
         setCurrentTree(Math.ceil((userList.length + 1) / ballsPerTree) - 1);
-        console.log("Tree Anzahl: ", Math.ceil((userList.length + 1) / ballsPerTree));
-        console.log("Current Tree: ", Math.ceil((userList.length + 1) / ballsPerTree));
+        console.log(Array.from(allRef.current.querySelectorAll(".kugel")));
     }, []);
 
     // OPACITY CHECK DROPZONE WHEN DROPPED
@@ -148,7 +151,6 @@ const Raster = (props) => {
                 }
             }
         } else {
-            console.log("BLOOOCKED");
         }
         setFreeTree(false);
         setTimeout(() => {
@@ -158,46 +160,8 @@ const Raster = (props) => {
         console.log("Tree change", currentTree);
     }
 
-    // useEffect(() => {
-    //     // SET TREE NUMBER
-    //     const displacementAmount = 4; // Adjust this value for the amount of displacement
-
-    //     let arr = Array.from(allRef.current.querySelectorAll(".kugel"));
-    //     // RESET UNCLAIMED BG COLOR
-    //     arr.map((e, i) => {
-    //         e.style.background = "none";
-    //         //SHUFFLE POSITION A BIT
-    //         const randomX = Math.random() * displacementAmount - displacementAmount / 2;
-    //         const randomY = Math.random() * displacementAmount - displacementAmount / 2;
-    //         // e.style.transform = `translate(${randomX}px, ${randomY}px)`;
-    //     });
-    //     let arrClaimedID = userList.map((e) => e.id);
-    //     setTimeout(() => {
-    //         setKugelWidth(Array.from(allRef.current.querySelectorAll(".kugel"))[6].clientHeight);
-    //     }, 300);
-
-    //     arrClaimedID.map((e, i) => {
-    //         let random = Math.random() * 500;
-    //         let treeMuliplicator = currentTree * ballsPerTree;
-
-    //         setTimeout(() => {
-    //             if (arr[e - treeMuliplicator] !== undefined) {
-    //                 arr[e - treeMuliplicator].classList.remove("opacity-0");
-    //                 arr[e - treeMuliplicator].classList.add("opacity-100");
-    //                 arr[e - treeMuliplicator].style.background = userList[i].color;
-    //                 arr[e - treeMuliplicator].initialOpacity = 0;
-    //                 arr[e - treeMuliplicator].classList.add("bounce-in-fwd");
-    //                 arr[e - treeMuliplicator].addEventListener("animationend", (e) => {
-    //                     e.target.classList.remove("bounce-in-fwd");
-    //                 });
-    //             }
-    //         }, random);
-    //     });
-    // }, [userList, currentTree, ballsPerTree, masterCounter, counter]);
-
     useEffect(() => {
         document.body.classList.remove("overflow-hidden");
-
         let arr = Array.from(allRef.current.querySelectorAll(".kugel"));
 
         let arrClaimedID = userList.map((e) => e.id);
@@ -228,11 +192,14 @@ const Raster = (props) => {
     // HIDE BALLS FOR ANIMATION
     useEffect(() => {
         let arr = Array.from(allRef.current.querySelectorAll(".kugel"));
-        arr.map((e, i) => {
-            e.style.background = "none";
-            e.classList.remove("shine", "shadow-md");
-        });
-    }, [masterCounter]);
+        console.log(initialLoad);
+        initialLoad
+            ? null
+            : arr.map((e, i) => {
+                  e.style.background = "none";
+                  e.classList.remove("shine", "shadow-md");
+              });
+    }, [masterCounter, initialLoad]);
 
     return (
         <>
@@ -252,6 +219,7 @@ const Raster = (props) => {
                                 treeChanger("false");
                                 setAnimateTree("right");
                                 setSwipeCount((prev) => prev + 1);
+                                setInitialLoad(false);
                             }
                         }}
                     >
@@ -267,6 +235,7 @@ const Raster = (props) => {
                                 treeChanger("true");
                                 setAnimateTree("left");
                                 setSwipeCount((prev) => prev + 1);
+                                setInitialLoad(false);
                             }
                         }}
                     >
@@ -295,6 +264,7 @@ const Raster = (props) => {
                                 counter = counter + 1;
                                 //CHECK IF BALL IS CLAIMED OR NOT
                                 let claimed = userList.some((e) => e.id === counter - 1);
+                                console.log(userList);
                                 return (
                                     <Kugel
                                         key={i + "kugel"}
@@ -331,16 +301,14 @@ const Raster = (props) => {
                                         }
                                         isAnon={
                                             userList.some((e) => e.id === counter - 1) &&
-                                            userList[getIndex(userList, counter - 1)].anon
+                                            userList[getIndex(userList, counter - 1)].isAnonymus
                                         }
                                         avatrSrc={
                                             userList.some((e) => e.id === counter - 1)
                                                 ? userList[getIndex(userList, counter - 1)].image
                                                 : null
                                         }
-                                        // onClickAvatar={(e) => {
-                                        //     console.log(e);
-                                        // }}
+                                        onClickAvatar={(e) => {}}
                                         id={counter - 1}
                                         isClaimed={userList.some((e) => e.id === counter - 1) ? "true" : "false"}
                                         disabled={userList.some((e) => e.id === counter - 1) ? true : false}
@@ -406,14 +374,6 @@ const Raster = (props) => {
                                                     : "text-white"
                                                 : ""
                                         }
-                                        // name={
-                                        //     userList.some((e) => e.id === counter - 1)
-                                        //         ? userList[getIndex(userList, counter - 1)].name
-                                        //               .split(" ")
-                                        //               .map((n) => n[0])
-                                        //               .join(".")
-                                        //         : ""
-                                        // }
                                         abstand={kugelWidth}
                                         // check ob Index in dem Kunden Array vorhanden ist
                                         fullName={
@@ -438,7 +398,6 @@ const Raster = (props) => {
                                                 ? userList[getIndex(userList, counter - 1)].comment
                                                 : ""
                                         }
-                                        // winner={counter - 1 == 40 ? true : false}
                                     >
                                         {props.parent === counter - 1 ? (
                                             <Draggable
@@ -449,20 +408,11 @@ const Raster = (props) => {
                                                         : "text-white"
                                                 }`}
                                                 style={{
-                                                    // width: kugelWidth + "px",
-                                                    // height: kugelWidth + "px",
                                                     background: userData.color,
                                                     aspectRatio: 1 / 1,
                                                 }}
                                                 id="draggable"
-                                            >
-                                                {/* {userData.isAnonymous
-                                                ? "Anon"
-                                                : userData.name
-                                                      .split(" ")
-                                                      .map((n) => n[0])
-                                                      .join(".")} */}
-                                            </Draggable>
+                                            ></Draggable>
                                         ) : (
                                             ""
                                         )}

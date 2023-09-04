@@ -7,7 +7,7 @@ import Logo from "../../../assets/logoFull.svg";
 const Info = () => {
     return (
         <div width=" grid grid-cols-12 relative h-full bg-white">
-            <div className="col-span-12 p-4 lg:pt-4 xl:pt-10 sm:pt-4 pt-0 lg:p-10 bg-white">
+            <div className="col-span-12 p-4 lg:pt-4 xl:pt-10 sm:pt-4  lg:p-10 bg-white">
                 <H2>
                     Das Familienzentrum
                     <br /> Monikahaus

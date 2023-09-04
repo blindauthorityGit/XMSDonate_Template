@@ -32,7 +32,9 @@ const Kugel = (props, ref) => {
             // className={`kugel mx-1 lg:mx-1 flex h-full items-center text-bold  justify-center text-white ${props.size} ${props.klasse} rounded-full ${props.color} ${props.textColor}`}
             className={`kugel relative mx-1 lg:mx-1 flex h-full items-center text-bold ${
                 isOver ? "bg-red-600 " : ""
-            } justify-center text-white ${props.size} ${props.klasse} rounded-full ${props.color} ${props.textColor}`}
+            } justify-center text-white ${props.size} ${props.klasse} rounded-full scale-in-center ${props.color} ${
+                props.textColor
+            }`}
             id={props.id}
             data-isclaimed={props.isClaimed}
             // cat={props.cat}
@@ -63,7 +65,7 @@ const Kugel = (props, ref) => {
                 klasse={`absolute tooltip hidden z-50 lg:right-[${props.abstand}rem] bg-black py-4 lg:py-6 px-4 lg:px-6 min-w-[13rem] max-w-[18rem] md:min-w-[15rem] lg:font-bold rounded-xl ${props.toolTipColor} ${props.toolTipAfterColor}`}
                 name={props.fullName}
                 sum={props.sum}
-                isAnon={props.isAnon}
+                isAnonymus={props.isAnon}
                 comment={props.comment}
                 style={mergedToolTipStyle}
                 // ref={toolTipRef}

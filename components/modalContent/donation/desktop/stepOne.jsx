@@ -43,6 +43,9 @@ const StepOne = (props) => {
     // SUCCESS
     const setModalHeight = useStore((state) => state.setModalHeight);
 
+    // Button POsition
+    const [buttonPosition, setButtonPosition] = useState(false);
+
     //SIZE FOR DRAG BALL
     const [size, setSize] = useState(56);
 
@@ -54,7 +57,6 @@ const StepOne = (props) => {
     const [isDisabled, setIsDisabled] = useState(true);
 
     const handleContinueClick = (e) => {
-        console.log(process.env.NEXT_PAYPAL_LIVE);
         handleContinue(
             currentStep,
             userData,
@@ -162,7 +164,10 @@ const StepOne = (props) => {
                     key="dragor"
                     onNext={() => {
                         handleNext();
-                        setModalHeight("60%");
+                        setModalHeight("100%");
+                        console.log(buttonPosition);
+
+                        setButtonPosition(true);
                     }}
                     isDropped={props.isDropped}
                     isDragging={props.isDragging}
@@ -189,7 +194,13 @@ const StepOne = (props) => {
             {/* Add AnimatePresence here */}
             {currentStepComponent}
             <button onClick={handleContinueClick}></button>
-            <div className="absolute bottom-8 left-8 right-8 grid grid-cols-12 gap-4">
+            <div
+                className={`absolute  left-8 right-8 grid grid-cols-12 gap-4`}
+                style={{
+                    bottom: currentStep === 8 ? "auto" : "24px",
+                    marginBottom: currentStep === 8 ? "16px" : null,
+                }}
+            >
                 <div className="col-span-6">
                     {" "}
                     <MainButton disabled={disabledBack} onClick={handleBack} klasse="border-2 text-darkText">

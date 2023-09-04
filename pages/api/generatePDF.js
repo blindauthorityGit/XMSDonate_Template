@@ -92,7 +92,9 @@ export async function generatePDF(userData) {
             pdfDoc.moveDown();
             pdfDoc.moveDown();
 
-            pdfDoc.fontSize(10).text("Es handelt sich um den Verzicht auf Erstattung von Aufwendungen", { bold: true });
+            pdfDoc
+                .fontSize(10)
+                .text("Es handelt sich um den Verzicht auf Erstattung von Aufwendungen.", { bold: true });
 
             pdfDoc.moveDown();
             pdfDoc.moveDown();
@@ -157,7 +159,7 @@ export async function generatePDF(userData) {
             pdfDoc
                 .fontSize(6)
                 .text(
-                    "Diese Bestätigung wird nicht als Nachweis für die steuerliche Berücksichtigung der Zuwendung anerkannt, wenn das Datum des Freistellungsbescheides länger als 5 Jahre bzw. das Datum der Feststellung der Einhaltung der satzungsmäßigen Voraussetzungen nach § 60a Abs. 1 AO länger als 3 Jahre seit Ausstellung des Bescheides zurückliegt (§ 63 Abs. 5 AO)"
+                    "Diese Bestätigung wird nicht als Nachweis für die steuerliche Berücksichtigung der Zuwendung anerkannt, wenn das Datum des Freistellungsbescheides länger als 5 Jahre bzw. das Datum der Feststellung der Einhaltung der satzungsmäßigen Voraussetzungen nach § 60a Abs. 1 AO länger als 3 Jahre seit Ausstellung des Bescheides zurückliegt (§ 63 Abs. 5 AO)."
                 );
 
             pdfDoc.end();

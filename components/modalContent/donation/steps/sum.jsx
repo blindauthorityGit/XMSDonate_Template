@@ -66,7 +66,7 @@ function Sum(props) {
                             className="SUMINPUT border-b-2 w-full text-xl lg:text-2xl xl:text-5xl py-4 font-bold pl-4"
                             onChange={handleChange}
                             onBlur={handleBlur}
-                            placeholder="5,00,-"
+                            placeholder="5,00"
                             step="1"
                             // value={userData.sum ? userData.sum.toFixed(2) : ""}
                             value={userData.sum ? userData.sum : ""}
@@ -75,7 +75,7 @@ function Sum(props) {
                         {/* <span className="absolute inset-y-0 right-4 flex items-center">€</span> */}
                     </div>
                 </div>
-                <div className="col-span-9 py-4 flex items-center text-xl lg:text-2xl xl:text-5xl ">€</div>
+                <div className="col-span-9 py-4 flex items-center text-xl lg:text-2xl xl:text-5xl ">Euro</div>
             </motion.div>
         </div>
     );

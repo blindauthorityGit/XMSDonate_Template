@@ -120,7 +120,7 @@ export default function Home() {
         // setUserList(TestData);
         onBoarding ? setShowOverlay(true) : null;
         JSON.parse(process.env.NEXT_PUBLIC_DEV)
-            ? process.env.NEXT_PUBLIC_FILLER
+            ? JSON.parse(process.env.NEXT_PUBLIC_FILLER)
                 ? setUserList(dataFiller())
                 : setUserList(TestData)
             : fetchFirestoreData("donation")
@@ -180,6 +180,7 @@ export default function Home() {
                             setOnBoardingAndCookie(false);
                             setShowOverlay(false);
                             setShowUnclaimed(false);
+                            window.scrollTo({ top: 0, behavior: "smooth" });
                         }}
                     />
                 </OnBoardModal>

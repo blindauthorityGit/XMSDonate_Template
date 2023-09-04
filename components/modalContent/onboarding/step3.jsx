@@ -1,5 +1,7 @@
 // Step1.jsx
 import React from "react";
+import Image from "next/image";
+
 //TYPO
 import { H2, P } from "../../typography";
 import { MainButton } from "../../buttons";
@@ -14,7 +16,14 @@ const Step3 = ({ onNext }) => {
                 <H2>Kleiner Beitrag – große Wirkung</H2>
                 <div className="mb-6 xl:mb-8"></div>
 
-                <img src={BaumFull.src} alt="" />
+                {/* <img src={BaumFull.src} alt="" /> */}
+                <Image
+                    src={BaumFull}
+                    alt=""
+                    layout="responsive" // Choose "responsive" or "fixed"
+                    objectFit="cover" // Choose "cover", "contain", etc.
+                    className="w-[60%] sm:w-[100%]"
+                />
                 <div className="mb-4 xl:mb-8"></div>
 
                 <P>
@@ -23,17 +32,25 @@ const Step3 = ({ onNext }) => {
                     Kugel oder spenden Sie einfach anonym.
                 </P>
                 <div className="mb-4 xl:mb-66"></div>
-                <P klasse="font-bold">
-                    Jede Spende geht direkt an das Familienzentrum Monikahaus, das von Sozialdienst katholischer Frauen
-                    e.V., Ortsverein Frankfurt, getragen wird. Damit unterstützen Sie unsere Arbeit und schenken unseren
-                    Kindern und Jugendlichen mehr Teilhabe am gesellschaftlichen Leben und damit eine bessere Zukunft.
+                <P>
+                    <strong>
+                        {" "}
+                        Jede Spende geht direkt an das Familienzentrum Monikahaus, das von Sozialdienst katholischer
+                        Frauen e.V., Ortsverein Frankfurt, getragen wird.
+                    </strong>{" "}
+                    <br />
+                    Damit unterstützen Sie unsere Arbeit und schenken unseren Kindern und Jugendlichen mehr Teilhabe am
+                    gesellschaftlichen Leben und damit eine bessere Zukunft.
                 </P>
                 <div className="mb-4 xl:mb-66"></div>
                 <P klasse="font-bold">Machen Sie mit! Jeder Beitrag zählt! </P>
                 {/* <img src={Logo.src} alt="" /> */}
                 <div className="mb-4 xl:mb-66"></div>
-                <div className="flex justify-end w-full mb-12">
-                    <MainButton onClick={onNext} klasse="border-2 text-greenColor-50 bg-greenColor mt-4 text-darkText">
+                <div className="flex justify-end w-full lg:bottom-8 lg:absolute lg:right-8">
+                    <MainButton
+                        onClick={onNext}
+                        klasse="border-2 text-greenColor-50 bg-greenColor mt-4 text-darkText mb-12"
+                    >
                         Los geht&apos;s!
                     </MainButton>
                 </div>

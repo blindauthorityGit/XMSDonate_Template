@@ -53,7 +53,7 @@ const Goal = (props) => {
                         percentage == 100 ? "font-bold" : ""
                     } then absolute text-xs xl:text-base font-semibold pt-2 sm:pt-4 top-0 right-0`}
                 >
-                    EUR {goal.toLocaleString("de")},-
+                    {goal.toLocaleString("de")} Euro
                 </div>
 
                 <div className="balken border  border-dashed h-3 rounded-3xl border-darkText sm:h-4 w-full relative">
@@ -73,7 +73,7 @@ const Goal = (props) => {
                             ref={countRef}
                             className="now absolute text-text text-xs xl:text-base right-0 top-3 sm:top-6"
                         >
-                            {showCounter && <>EUR {sum.toLocaleString("de")},-</>}
+                            {showCounter && <> {sum.toLocaleString("de")} Euro</>}
                         </div>
                     </motion.div>
                 </div>

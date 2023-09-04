@@ -30,11 +30,11 @@ const Step1 = ({ onNext }) => {
                     Machen Sie mit bei unserer Spendenaktion und unterstützen Sie das Familienzentrum Monikahaus dabei,
                     unseren Kindern und Jugendlichen eine bessere Perspektive zu bieten.{" "}
                 </P>
-                <div className="mb-4 xl:mb-66"></div>
+                <div className="mb-4 lg:mb-12 xl:mb-66"></div>
 
                 <img src={Logo.src} alt="" />
                 <div className="mb-4 xl:mb-66"></div>
-                <div className="flex justify-end w-full">
+                <div className="flex justify-end w-full lg:bottom-8 lg:absolute lg:right-8">
                     <MainButton onClick={onNext} klasse="border-2 mt-4 text-darkText mb-12">
                         Weiter
                     </MainButton>

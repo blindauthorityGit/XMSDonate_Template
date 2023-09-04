@@ -30,7 +30,15 @@ const Step2 = ({ onNext }) => {
                     </strong>
                 </P>
                 <div className="mb-4 xl:mb-66"></div>
-                <div className="flex justify-end w-full">
+
+                <P>
+                    <strong>
+                        Insbesondere möchten wir zwei Werkräume und zwei Fahrradwerkstatträume für die Kinder und
+                        Jugendlichen einrichten.
+                    </strong>
+                </P>
+                <div className="mb-4 xl:mb-66"></div>
+                <div className="flex justify-end w-full lg:bottom-8 lg:absolute lg:right-8">
                     {/* <img src={Logo.src} alt="" /> */}
                     <MainButton onClick={onNext} klasse="border-2 mt-4 text-darkText mb-12">
                         Weiter

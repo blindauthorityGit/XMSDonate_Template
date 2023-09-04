@@ -33,7 +33,7 @@ const Success = ({ onNext }) => {
                 userData: userData,
             });
 
-            setSuccessMessage("Email versand, sehen Sie in Ihr Postfach.");
+            setSuccessMessage("Die Spendenquittung wurde an die von Ihnen angegebene E-MailAdresse verschickt..");
         } catch (error) {
             setErrorMessage("Error sending email. Please try again.");
         } finally {

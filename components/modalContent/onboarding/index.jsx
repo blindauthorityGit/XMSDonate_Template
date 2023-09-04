@@ -7,6 +7,8 @@ const Index = ({ onClose }) => {
     const [currentStep, setCurrentStep] = useState(1);
 
     const handleNextStep = () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+
         setCurrentStep(currentStep + 1);
     };
 

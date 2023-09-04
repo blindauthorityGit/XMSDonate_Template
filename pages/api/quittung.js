@@ -33,9 +33,19 @@ export default async function handler(req, res) {
             to: email, // Recipient's email address
             subject: "Quittung für Ihre Spende",
             html: `<p>Hallo ${userData.name ? userData.name : "Anonymer Spender"}, </p>
-            <p>vielen Dank für die Spende von EUR ${userData.sum},-! </p>
+            <p>vielen Dank für Ihre Spende in der Höhe von ${userData.sum} Euro. </p>
             <p>Hier ist Ihre Quittung:</p>
-            <a href="${pdfData.downloadURL}">Klicken Sie hier, um die Quittung herunterzuladen</a>
+            <a href="${pdfData.downloadURL}">Die Spendenquittung können Sie hier herunterladen.</a>
+            <p>Haben Sie Fragen?<br>
+            Kontaktieren Sie uns gerne
+            unter <strong> spenden@skffrankfurt.de </strong> </p>
+            <p>Wir wünschen Ihnen und
+            Ihrer Familie frohe
+            Weihnachten</p>
+            <p>Das Team des
+            Familienzentrums
+            Monikahaus</p>
+            
             `,
 
             // attachments: [

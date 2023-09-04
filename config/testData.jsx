@@ -93,8 +93,9 @@ const TestData = [
     {
         id: 16,
         claimed: true,
-        name: "Bubu Bernhard",
+        name: "",
         sum: 35,
+        isAnonymus: true,
         color: colors.kugeln[3],
     },
     {
@@ -102,6 +103,7 @@ const TestData = [
         claimed: true,
         name: "Edeltraud Wippenberger",
         sum: 35,
+        isAnonymus: false,
         color: colors.kugeln[1],
         comment: "Shut up and take my money!",
     },

@@ -60,11 +60,12 @@ const DonatorList = () => {
         if (listItemHeight > 1) {
             const ratio =
                 windowSize.innerHeight > 768 && windowSize.innerWidth > 450
-                    ? 0.65
+                    ? 0.8
                     : windowSize.innerWidth < 450
-                    ? 0.55
-                    : 0.58;
+                    ? 0.75
+                    : 0.78;
             setItemsPerPage(Math.floor((windowSize.innerHeight * ratio) / (listItemHeight + listItemHeight * 0.05)));
+            console.log(Math.floor((windowSize.innerHeight * ratio) / (listItemHeight + listItemHeight * 0.05)));
             console.log(listItemHeight, ratio, windowSize.innerHeight);
         }
     }, [listItemHeight, windowSize.innerHeight]);
@@ -144,7 +145,7 @@ const DonatorList = () => {
 
     return (
         <div width=" grid grid-cols-12 relative h-full">
-            <div className="col-span-12 p-4 lg:pt-4 xl:pt-10 pt-0 sm:pt-4 lg:p-10">
+            <div className="col-span-12 p-4 lg:pt-4 xl:pt-10  sm:pt-4 lg:p-10">
                 <H2>Vielen Dank an:</H2>
                 <div className="mb-6 xl:mb-8"></div>
                 {items && (
@@ -182,7 +183,9 @@ const DonatorList = () => {
                 containerClassName={
                     "pagination  flex justify-center items-center mt-5 absolute bottom-2 xl:bottom-6 w-full"
                 }
-                pageClassName={"page-item  p-2 w-6 h-6 flex items-center justify-center lg:h-10 lg:w-10 text-center"}
+                pageClassName={
+                    "page-item text-xs lg:text-sm p-2 w-6 h-6 flex items-center justify-center lg:h-10 lg:w-10 text-center"
+                }
                 pageLinkClassName={"page-link "}
                 previousClassName={"page-item pr-5"}
                 previousLinkClassName={"page-link"}

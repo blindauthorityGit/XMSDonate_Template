@@ -46,10 +46,19 @@ const BaumGraphic = () => {
             setAnimationEndCounter(randomString);
         };
 
-        ref.current.classList.add(animateTree == "right" ? "slide-out-right" : "slide-out-left");
-
-        // Listen for the "animationend" event
-        ref.current.addEventListener("animationend", handleAnimationEnd);
+        if (animateTree === "right") {
+            ref.current.classList.add("slide-out-right");
+            ref.current.removeEventListener("animationend", handleAnimationEnd);
+            ref.current.addEventListener("animationend", handleAnimationEnd);
+        } else if (animateTree === "left") {
+            ref.current.classList.add("slide-out-left");
+            ref.current.removeEventListener("animationend", handleAnimationEnd);
+            ref.current.addEventListener("animationend", handleAnimationEnd);
+        } else {
+            // Reset any animation classes and remove event listener
+            ref.current.classList.remove("slide-out-right", "slide-out-left");
+            ref.current.removeEventListener("animationend", handleAnimationEnd);
+        }
 
         return () => {
             ref.current.removeEventListener("animationend", handleAnimationEnd);

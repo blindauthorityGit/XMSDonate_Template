@@ -20,7 +20,10 @@ function ListItem(props, ref) {
     const testRef = useRef();
 
     useEffect(() => {
-        setListItemHeight(testRef.current.clientHeight);
+        // SET HEIGHT INCLUDING MARGIN
+        setListItemHeight(testRef.current.offsetHeight + 16);
+        console.log(props.e);
+        console.log(props.e.isAnonymus);
     }, []);
 
     return (
@@ -43,9 +46,9 @@ function ListItem(props, ref) {
                 // key={props.keyProp}
             >
                 <div className="left pr-6 h-full">
-                    {props.e.anon ? (
+                    {props.e.isAnonymus ? (
                         <div className="text-6xl">
-                            <img className="w-16 h-16" src={Avatar.src} alt="" />
+                            <img className="w-10 h-10 lg:w-12 lg:h-12 xl:w-16 xl:h-16" src={Avatar.src} alt="" />
                         </div>
                     ) : (
                         <div className="text-6xl h-full w-full">
@@ -61,7 +64,7 @@ function ListItem(props, ref) {
                     )}
                 </div>
                 <div className="right text-xs sm:text-base lg:text-sm xl:text-base w-[55%] lg:w-[55%] xl:w-[66%]">
-                    <strong>{!props.e.anon ? props.e.name : "Anonymer Spender"}</strong>
+                    <strong>{!props.e.isAnonymus ? props.e.name : "Anonymer Spender"}</strong>
                     <br />
 
                     {props.e.comment && (
@@ -74,7 +77,11 @@ function ListItem(props, ref) {
                     )}
                 </div>
                 <div className="sum font-bold text-xs sm:text-base lg:text-sm xl:text-base">
-                    EUR {props.e.sum.toLocaleString("DE")},-
+                    {props.e.sum.toLocaleString("de-DE", {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2,
+                    })}{" "}
+                    Euro
                 </div>
             </motion.li>
             <hr />
