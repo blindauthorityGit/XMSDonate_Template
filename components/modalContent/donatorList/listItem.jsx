@@ -22,8 +22,6 @@ function ListItem(props, ref) {
     useEffect(() => {
         // SET HEIGHT INCLUDING MARGIN
         setListItemHeight(testRef.current.offsetHeight + 16);
-        console.log(props.e);
-        console.log(props.e.isAnonymus);
     }, []);
 
     return (

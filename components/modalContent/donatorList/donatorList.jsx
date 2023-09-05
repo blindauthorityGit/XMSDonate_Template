@@ -57,16 +57,36 @@ const DonatorList = () => {
     // };
 
     useEffect(() => {
+        console.log(windowSize.innerHeight);
         if (listItemHeight > 1) {
-            const ratio =
-                windowSize.innerHeight > 768 && windowSize.innerWidth > 450
-                    ? 0.8
-                    : windowSize.innerWidth < 450
-                    ? 0.75
-                    : 0.78;
-            setItemsPerPage(Math.floor((windowSize.innerHeight * ratio) / (listItemHeight + listItemHeight * 0.05)));
-            console.log(Math.floor((windowSize.innerHeight * ratio) / (listItemHeight + listItemHeight * 0.05)));
-            console.log(listItemHeight, ratio, windowSize.innerHeight);
+            const calculateValue = () => {
+                if (windowSize.innerHeight > 768 && windowSize.innerWidth > 450) {
+                    return 0.8;
+                } else if (windowSize.innerWidth < 450 && windowSize.innerWidth >= 321) {
+                    return 0.75;
+                } else if (windowSize.innerWidth < 321) {
+                    return 0.7; // Add your desired value for window sizes less than 321
+                } else {
+                    return 0.78;
+                }
+            };
+            // const ratio =
+            //     windowSize.innerHeight > 768 && windowSize.innerWidth > 450
+            //         ? 0.8
+            //         : windowSize.innerWidth < 450
+            //         ? 0.75
+            //         : 0.78;
+            setItemsPerPage(
+                Math.floor((windowSize.innerHeight * calculateValue()) / (listItemHeight + listItemHeight * 0.05))
+            );
+            console.log(
+                Math.floor((windowSize.innerHeight * calculateValue()) / (listItemHeight + listItemHeight * 0.05))
+            );
+            console.log(
+                listItemHeight,
+                windowSize.innerHeight * calculateValue(),
+                Math.floor((windowSize.innerHeight * calculateValue()) / listItemHeight)
+            );
         }
     }, [listItemHeight, windowSize.innerHeight]);
 

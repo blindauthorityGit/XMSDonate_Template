@@ -264,7 +264,6 @@ const Raster = (props) => {
                                 counter = counter + 1;
                                 //CHECK IF BALL IS CLAIMED OR NOT
                                 let claimed = userList.some((e) => e.id === counter - 1);
-                                console.log(userList);
                                 return (
                                     <Kugel
                                         key={i + "kugel"}

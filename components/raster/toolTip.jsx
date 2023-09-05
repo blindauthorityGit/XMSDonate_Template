@@ -1,14 +1,9 @@
-import React, { forwardRef, useEffect } from "react";
-import { BsPersonCircle } from "react-icons/bs";
+import React, { forwardRef } from "react";
 
 //ASSETS
 import Avatar from "../../assets/avatar.svg";
 
 const ToolTip = (props) => {
-    useEffect(() => {
-        // console.log(props.avatrSrc[0].data_url);
-    }, [props.avatrSrc]);
-
     return (
         <div
             onMouseLeave={props.onMouseLeave}

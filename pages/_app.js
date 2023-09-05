@@ -7,6 +7,8 @@ import Overlay from "../components/overlay";
 
 import scrollToTop from "../functions/scrollToTop";
 
+import { CookieConsentComponent } from "../components/cookie";
+
 //STORE
 import useStore from "../store/store"; // Import the zustand store
 
@@ -56,6 +58,7 @@ function MyApp({ Component, pageProps }) {
         <>
             {/* ...other components */}
             {showOverlay && <Overlay onClick={handleOverlayClick} />} {/* Render the overlay if showOverlay is true */}
+            <CookieConsentComponent />
             <Component {...pageProps} setShowOverlay={setShowOverlay} /> {/* Pass setShowOverlay to child components */}
         </>
     );

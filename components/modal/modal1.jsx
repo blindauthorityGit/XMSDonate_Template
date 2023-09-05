@@ -10,6 +10,7 @@ const Modal = ({ onClose, children }) => {
     const modalPosition = useStore((state) => state.modalPosition);
     const closeModal = useStore((state) => state.closeModal);
     const modalHeight = useStore((state) => state.modalHeight);
+    const setModalHeight = useStore((state) => state.setModalHeight);
     // const setModalHeight = useStore((state) => state.setModalHeight);
 
     useEffect(() => {
@@ -65,10 +66,15 @@ const Modal = ({ onClose, children }) => {
 
         window.addEventListener("resize", handleResize);
 
+        if (window.innerWidth < 321) {
+            // Conditionally execute handleNext() based on window width
+            setModalHeight("66%");
+        }
+
         return () => {
             window.removeEventListener("resize", handleResize);
         };
-    }, []);
+    }, [window.innerWidth]);
 
     return (
         <AnimatePresence>

@@ -1,12 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-//COMPS
+// COMPS
 import { CoverImage } from "../images";
 
-//ASSETS
+// ASSETS
 import Snowman from "../../assets/snowman.svg";
 
 const SnowmanGraphic = () => {
+    const [windowWidth, setWindowWidth] = useState(0);
+
+    useEffect(() => {
+        // Update the window width when the component mounts
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+
+        // Attach the event listener
+        window.addEventListener("resize", handleResize);
+
+        // Call the handleResize function initially to set the initial window width
+        handleResize();
+
+        // Clean up the event listener when the component unmounts
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
+    // Render the component only if the window width is above 320px
+    if (windowWidth <= 320) {
+        return null; // Return null to render nothing
+    }
+
     return (
         <>
             <CoverImage

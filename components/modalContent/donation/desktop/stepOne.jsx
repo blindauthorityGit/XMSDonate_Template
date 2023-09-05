@@ -69,7 +69,8 @@ const StepOne = (props) => {
             closeModal,
             setShowUnclaimed,
             saveUserDataToFirestore,
-            fetchFirestoreData
+            fetchFirestoreData,
+            setModalHeight
         );
     };
 

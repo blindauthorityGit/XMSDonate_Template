@@ -4,6 +4,7 @@ import { motion, sync, useCycle } from "framer-motion";
 import FloaterButton from "./floatButton";
 // ICONS
 import { BsFillPeopleFill, BsFillInfoCircleFill } from "react-icons/bs";
+import { AiOutlineSafetyCertificate } from "react-icons/ai";
 
 const StartFloaterFull = (props) => {
     const sidebar = {
@@ -31,8 +32,11 @@ const StartFloaterFull = (props) => {
             <FloaterButton klasse="flex justify-center items-center mb-2" onClick={props.onClickPeople}>
                 <BsFillPeopleFill />
             </FloaterButton>
-            <FloaterButton klasse="flex justify-center items-center" onClick={props.onClickInfo}>
+            <FloaterButton klasse="flex justify-center items-center mb-2" onClick={props.onClickInfo}>
                 <BsFillInfoCircleFill />
+            </FloaterButton>
+            <FloaterButton klasse="flex justify-center items-center" onClick={props.onClickPrivacy}>
+                <AiOutlineSafetyCertificate />
             </FloaterButton>
         </div>
     );

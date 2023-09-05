@@ -6,7 +6,6 @@ export default function animateWithClass(element, animationClass, onAnimationEnd
     element.addEventListener("animationend", () => {
         // Remove the animation class after the animation ends
         element.classList.remove(animationClass);
-        console.log("ANIMATION HAS ENBDEN");
         // Execute the provided onAnimationEnd function if it exists
         if (onAnimationEnd && typeof onAnimationEnd === "function") {
             onAnimationEnd();

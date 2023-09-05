@@ -18,6 +18,7 @@ const OnBoardModal = dynamic(() => import("../components/modal/onBoardModal"), {
 import DonatorList from "../components/modalContent/donatorList/donatorList";
 import OnboardingContent from "../components/modalContent/onboarding";
 import Info from "../components/modalContent/info";
+import Privacy from "../components/modalContent/privacy";
 import { Desktop } from "../components/modalContent/donation";
 import { SuccessModalContent } from "../components/modalContent/success";
 
@@ -123,7 +124,7 @@ export default function Home() {
             ? JSON.parse(process.env.NEXT_PUBLIC_FILLER)
                 ? setUserList(dataFiller())
                 : setUserList(TestData)
-            : fetchFirestoreData("donation")
+            : fetchFirestoreData(JSON.parse(process.env.NEXT_PUBLIC_LIVE_DB) ? "live" : "donation")
                   .then((data) => {
                       setUserList(data);
                   })
@@ -211,6 +212,11 @@ export default function Home() {
                         setShowOverlay(true);
                         handleToggleComponent("info");
                     }}
+                    onClickPrivacy={() => {
+                        setSidebarOpen(true);
+                        setShowOverlay(true);
+                        handleToggleComponent("privacy");
+                    }}
                 ></StartFloaterFull>
                 <DndContext collisionDetection={closestCenter} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
                     {isModalOpen && (
@@ -238,6 +244,7 @@ export default function Home() {
                         >
                             {activeComponent === "info" && <Info />}
                             {activeComponent === "donorList" && <DonatorList />}
+                            {activeComponent === "privacy" && <Privacy />}
                         </ModalSidebar>
                     )}
                     <div className="col-span-12 container mx-auto grid grid-cols-12 min-h-[100svh] z-20 px-8 lg:px-0">

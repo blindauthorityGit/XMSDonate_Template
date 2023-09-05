@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import dynamic from "next/dynamic";
 import { isBrowser, isMobile } from "react-device-detect";
 
 //COMPS
@@ -11,9 +10,6 @@ import BoyBrownGraphic from "./boyBrown";
 import SnowmanGraphic from "./snowman";
 import Baum from "./baum";
 import { Raster } from "../raster";
-// const { Raster } = dynamic(() => import("../raster"), {
-//     ssr: false,
-// });
 
 //FUNCTIONS
 import animateWithClass from "../../functions/animateWithClass";
@@ -26,14 +22,19 @@ import { baumstumpfHeight } from "../../config";
 
 const Full = (props) => {
     const dimensions = useStore((state) => state.dimensions);
+    //GLOBAL ANIMATION TREE STATE
+    const animateTree = useStore((state) => state.animateTree);
+    const setAnimateTree = useStore((state) => state.setAnimateTree);
+
+    //ANIMATION TRACKER
+    const swipeCount = useStore((state) => state.swipeCount);
+
+    //BAUMREF
+    const ref = useRef();
 
     useEffect(() => {
-        console.log(dimensions, dimensions.height);
-        if (isBrowser) {
-            // Only log isMobile if we are in the browser environment
-            console.log(isMobile);
-        }
-    }, [dimensions]);
+        animateWithClass(ref.current, animateTree == "right" ? "slide-out-right" : "slide-out-left");
+    }, [animateTree, swipeCount]);
 
     return (
         <div>
@@ -44,12 +45,12 @@ const Full = (props) => {
             >
                 {" "}
                 <div
+                    ref={ref}
                     className={`w-full lg:pl-6 xl:pl-6`}
                     style={{ height: dimensions.height - dimensions.height * baumstumpfHeight + "px" }}
                 >
                     <Raster parent={props.parent}></Raster>
                 </div>
-                {/* BaumGraphic component */}
                 <Baum />
             </div>
             <SnowmanGraphic />

@@ -21,8 +21,8 @@ const Step3 = ({ onNext }) => {
                     src={BaumFull}
                     alt=""
                     layout="responsive" // Choose "responsive" or "fixed"
-                    objectFit="cover" // Choose "cover", "contain", etc.
-                    className="w-[60%] sm:w-[100%]"
+                    objectFit="contain" // Choose "cover", "contain", etc.
+                    className="w-[60%] sm:w-[100%] md:max-w-[50%]"
                 />
                 <div className="mb-4 xl:mb-8"></div>
 
