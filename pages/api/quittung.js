@@ -38,7 +38,7 @@ export default async function handler(req, res) {
             <a href="${pdfData.downloadURL}">Die Spendenquittung können Sie hier herunterladen.</a>
             <p>Haben Sie Fragen?<br>
             Kontaktieren Sie uns gerne
-            unter <strong> spenden@skffrankfurt.de </strong> </p>
+            unter <strong> spenden@skf-frankfurt.de </strong> </p>
             <p>Wir wünschen Ihnen und
             Ihrer Familie frohe
             Weihnachten</p>

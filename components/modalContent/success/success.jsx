@@ -33,7 +33,7 @@ const Success = ({ onNext }) => {
                 userData: userData,
             });
 
-            setSuccessMessage("Die Spendenquittung wurde an die von Ihnen angegebene E-MailAdresse verschickt..");
+            setSuccessMessage("Die Spendenquittung wurde an die von Ihnen angegebene E-Mail Adresse verschickt.");
         } catch (error) {
             setErrorMessage("Error sending email. Please try again.");
         } finally {
@@ -55,7 +55,7 @@ const Success = ({ onNext }) => {
                         <form className="w-full flex flex-col items-center" onSubmit={handleSendEmail}>
                             <input
                                 type="email"
-                                placeholder="Ihre Email"
+                                placeholder="E-Mail-Adresse"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 className="border border-gray-300 rounded-sm px-3 py-2"
@@ -88,7 +88,7 @@ const Success = ({ onNext }) => {
                     <P klasse="font-semibold text-center">Das Team des Familienzentrums Monikahaus</P>
                     <div className="mb-4 xl:mb-66"></div>
                     <P klasse="font-semibold text-center">
-                        <a href="https://www.monikahaus.de">www.monikahaus.de</a>{" "}
+                        <a href="https://www.skf-frankfurt.de/">www.monikahaus.de</a>{" "}
                     </P>
 
                     {/* <img src={Logo.src} alt="" />

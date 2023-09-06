@@ -36,7 +36,7 @@ const Info = () => {
                     60326 Frankfurt am Main
                     <br></br>
                     <br></br>
-                    <a className="font-semibold underline hover:opacity-70" href="https://www.monikahaus.de">
+                    <a className="font-semibold underline hover:opacity-70" href="https://www.skf-frankfurt.de/">
                         www.monikahaus.de
                     </a>
                     <br></br>

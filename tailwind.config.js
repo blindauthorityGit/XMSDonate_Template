@@ -19,7 +19,7 @@ module.exports = {
                 md: "640px",
                 lg: "840px",
                 xl: "1040px",
-                "2xl": "1370px",
+                "2xl": "1367px",
                 "3xl": "2560px", // Adjust container width for 2880px
             },
         },
@@ -87,5 +87,31 @@ module.exports = {
             width: ["responsive"],
         },
     },
-    plugins: [],
+    corePlugins: {
+        container: false,
+    },
+    plugins: [
+        function ({ addComponents }) {
+            addComponents({
+                ".container": {
+                    width: "100%",
+                    "@screen sm": {
+                        maxWidth: "640px",
+                    },
+                    "@screen md": {
+                        maxWidth: "768px",
+                    },
+                    "@screen lg": {
+                        maxWidth: "1024px",
+                    },
+                    "@screen xl": {
+                        maxWidth: "1120px",
+                    },
+                    "@screen 2xl": {
+                        maxWidth: "1480px",
+                    },
+                },
+            });
+        },
+    ],
 };

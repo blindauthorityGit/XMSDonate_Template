@@ -42,7 +42,7 @@ export async function generatePDF(userData) {
                 const pdfBuffer = Buffer.concat(chunks);
 
                 // Upload the PDF buffer to Firebase Cloud Storage
-                const pdfRef = ref(storage, `pdfs/${userData.id}.pdf`);
+                const pdfRef = ref(storage, `pdfs/SkF-Spende-${userData.name}-${userData.id}-${formattedDate}.pdf`);
                 await uploadBytes(pdfRef, pdfBuffer);
 
                 // Get the download URL of the uploaded PDF
@@ -102,7 +102,7 @@ export async function generatePDF(userData) {
             pdfDoc
                 .fontSize(8)
                 .text(
-                    "Wir sind nach dem letzten uns zugegangenen Steuerbescheid/Freistellungsbescheid des Finanzamtes als gemeinnützig und mildtätigen Zwecken dienend anerkannt und nach § 5 Abs.1 Nr. 9 des Körperschaftsteuergesetzes von der Körperschaftsteuer und nach § 3 Nr. 6 des Gewerbesteuergesetzes von der Gewerbesteuer befreit."
+                    "Wir sind nach dem letzten uns zugegangenen Steuerbescheid/Freistellungsbescheid des Finanzamtes als gemeinnützig und mildtätigen Zwecken dienend anerkannt und nach § 5 Abs. 1 Nr. 9 des Körperschaftsteuergesetzes von der Körperschaftsteuer und nach § 3 Nr. 6 des Gewerbesteuergesetzes von der Gewerbesteuer befreit."
                 );
 
             pdfDoc.moveDown();
