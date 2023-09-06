@@ -7,7 +7,7 @@ const ToolTip = (props) => {
     return (
         <div
             onMouseLeave={props.onMouseLeave}
-            className={`tooltip font-sans z-[51] ${props.klasse}`}
+            className={`tooltip font-sans transition-all duration-200 z-[51] ${props.klasse}`}
             style={props.style}
         >
             {props.avatrSrc ? (
@@ -41,7 +41,14 @@ const ToolTip = (props) => {
                         <div className="font-rucksack  font-bold">
                             {props.isAnonymus ? "Anonymer Spender" : props.name}
                         </div>
-                        <div>EUR {props.sum} ,-</div>
+                        <div>
+                            {" "}
+                            {props.sum.toLocaleString("de-DE", {
+                                minimumFractionDigits: 2,
+                                maximumFractionDigits: 2,
+                            })}{" "}
+                            Euro
+                        </div>
                     </div>
                 </div>
             ) : (
@@ -57,7 +64,14 @@ const ToolTip = (props) => {
                         <div className="font-rucksack  font-bold">
                             {props.isAnonymus ? "Anonymer Spender" : props.name}
                         </div>{" "}
-                        <div>EUR {props.sum.toLocaleString("de")} ,-</div>
+                        <div>
+                            {" "}
+                            {props.sum.toLocaleString("de-DE", {
+                                minimumFractionDigits: 2,
+                                maximumFractionDigits: 2,
+                            })}{" "}
+                            Euro
+                        </div>
                     </div>
                 </div>
             )}

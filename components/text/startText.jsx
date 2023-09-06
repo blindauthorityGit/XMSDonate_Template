@@ -21,12 +21,13 @@ const StartText = () => {
     const openModal = useStore((state) => state.openModal);
     const setModalPosition = useStore((state) => state.setModalPosition);
 
+    //GET TO THE LAST TREE
+    const setGetToLastTree = useStore((state) => state.setGetToLastTree);
+
     //MODAL FUNCION
     const handleModal = (event) => {
         openModal(event.clientX, event.clientY);
         setModalPosition({ x: event.clientX, y: event.clientY });
-
-        console.log(event.clientX, event.clientY);
     };
 
     return (
@@ -41,6 +42,7 @@ const StartText = () => {
                     setShowUnclaimed(!showUnclaimed);
                     setShowOverlay(true);
                     handleModal(e);
+                    setGetToLastTree(true);
                 }}
                 klasse={"bg-primaryColor hover:bg-primaryColor-950 mt-8 text-white z-[60]"}
             >

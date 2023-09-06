@@ -61,10 +61,12 @@ a {
           transform: translate(-50%, -50%) rotate(45deg);
   /* Center the ::before element and apply rotation */
   font-size: 2rem;
-  top: 0%;
-  left: 50%;
+  top: var(--custom-top);
+  left: var(--custom-left);
   z-index: 1;
   /* Set z-index higher to be above the tooltip content */
+  -webkit-transition: all ease-in-out 200ms;
+  transition: all ease-in-out 200ms;
 }
 
 .pagination .active {

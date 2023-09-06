@@ -6,8 +6,14 @@ import { CoverImage } from "../images";
 // ASSETS
 import GirlBlack from "../../assets/girlBlack.svg";
 
+//STORE
+import useStore from "../../store/store"; // Import the zustand store
+
 const GirlBlackGraphic = () => {
     const [windowWidth, setWindowWidth] = useState(0);
+
+    //TOOLTIP OPEN FLAG FOR ZINDEX OF GRAPHICS
+    const tooltipOpen = useStore((state) => state.tooltipOpen);
 
     useEffect(() => {
         // Update the window width when the component mounts
@@ -41,7 +47,7 @@ const GirlBlackGraphic = () => {
                 position="absolute"
                 height="251px" // Set the desired height of the background image
                 width="169px"
-                style={{ aspectRatio: "110 / 164" }}
+                style={{ aspectRatio: "110 / 164", zIndex: tooltipOpen ? 10 : null }}
                 className="z-30 lg:z-[10] bottom-[28%] sm:bottom-[20%] lg:bottom-[8%] xl:top-auto xl:bottom-[12%] left-[10%] sm:left-[12%] lg:left-[10%] xl:left-[12%] w-[22vw] md:w-[18vw] lg:w-[10vw] h-auto xl:w-[18vh] xl:h-[auto]"
             />
         </>

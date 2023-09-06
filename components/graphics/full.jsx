@@ -32,9 +32,9 @@ const Full = (props) => {
     //BAUMREF
     const ref = useRef();
 
-    useEffect(() => {
-        animateWithClass(ref.current, animateTree == "right" ? "slide-out-right" : "slide-out-left");
-    }, [animateTree, swipeCount]);
+    // useEffect(() => {
+    //     animateWithClass(ref.current, animateTree == "right" ? "slide-out-right" : "slide-out-left");
+    // }, [animateTree, swipeCount]);
 
     return (
         <div>

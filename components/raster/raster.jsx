@@ -27,6 +27,9 @@ import { useSwipeable } from "react-swipeable";
 // ICONS
 import { FaChevronCircleLeft, FaChevronCircleRight } from "react-icons/fa";
 
+//FUNTIONS
+import isElementOverflowing from "../../functions/isElementOverflowing";
+
 const Raster = (props) => {
     //GLOBAL USER DATA STATE
     const userData = useStore((state) => state.userData);
@@ -67,6 +70,13 @@ const Raster = (props) => {
     //ANIMATION END TREE
     const animationEndCounter = useStore((state) => state.animationEndCounter);
 
+    //TOOLTIP OPEN FLAG FOR ZINDEX OF GRAPHICS
+    const setTooltipOpen = useStore((state) => state.setTooltipOpen);
+
+    //HOP TO THE LAST TREE
+    const getToLastTree = useStore((state) => state.getToLastTree);
+    const setGetToLastTree = useStore((state) => state.setGetToLastTree);
+
     //INITIAL FLAG
     const [initialLoad, setInitialLoad] = useState(true);
 
@@ -96,11 +106,6 @@ const Raster = (props) => {
     });
 
     useEffect(() => {
-        console.log(animateTree);
-    }, [animateTree]);
-
-    useEffect(() => {
-        console.log(ballsPerTree * currentTree);
         setMasterCounter(ballsPerTree * currentTree);
     }, [ballsPerTree, treeAnzahl, currentTree]);
 
@@ -108,21 +113,36 @@ const Raster = (props) => {
         // SET TREE NUMBER
         setTreeAnzahl(Math.ceil((userList.length + 1) / ballsPerTree));
         setCurrentTree(Math.ceil((userList.length + 1) / ballsPerTree) - 1);
-        console.log(Array.from(allRef.current.querySelectorAll(".kugel")));
     }, []);
+
+    //WHEN CLICK ON START WITH MULTIPLE TREES HOP TO LAST TREE IF ANY OTHER IS CURRENT
+    const slideToLastTree = () => {
+        if (currentTree !== treeAnzahl - 1) {
+            treeChanger("true");
+            setAnimateTree("left");
+            setSwipeCount((prev) => prev + 1);
+            setCurrentTree(treeAnzahl - 1); // Set currentTree to the last tree
+            setInitialLoad(false);
+        }
+    };
+    useEffect(() => {
+        if (getToLastTree) {
+            slideToLastTree();
+            // Reset the getToLastTree flag after sliding
+            setGetToLastTree(false);
+        }
+    }, [getToLastTree]);
 
     // OPACITY CHECK DROPZONE WHEN DROPPED
     useEffect(() => {
         let check = false;
         if (props.parent) {
-            console.log(props.parent, "PARENT CHECK");
             check = true;
         }
         if (check) {
             let arr = Array.from(allRef.current.querySelectorAll(".kugel"));
             arr.map((e, i) => {
                 if (i === props.parent) {
-                    console.log("ISISISISIS", e, userData);
                     e.classList.remove("opacity-50");
                     e.classList.add("opacity-100");
                     e.classList.add("outline", "outline-offset-2", "outline-white");
@@ -145,7 +165,6 @@ const Raster = (props) => {
             } else {
                 if (currentTree != 0) {
                     setCurrentTree(currentTree - 1);
-
                     setMasterCounter(masterCounter - ballsPerTree);
                     // treeBG();
                 }
@@ -206,11 +225,11 @@ const Raster = (props) => {
             {" "}
             {treeAnzahl > 1 && (
                 <>
-                    <TreeCountFloater klasse="absolute left-[-10%] lg:left-0 lg:right-0 lg:bottom-[-8%] m-auto ">
+                    <TreeCountFloater klasse="absolute left-0 right-0 text-center top-[87%] w-[40%] lg:left-0 lg:right-0 lg:bottom-[-8%] m-auto ">
                         Baum {currentTree + 1} / {treeAnzahl}
                     </TreeCountFloater>
                     <div
-                        className={`absolute hover:scale-90 cursor-pointer transition-all text-4xl md:text-5xl xl:text-6xl top-[45%] left-[-10%] z-40 ${
+                        className={`absolute hover:scale-90 cursor-pointer transition-all text-3xl md:text-5xl xl:text-6xl top-[48%] left-[-10%] z-40 ${
                             currentTree == 0 ? "opacity-20" : ""
                         }`}
                         onClick={() => {
@@ -226,7 +245,7 @@ const Raster = (props) => {
                         <FaChevronCircleLeft></FaChevronCircleLeft>
                     </div>
                     <div
-                        className={`absolute hover:scale-90 cursor-pointer text-4xl md:text-5xl xl:text-6xl  z-40 top-[45%] right-[-10%] ${
+                        className={`absolute hover:scale-90 cursor-pointer text-3xl md:text-5xl xl:text-6xl  z-40 top-[48%] right-[-10%] ${
                             currentTree == treeAnzahl - 1 ? "opacity-20" : ""
                         }`}
                         onClick={() => {
@@ -326,7 +345,40 @@ const Raster = (props) => {
                                                 e.currentTarget.children[1].classList.add("scale-in-hor-right");
                                             }
                                             if (e.target.classList.contains("claimedKugel")) {
-                                                // e.target.classList.add("pulsate-bck");
+                                                e.target.children[1].style.setProperty("--custom-left", `51%`);
+                                                e.target.children[1].style.setProperty("--custom-top", `10%`);
+                                                setTooltipOpen(true);
+                                                // Wrap the setTimeout in a Promise
+                                                const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+                                                // Create a function that combines the timeout and the logic
+                                                const handleTimeoutAndLogic = async () => {
+                                                    // Wait for 250ms
+                                                    await delay(250);
+
+                                                    // Execute isElementOverflowing
+                                                    isElementOverflowing(e.target.children[1]);
+
+                                                    // The rest of your logic
+                                                    let ballRectLeft = e.target.getBoundingClientRect().left;
+                                                    let ballWidth = e.target.getBoundingClientRect().width;
+                                                    let tooltipRect = e.target.children[1].getBoundingClientRect();
+                                                    let ballToToolTipDistance =
+                                                        ballRectLeft - tooltipRect.left + ballWidth / 2;
+                                                    let beforePercentage =
+                                                        (ballToToolTipDistance / tooltipRect.width) * 100;
+
+                                                    e.target.children[1].style.setProperty(
+                                                        "--custom-left",
+                                                        `${beforePercentage + 1}%`
+                                                    );
+                                                    e.target.children[1].style.setProperty("--custom-top", `0%`);
+
+                                                    console.log(beforePercentage);
+                                                };
+
+                                                // Call the function
+                                                handleTimeoutAndLogic();
                                                 e.target.style.border = "3px solid white";
                                                 e.target.children[1].style.transform = "scale(0.8)";
                                                 e.target.children[1].classList.remove("hidden");
@@ -342,7 +394,7 @@ const Raster = (props) => {
                                             }
                                             if (e.target.classList.contains("claimedKugel")) {
                                                 e.target.style.border = "";
-
+                                                setTooltipOpen(false);
                                                 // e.target.classList.remove("pulsate-bck");
                                                 e.target.children[1].classList.remove("block");
                                                 e.target.children[1].classList.add("hidden");
@@ -357,7 +409,7 @@ const Raster = (props) => {
                                         }}
                                         klasse={userList.some((e) => e.id === counter - 1) ? "claimedKugel" : null}
                                         toolTipStyle={{
-                                            top: isMobile ? kugelWidth - 10 + "px" : kugelWidth + 16 + "px",
+                                            top: isMobile ? kugelWidth + "px" : kugelWidth + 16 + "px",
                                             background: userList.some((e) => e.id === counter - 1)
                                                 ? userList[getIndex(userList, counter - 1)].color.toLowerCase()
                                                 : "",

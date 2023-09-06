@@ -198,6 +198,7 @@ export default function Home() {
                 </RoundModal>
             ) : null}
             <MainContainer width="w-full h-full min-h-[100svh] relative">
+                <img className="absolute top-8 left-4 z-10" src={Favicon.src} alt="" />
                 <Snow />
                 {/* // FLOAT BUTTONS */}
 
@@ -247,11 +248,11 @@ export default function Home() {
                             {activeComponent === "privacy" && <Privacy />}
                         </ModalSidebar>
                     )}
-                    <div className="col-span-12 container mx-auto grid grid-cols-12 min-h-[100svh] z-20 px-8 lg:px-0">
+                    <div className="col-span-12 container mx-auto grid grid-cols-12 min-h-[100svh] z-20 px-8 lg:px-10">
                         <div className="col-span-12 lg:col-span-5 h-full  flex flex-col pt-[10%] relative overflow-hidden">
                             <Goal
                                 data={TestData}
-                                klasse="w-full lg:mb-20 xl:mb-36 2xl:mb-36 absolute lg:relative bottom-32 lg:bottom-auto lg:top-0"
+                                klasse="w-full lg:mb-20 xl:mb-36 2xl:mb-36 absolute lg:relative bottom-28 lg:bottom-auto lg:top-0"
                             ></Goal>
                             <StartText />
                         </div>

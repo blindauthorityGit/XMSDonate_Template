@@ -1,11 +1,10 @@
 import React, { useRef, useEffect, forwardRef } from "react";
-import Image from "next/image";
 
 //COMPS
 import { CoverImage } from "../images";
 
 //ASSETS
-import Baum from "../../assets/baum.svg";
+import Baum from "../../assets/baum2.svg";
 
 //HOOKS
 import useElementDimensions from "../../hooks/useDimensions";
@@ -13,25 +12,17 @@ import useElementDimensions from "../../hooks/useDimensions";
 // STATE
 import useStore from "../../store/store";
 
-//FUNCTIONS
-import animateWithClass from "../../functions/animateWithClass";
-
 const BaumGraphic = () => {
     const { ref, dimensions } = useElementDimensions();
     const setDimensions = useStore((state) => state.setDimensions);
 
     //GLOBAL ANIMATION TREE STATE
     const animateTree = useStore((state) => state.animateTree);
-    const setAnimateTree = useStore((state) => state.setAnimateTree);
     const animationEndCounter = useStore((state) => state.animationEndCounter);
     const setAnimationEndCounter = useStore((state) => state.setAnimationEndCounter);
 
     //ANIMATION TRACKER
     const swipeCount = useStore((state) => state.swipeCount);
-
-    const animationEnded = () => {
-        // return setAnimationEndCounter((prev) => prev + 1);
-    };
 
     useEffect(() => {
         console.log("ANIMAT TREEE", animationEndCounter);
@@ -61,7 +52,7 @@ const BaumGraphic = () => {
         }
 
         return () => {
-            ref.current.removeEventListener("animationend", handleAnimationEnd);
+            ref.current?.removeEventListener("animationend", handleAnimationEnd);
         };
     }, [animateTree, swipeCount]);
 

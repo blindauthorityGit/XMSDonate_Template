@@ -63,7 +63,7 @@ const DonatorList = () => {
                 if (windowSize.innerHeight > 768 && windowSize.innerWidth > 450) {
                     return 0.8;
                 } else if (windowSize.innerWidth < 450 && windowSize.innerWidth >= 321) {
-                    return 0.75;
+                    return 0.78;
                 } else if (windowSize.innerWidth < 321) {
                     return 0.7; // Add your desired value for window sizes less than 321
                 } else {

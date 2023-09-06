@@ -64,6 +64,12 @@ const useStore = create((set) => ({
     // ANIMATION END COUNT
     animationEndCounter: "",
     setAnimationEndCounter: (value) => set({ animationEndCounter: value }),
+    // ANIMATION END COUNT
+    tooltipOpen: false,
+    setTooltipOpen: (value) => set({ tooltipOpen: value }),
+    // GET TO LAST TREE
+    getToLastTree: false,
+    setGetToLastTree: (value) => set({ getToLastTree: value }),
 }));
 
 // Initialize onBoarding state from the cookie
