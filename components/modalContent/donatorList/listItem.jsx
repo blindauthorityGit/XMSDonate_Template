@@ -61,7 +61,7 @@ function ListItem(props, ref) {
                         </div>
                     )}
                 </div>
-                <div className="right text-xs sm:text-base lg:text-sm xl:text-base w-[55%] lg:w-[55%] xl:w-[66%]">
+                <div className="right text-xs sm:text-base lg:text-sm xl:text-base w-[55%] lg:w-[55%] xl:w-[66%] pr-3">
                     <strong>{!props.e.isAnonymus ? props.e.name : "Anonymer Spender"}</strong>
                     <br />
 
