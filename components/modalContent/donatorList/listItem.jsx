@@ -74,7 +74,7 @@ function ListItem(props, ref) {
                         <div className="farRight lg:hidden mt-1 text-xs lg:p-4 ">{props.e.comment}</div>
                     )}
                 </div>
-                <div className="sum font-bold text-xs sm:text-base lg:text-sm xl:text-base">
+                <div className="sum font-bold text-xs sm:text-base lg:text-sm xl:text-base text-right md:w-[30%]">
                     {props.e.sum.toLocaleString("de-DE", {
                         minimumFractionDigits: 2,
                         maximumFractionDigits: 2,
