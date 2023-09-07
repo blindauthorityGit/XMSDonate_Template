@@ -67,7 +67,7 @@ a {
   position: absolute;
   color: var(--box-bg-color, #333);
   transform: translate(-50%, -50%) rotate(45deg); /* Center the ::before element and apply rotation */
-  font-size: 2rem;
+  font-size: 1.5rem;
   top: var(--custom-top);
   left: var(--custom-left);
   z-index: 1; /* Set z-index higher to be above the tooltip content */

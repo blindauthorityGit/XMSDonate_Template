@@ -372,7 +372,7 @@ const Raster = (props) => {
                                                         "--custom-left",
                                                         `${beforePercentage + 1}%`
                                                     );
-                                                    e.target.children[1].style.setProperty("--custom-top", `4%`);
+                                                    e.target.children[1].style.setProperty("--custom-top", `2%`);
 
                                                     console.log(beforePercentage);
                                                 };

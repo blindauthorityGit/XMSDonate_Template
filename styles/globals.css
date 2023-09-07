@@ -60,7 +60,7 @@ a {
   -webkit-transform: translate(-50%, -50%) rotate(45deg);
           transform: translate(-50%, -50%) rotate(45deg);
   /* Center the ::before element and apply rotation */
-  font-size: 2rem;
+  font-size: 1.5rem;
   top: var(--custom-top);
   left: var(--custom-left);
   z-index: 1;
