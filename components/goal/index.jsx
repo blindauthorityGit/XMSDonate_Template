@@ -71,7 +71,8 @@ const Goal = (props) => {
                     >
                         <div
                             ref={countRef}
-                            className="now absolute text-text text-xs xl:text-base right-0 top-3 sm:top-6"
+                            className="now absolute text-text text-xs xl:text-base top-3 sm:top-6"
+                            style={{ right: percentage < 15 ? "-3rem" : "0" }}
                         >
                             {showCounter && <> {sum.toLocaleString("de")} Euro</>}
                         </div>

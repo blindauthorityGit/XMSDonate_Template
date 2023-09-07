@@ -67,7 +67,6 @@ export default function Home() {
 
     //MODAL COMPONENT
     const onBoarding = useStore((state) => state.onBoarding); // Get the onBoarding state
-    // const setOnBoarding = useStore((state) => state.setOnBoarding);
     const setOnBoardingAndCookie = useStore((state) => state.setOnBoardingAndCookie);
 
     const [activeComponent, setActiveComponent] = useState(null);
@@ -104,7 +103,6 @@ export default function Home() {
         setIsDropped(over ? true : false);
         setIsDragging(false);
         droppedZone(over.id);
-        console.log(Array.from(document.querySelectorAll(".kugel")));
         setUserData({
             ...userData,
             id: over ? over.id : null,
@@ -118,7 +116,6 @@ export default function Home() {
         //HOTJAR INIT
         Hotjar.init(3630058, 6);
 
-        // setUserList(TestData);
         onBoarding ? setShowOverlay(true) : null;
         JSON.parse(process.env.NEXT_PUBLIC_DEV)
             ? JSON.parse(process.env.NEXT_PUBLIC_FILLER)
@@ -136,11 +133,6 @@ export default function Home() {
     useEffect(() => {
         console.log(userList);
     }, [userList]);
-
-    useEffect(() => {
-        console.log("SUCESS XXXXX");
-        console.log(showSuccess);
-    }, [showSuccess]);
 
     return (
         <>

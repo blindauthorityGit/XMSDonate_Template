@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useContext, useRef, useLayoutEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import ReactPaginate from "react-paginate";
 import ListItem from "./listItem";
-import { isBrowser, isMobile } from "react-device-detect";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 //STORE
 import useStore from "../../../store/store"; // Import the zustand store
@@ -18,8 +17,6 @@ const DonatorList = () => {
     //GOBAL SIDEBAR STATE
     const listItemHeight = useStore((state) => state.listItemHeight);
 
-    // const { kugelColor, setKugelColor } = useContext(KugelColor);
-
     const [itemsAll, setItemsAll] = useState(userList);
     const [items, setItems] = useState(null);
     const [itemsPerPage, setItemsPerPage] = useState(1);
@@ -32,10 +29,8 @@ const DonatorList = () => {
 
     const [windowSize, setWindowSize] = useState(getWindowSize());
 
-    const listRef = useRef();
     const listItemRef = useRef();
 
-    //VARIANTS FRAMER MOTION
     // VARIANTS FRAMER MOTION
     const variants = {
         open: {
@@ -57,8 +52,9 @@ const DonatorList = () => {
     // };
 
     useEffect(() => {
-        console.log(windowSize.innerHeight);
         if (listItemHeight > 1) {
+            //SET HEIGHT RATIO RELATIVE TO CONTAINER DEPENDING ON DEVICE WIDTH
+
             const calculateValue = () => {
                 if (windowSize.innerHeight > 768 && windowSize.innerWidth > 450) {
                     return 0.8;
@@ -70,22 +66,9 @@ const DonatorList = () => {
                     return 0.78;
                 }
             };
-            // const ratio =
-            //     windowSize.innerHeight > 768 && windowSize.innerWidth > 450
-            //         ? 0.8
-            //         : windowSize.innerWidth < 450
-            //         ? 0.75
-            //         : 0.78;
+
             setItemsPerPage(
                 Math.floor((windowSize.innerHeight * calculateValue()) / (listItemHeight + listItemHeight * 0.05))
-            );
-            console.log(
-                Math.floor((windowSize.innerHeight * calculateValue()) / (listItemHeight + listItemHeight * 0.05))
-            );
-            console.log(
-                listItemHeight,
-                windowSize.innerHeight * calculateValue(),
-                Math.floor((windowSize.innerHeight * calculateValue()) / listItemHeight)
             );
         }
     }, [listItemHeight, windowSize.innerHeight]);
@@ -112,9 +95,6 @@ const DonatorList = () => {
         return { innerWidth, innerHeight };
     }
 
-    // let itemsPerPage = Math.floor((windowSize.innerHeight * 0.66) / listItemHeight);
-    // const itemsPerPage = windowSize.innerHeight <= 640 ? 4 : 8;
-
     function sliceIntoChunks(arr, chunkSize) {
         const res = [];
         for (let i = 0; i < arr.length; i += chunkSize) {
@@ -136,16 +116,11 @@ const DonatorList = () => {
         if (listItemRef.current) {
             console.log(listItemRef.current);
         }
-        // setTimeout(() => {
-        //     console.log(listItemRef.current.clientHeight);
-        //     setHeight(listItemRef.current.clientHeight);
-        // }, 1000);
     }, [listItemRef.current, height, setItemsAll, itemsAll, itemsPerPage]);
 
     const claimedArr = Array.from(document.querySelectorAll(".kugel"));
 
     const onHover = (e) => {
-        // setKugelColor({ ...kugelColor, id: e.currentTarget.dataset.id });
         claimedArr[e.currentTarget.dataset.id].classList.add(
             "outline",
             "outline-offset-2",

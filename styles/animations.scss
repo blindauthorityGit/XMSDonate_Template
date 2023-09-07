@@ -49,9 +49,9 @@
 }
 
 .slide-out-left {
-    -webkit-animation: slide-out-left 0.75s cubic-bezier(0.680, -0.550, 0.265, 1.550) alternate both;
-    animation: slide-out-left 0.75s cubic-bezier(0.680, -0.550, 0.265, 1.550) alternate both;
-}
+    -webkit-animation: slide-out-left 0.75s cubic-bezier(0.23, 1, 0.32, 1) alternate both;
+    animation: slide-out-left 0.75s cubic-bezier(0.23, 1, 0.32, 1) alternate both;
+  }
 
 .blinky {
     animation: blink 4s ease 0s 1 normal forwards;
@@ -693,8 +693,8 @@
 }
 
 .slide-out-right {
-	-webkit-animation: slide-out-right 0.75s cubic-bezier(0.680, -0.550, 0.265, 1.550) alternate both;
-	        animation: slide-out-right 0.75s cubic-bezier(0.680, -0.550, 0.265, 1.550) alternate both;
+	-webkit-animation: slide-out-right 0.75s cubic-bezier(0.680, -0.550, 0.265, 5.550) alternate both;
+	        animation: slide-out-right 0.75s cubic-bezier(0.680, -0.550, 0.265, 5.550) alternate both;
 }
 
 /* ----------------------------------------------
