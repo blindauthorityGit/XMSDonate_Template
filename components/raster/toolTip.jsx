@@ -1,9 +1,13 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useEffect } from "react";
 
 //ASSETS
 import Avatar from "../../assets/avatar.svg";
 
 const ToolTip = (props) => {
+    useEffect(() => {
+        console.log(props.isAnonymus);
+    }, []);
+
     return (
         <div
             onMouseLeave={props.onMouseLeave}

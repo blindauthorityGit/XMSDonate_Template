@@ -319,7 +319,7 @@ const Raster = (props) => {
                                         }
                                         isAnon={
                                             userList.some((e) => e.id === counter - 1) &&
-                                            userList[getIndex(userList, counter - 1)].isAnonymus
+                                            userList[getIndex(userList, counter - 1)].isAnonymous
                                         }
                                         avatrSrc={
                                             userList.some((e) => e.id === counter - 1)
