@@ -34,6 +34,7 @@
     "react-snowfall": "^1.2.1",
     "react-swipeable": "^7.0.0",
     "vanilla-cookieconsent": "^2.9.2",
+    "ws": "^8.14.0",
     "zustand": "^4.3.9"
   },
   "devDependencies": {

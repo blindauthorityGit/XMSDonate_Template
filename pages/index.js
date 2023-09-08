@@ -42,6 +42,10 @@ import Hotjar from "@hotjar/browser";
 import Favicon from "../assets/logoSmall.svg";
 import OGImage from "../assets/ogImage.jpg";
 
+//FUNCTIONS
+import saveUserDataToRealtimeDB from "../functions/saveDataToRealTimeDatabase";
+import { fetchRealtimeDatabaseData, startListeningForNewDonations } from "../config/firebase";
+
 export default function Home() {
     const userList = useStore((state) => state.userList);
     const setUserList = useStore((state) => state.setUserList);
@@ -117,10 +121,20 @@ export default function Home() {
         Hotjar.init(3630058, 6);
 
         onBoarding ? setShowOverlay(true) : null;
+        startListeningForNewDonations(userList, setUserList);
         JSON.parse(process.env.NEXT_PUBLIC_DEV)
             ? JSON.parse(process.env.NEXT_PUBLIC_FILLER)
                 ? setUserList(dataFiller())
                 : setUserList(TestData)
+            : JSON.parse(process.env.NEXT_PUBLIC_REALTIME_DB)
+            ? fetchRealtimeDatabaseData("users")
+                  .then((data) => {
+                      setUserList(data);
+                      //   startListeningForNewDonations(userList, setUserList);
+                  })
+                  .catch((error) => {
+                      console.error("Error fetching data:", error);
+                  })
             : fetchFirestoreData(JSON.parse(process.env.NEXT_PUBLIC_LIVE_DB) ? "live" : "donation")
                   .then((data) => {
                       setUserList(data);
@@ -190,7 +204,16 @@ export default function Home() {
                 </RoundModal>
             ) : null}
             <MainContainer width="w-full h-full min-h-[100svh] relative">
-                <img className="absolute top-8 left-4 z-10" src={Favicon.src} alt="" />
+                <img
+                    onClick={async () => {
+                        console.log("GEHT");
+                        // await saveUserDataToRealtimeDB(Math.floor(Math.random() * 900));
+                        await fetchRealtimeDatabaseData("users");
+                    }}
+                    className="absolute top-8 left-4 z-50"
+                    src={Favicon.src}
+                    alt=""
+                />
                 <Snow />
                 {/* // FLOAT BUTTONS */}
 

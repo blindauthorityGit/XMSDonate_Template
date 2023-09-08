@@ -1,5 +1,6 @@
 import uploadImageAndGetURL from "./uploadImageAndGetURL"; // Import the image upload function
 import saveUserDataToFirestore from "./saveDataToFirestore"; // Import the image upload function
+import saveUserDataToRealtimeDB from "./saveDataToRealTimeDatabase"; // Import the image upload function
 import { fetchFirestoreData } from "../config/firebase";
 
 const uploadToDatabase = async (
@@ -34,7 +35,9 @@ const uploadToDatabase = async (
             setShowSuccess(true);
         } else {
             // Save the updated userData to Firestore
-            await saveUserDataToFirestore(updatedUserData);
+            JSON.parse(process.env.NEXT_PUBLIC_REALTIME_DB)
+                ? await saveUserDataToRealtimeDB(updatedUserData)
+                : await saveUserDataToFirestore(updatedUserData);
 
             // Fetch the updated user list
             const data = await fetchFirestoreData(JSON.parse(process.env.NEXT_PUBLIC_LIVE_DB) ? "live" : "donation");
