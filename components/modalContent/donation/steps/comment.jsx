@@ -44,7 +44,7 @@ function Comment(props) {
             >
                 <div className="col-span-12 xl:mb-6 lg:mt-6 sm:mb-4">
                     <H2>Ihr Kommentar</H2>
-                    <P>Gerne können Sie auch einen Kommentar abgeben (optional, max 60 Zeichen). </P>
+                    <P>Gerne können Sie auch einen Kommentar abgeben (optional, max. 60 Zeichen). </P>
                 </div>
                 <div className="col-span-2 flex items-center justify-center">
                     <div data-tip={props.dataTip} className="text-5xl font-black opacity-50 text-[#C6D5DD]">
@@ -60,7 +60,7 @@ function Comment(props) {
                             name="comment"
                             id="comment"
                             maxLength="60"
-                            placeholder="Ihr Kommentar (max 60 Zeichen)"
+                            placeholder="Ihr Kommentar (max. 60 Zeichen)"
                             onChange={handleChange}
                             value={userData.comment}
                         />

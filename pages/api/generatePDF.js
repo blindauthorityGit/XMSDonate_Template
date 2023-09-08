@@ -42,7 +42,7 @@ export async function generatePDF(userData) {
                 const pdfBuffer = Buffer.concat(chunks);
 
                 // Upload the PDF buffer to Firebase Cloud Storage
-                const pdfRef = ref(storage, `pdfs/SkF-Spende-${userData.name}-${userData.id}-${formattedDate}.pdf`);
+                const pdfRef = ref(storage, `pdfs/SkF-Spende-${userData.id}-${formattedDate}.pdf`);
                 await uploadBytes(pdfRef, pdfBuffer);
 
                 // Get the download URL of the uploaded PDF

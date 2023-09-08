@@ -41,7 +41,7 @@ export default async function handler(req, res) {
             unter <strong> spenden@skf-frankfurt.de </strong> </p>
             <p>Wir wünschen Ihnen und
             Ihrer Familie frohe
-            Weihnachten</p>
+            Weihnachten.</p>
             <p>Das Team des
             Familienzentrums
             Monikahaus</p>
