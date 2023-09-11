@@ -136,13 +136,15 @@ const Raster = (props) => {
     // OPACITY CHECK DROPZONE WHEN DROPPED
     useEffect(() => {
         let check = false;
-        if (props.parent) {
+        if (props.parent !== undefined && props.parent !== null) {
             check = true;
         }
         if (check) {
             let arr = Array.from(allRef.current.querySelectorAll(".kugel"));
             arr.map((e, i) => {
                 if (i === props.parent) {
+                    console.log(i);
+
                     e.classList.remove("opacity-50");
                     e.classList.add("opacity-100");
                     e.classList.add("outline", "outline-offset-2", "outline-white");

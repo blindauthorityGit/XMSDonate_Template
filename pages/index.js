@@ -99,10 +99,15 @@ export default function Home() {
     function handleDragEnd(event) {
         const { over } = event;
         setParent(over ? over.id : null);
+        console.log(over.id);
         setActiveId(null);
         setIsDropped(over ? true : false);
         setIsDragging(false);
         droppedZone(over.id);
+        // REMOVE OUTLINE FROM PREVIOUS CLAIMED SPACES WHEN DROPPING
+        Array.from(document.querySelectorAll(".kugel"))
+            .filter((e) => e.classList.contains("outline"))
+            .map((e) => e.classList.remove("outline"));
         setUserData({
             ...userData,
             id: over ? over.id : null,

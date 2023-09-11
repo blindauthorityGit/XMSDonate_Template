@@ -25,7 +25,7 @@ export default function isStepDataValid(stepNumber, userData) {
         // Add more cases for other steps here
         case 7:
             // Validation for step 2 (Sum)
-            return !!userData.id; // Return true if userData.sum is truthy, false otherwise
+            return userData.id || userData.id == 0; // Return true if userData.sum is truthy, false otherwise
         // Add more cases for other steps here
         default:
             return false; // If the stepNumber is not valid, return false

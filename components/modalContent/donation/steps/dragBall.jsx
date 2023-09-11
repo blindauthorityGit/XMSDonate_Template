@@ -28,7 +28,7 @@ function DragBall(props) {
     };
 
     useEffect(() => {
-        console.log(userData);
+        console.log(userData, userData.id);
     }, [userData]);
 
     return (
