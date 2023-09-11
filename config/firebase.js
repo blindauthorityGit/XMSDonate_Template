@@ -26,7 +26,6 @@ export const fetchFirestoreData = async (collectionName) => {
     try {
         const querySnapshot = await getDocs(collection(db, collectionName));
         const data = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-        console.log(data);
         return data;
     } catch (error) {
         console.error("Error fetching data:", error);
@@ -35,7 +34,6 @@ export const fetchFirestoreData = async (collectionName) => {
 };
 
 export const fetchRealtimeDatabaseData = async (path) => {
-    console.log(path);
     try {
         const dataRef = rRef(realtimeDb, path);
         const dataSnapshot = await get(dataRef);
@@ -44,7 +42,6 @@ export const fetchRealtimeDatabaseData = async (path) => {
             const data = dataSnapshot.val();
             // Convert the data to an array of objects with IDs
             const dataArray = Object.keys(data).map((key) => ({ id: key, ...data[key] }));
-            console.log(dataArray);
             return dataArray;
         } else {
             console.log("No data found at the specified path.");
@@ -59,18 +56,14 @@ export const fetchRealtimeDatabaseData = async (path) => {
 const donationsRef = rRef(realtimeDb, "users");
 
 // Function to start listening for new donations
-export const startListeningForNewDonations = (userList, setUserList) => {
+export const startListeningForNewDonations = (userList, setUserList, initialDataLoaded) => {
     console.log(userList);
     onChildAdded(donationsRef, (snapshot) => {
         const newDonation = snapshot.val();
         // Log the new donation data
+
         console.log("New donation:", newDonation);
         console.log(userList);
-
-        const newUserList = [...userList, newDonation];
-        console.log(userList);
-
-        console.log(newUserList);
-        setUserList(newUserList);
+        // setUserList((prevUserList) => [...prevUserList, newDonation]);
     });
 };

@@ -121,7 +121,7 @@ export default function Home() {
         Hotjar.init(3630058, 6);
 
         onBoarding ? setShowOverlay(true) : null;
-        startListeningForNewDonations(userList, setUserList);
+        // startListeningForNewDonations(userList, setUserList);
         JSON.parse(process.env.NEXT_PUBLIC_DEV)
             ? JSON.parse(process.env.NEXT_PUBLIC_FILLER)
                 ? setUserList(dataFiller())
@@ -130,8 +130,11 @@ export default function Home() {
             ? fetchRealtimeDatabaseData("users")
                   .then((data) => {
                       setUserList(data);
-                      //   startListeningForNewDonations(userList, setUserList);
+                      if (userList.length > 0) {
+                          startListeningForNewDonations(userList, setUserList);
+                      }
                   })
+
                   .catch((error) => {
                       console.error("Error fetching data:", error);
                   })
@@ -142,6 +145,8 @@ export default function Home() {
                   .catch((error) => {
                       console.error("Error fetching data:", error);
                   });
+
+        return () => {};
     }, []);
 
     useEffect(() => {
