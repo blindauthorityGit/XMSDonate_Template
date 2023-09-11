@@ -9,6 +9,16 @@ import useStore from "../../../store/store"; // Import the zustand store
 //TYPO
 import { H2 } from "../../typography";
 
+//FUNCTIONS
+import {
+    sortByCreatedAtAscending,
+    sortByCreatedAtDescending,
+    sortBySumAscending,
+    sortBySumDescending,
+    sortByNameAscending,
+    sortByNameDescending,
+} from "../../../functions/sortFunctions";
+
 const DonatorList = () => {
     //GLOBAL USER STATE
     const userList = useStore((state) => state.userList);
@@ -109,9 +119,9 @@ const DonatorList = () => {
     };
 
     useEffect(() => {
-        //SORT BY DONATION SUM
-        setItemsAll(userList.sort((a, b) => b.sum - a.sum));
-        //
+        //SORT BY DATE ASCENDING
+        setItemsAll(sortByCreatedAtAscending(userList));
+        console.log(userList);
         setItems(sliceIntoChunks(itemsAll, itemsPerPage));
         if (listItemRef.current) {
             console.log(listItemRef.current);
