@@ -120,8 +120,9 @@ const DonatorList = () => {
 
     useEffect(() => {
         //SORT BY DATE ASCENDING
-        setItemsAll(sortByCreatedAtAscending(userList));
-        console.log(userList);
+        console.log(sortByCreatedAtDescending(userList));
+
+        setItemsAll(sortByCreatedAtDescending(userList));
         setItems(sliceIntoChunks(itemsAll, itemsPerPage));
         if (listItemRef.current) {
             console.log(listItemRef.current);

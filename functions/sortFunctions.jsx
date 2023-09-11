@@ -2,8 +2,16 @@ function sortByCreatedAtAscending(arr) {
     return arr.sort((a, b) => a.createdAt - b.createdAt);
 }
 
+// function sortByCreatedAtDescending(arr) {
+//     return arr.sort((a, b) => b.createdAt - a.createdAt);
+// }
+
 function sortByCreatedAtDescending(arr) {
-    return arr.sort((a, b) => b.createdAt - a.createdAt);
+    return arr.sort((a, b) => {
+        const timestampA = a.createdAt && a.createdAt.toDate ? a.createdAt.toDate().getTime() : 0;
+        const timestampB = b.createdAt && b.createdAt.toDate ? b.createdAt.toDate().getTime() : 0;
+        return timestampB - timestampA;
+    });
 }
 
 function sortBySumAscending(arr) {
