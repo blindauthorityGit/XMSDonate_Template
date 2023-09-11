@@ -4,8 +4,6 @@ import React, { forwardRef, useEffect } from "react";
 import Avatar from "../../assets/avatar.svg";
 
 const ToolTip = (props) => {
-    useEffect(() => {}, []);
-
     return (
         <div
             onMouseLeave={props.onMouseLeave}

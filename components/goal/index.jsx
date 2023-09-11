@@ -72,9 +72,18 @@ const Goal = (props) => {
                         <div
                             ref={countRef}
                             className="now absolute text-text text-xs xl:text-base top-3 sm:top-6"
-                            style={{ right: percentage < 15 ? "-3rem" : "0" }}
+                            style={{ right: percentage < 15 ? "-4rem" : "0" }}
                         >
-                            {showCounter && <> {sum.toLocaleString("de")} Euro</>}
+                            {showCounter && (
+                                <>
+                                    {" "}
+                                    {sum.toLocaleString("de-DE", {
+                                        minimumFractionDigits: 2,
+                                        maximumFractionDigits: 2,
+                                    })}{" "}
+                                    Euro
+                                </>
+                            )}
                         </div>
                     </motion.div>
                 </div>

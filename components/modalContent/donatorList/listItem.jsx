@@ -28,7 +28,7 @@ function ListItem(props, ref) {
         <>
             <motion.li
                 data-id={props.e.id}
-                className="wrapper listItem w-full flex items-center mt-2 mb-4 hover:bg-[#f5f5f5] relative "
+                className="wrapper listItem w-full grid grid-cols-12  mt-2 mb-4 hover:bg-[#f5f5f5] relative "
                 onMouseOver={(e) => {
                     props.onHover(e);
                 }}
@@ -43,13 +43,13 @@ function ListItem(props, ref) {
                 whileHover={{ scale: 1.05 }}
                 // key={props.keyProp}
             >
-                <div className="left pr-6 h-full">
+                <div className="left pr-6 h-full col-span-3">
                     {props.e.isAnonymus ? (
                         <div className="text-6xl">
                             <img className="w-10 h-10 lg:w-12 lg:h-12 xl:w-16 xl:h-16" src={Avatar.src} alt="" />
                         </div>
                     ) : (
-                        <div className="text-6xl h-full w-full">
+                        <div className="text-6xl h-full w-full col-span-3">
                             {props.e.image ? (
                                 <div
                                     className="avatar w-10 h-10 lg:w-12 lg:h-12 xl:w-16 xl:h-16 bg-cover rounded-full"
@@ -61,7 +61,7 @@ function ListItem(props, ref) {
                         </div>
                     )}
                 </div>
-                <div className="right text-xs sm:text-base lg:text-sm xl:text-base w-[55%] lg:w-[55%] xl:w-[66%] pr-3">
+                <div className="right text-xs sm:text-base lg:text-sm xl:text-base col-span-6 pr-3">
                     <strong>{!props.e.isAnonymous ? props.e.name : "Anonymer Spender"}</strong>
                     <br />
 
@@ -74,7 +74,7 @@ function ListItem(props, ref) {
                         <div className="farRight lg:hidden mt-1 text-xs lg:p-4 ">{props.e.comment}</div>
                     )}
                 </div>
-                <div className="sum font-bold text-xs sm:text-base lg:text-sm xl:text-base text-right md:w-[30%]">
+                <div className="sum font-bold text-xs sm:text-base lg:text-sm xl:text-base text-right col-span-3">
                     {props.e.sum.toLocaleString("de-DE", {
                         minimumFractionDigits: 2,
                         maximumFractionDigits: 2,

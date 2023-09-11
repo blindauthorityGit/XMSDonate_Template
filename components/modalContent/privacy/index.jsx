@@ -11,14 +11,14 @@ const Info = () => {
                 <H2>Datenschutzerklärung</H2>
                 <strong>Allgemeiner Hinweis und Pflichtinformationen</strong>
                 <div className="mb-6 xl:mb-8"></div>
-
-                <strong className="pb-4">Benennung der verantwortlichen Stelle</strong>
+                <strong className="mb-4">Benennung der verantwortlichen Stelle</strong>
                 <P>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</P>
+                <br />
                 <P>
                     <span id="s3-t-firma">Sozialdienst katholischer Frauen e. V.</span>
                     <br />
-                    <span id="s3-t-ansprechpartner">Marc Werner</span>
-                    <br />
+                    {/* <span id="s3-t-ansprechpartner">Marc Werner</span>
+                    <br /> */}
                     <span id="s3-t-strasse">Kriegkstraße 32–36</span>
                     <br />
                     <span id="s3-t-plz">60326</span> <span id="s3-t-ort">Frankfurt am Main</span>
@@ -28,7 +28,6 @@ const Info = () => {
                     der Verarbeitung von personenbezogenen Daten (z.B. Namen, Kontaktdaten o. Ä.).
                 </P>
                 <div className="mb-6 xl:mb-8"></div>
-
                 <strong>Widerruf Ihrer Einwilligung zur Datenverarbeitung</strong>
                 <P>
                     Nur mit Ihrer ausdrücklichen Einwilligung sind einige Vorgänge der Datenverarbeitung möglich. Ein
@@ -37,7 +36,6 @@ const Info = () => {
                     bleibt vom Widerruf unberührt.
                 </P>
                 <div className="mb-6 xl:mb-8"></div>
-
                 <strong>Recht auf Beschwerde bei der zuständigen Aufsichtsbehörde</strong>
                 <P>
                     Als Betroffener steht Ihnen im Falle eines datenschutzrechtlichen Verstoßes ein Beschwerderecht bei
@@ -55,7 +53,6 @@ const Info = () => {
                     .
                 </P>
                 <div className="mb-6 xl:mb-8"></div>
-
                 <strong>Recht auf Datenübertragbarkeit</strong>
                 <P>
                     Ihnen steht das Recht zu, Daten, die wir auf Grundlage Ihrer Einwilligung oder in Erfüllung eines
@@ -64,7 +61,6 @@ const Info = () => {
                     anderen Verantwortlichen verlangen, erfolgt dies nur, soweit es technisch machbar ist.
                 </P>
                 <div className="mb-6 xl:mb-8"></div>
-
                 <strong>Recht auf Auskunft, Berichtigung, Sperrung, Löschung</strong>
                 <P>
                     Sie haben jederzeit im Rahmen der geltenden gesetzlichen Bestimmungen das Recht auf unentgeltliche
@@ -74,7 +70,6 @@ const Info = () => {
                     jederzeit über die im Impressum aufgeführten Kontaktmöglichkeiten an uns wenden.
                 </P>
                 <div className="mb-6 xl:mb-8"></div>
-
                 <strong>SSL- bzw. TLS-Verschlüsselung</strong>
                 <P>
                     Aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte, die Sie an uns als
@@ -83,7 +78,6 @@ const Info = () => {
                     Verbindung an der „https://“ Adresszeile Ihres Browsers und am Schloss-Symbol in der Browserzeile.
                 </P>
                 <div className="mb-6 xl:mb-8"></div>
-
                 <h2>Server-Log-Dateien</h2>
                 <P>
                     In Server-Log-Dateien erhebt und speichert der Provider der Website automatisch Informationen, die
@@ -118,7 +112,6 @@ const Info = () => {
                     eines Vertrags oder vorvertraglicher Maßnahmen gestattet.
                 </P>
                 <div className="mb-6 xl:mb-8"></div>
-
                 <h2>Cookies</h2>
                 <P>
                     Unsere Website verwendet Cookies. Das sind kleine Textdateien, die Ihr Webbrowser auf Ihrem Endgerät
@@ -145,7 +138,6 @@ const Info = () => {
                     erfolgt, werden diese in dieser Datenschutzerklärung separat behandelt.
                 </P>
                 <div className="mb-6 xl:mb-8"></div>
-
                 <h2>Google CDN</h2>
                 <strong>Art und Umfang der Verarbeitung</strong>
                 <P>
@@ -162,7 +154,6 @@ const Info = () => {
                     und zur Aufrechterhaltung der Sicherheit und Funktionalität von Google CDN verarbeitet.
                 </P>
                 <div className="mb-6 xl:mb-8"></div>
-
                 <strong>Zweck und Rechtsgrundlage</strong>
                 <P>
                     Die Nutzung des Content Delivery Networks erfolgt auf Grundlage unserer berechtigten Interessen,
@@ -183,7 +174,6 @@ const Info = () => {
                     einsehen.
                 </P>
                 <div className="mb-6 xl:mb-8"></div>
-
                 <strong>Speicherdauer</strong>
                 <P>
                     Die konkrete Speicherdauer der verarbeiteten Daten ist nicht durch uns beeinflussbar, sondern wird
@@ -191,10 +181,8 @@ const Info = () => {
                     Google CDN: <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>.
                 </P>
                 <div className="mb-6 xl:mb-8"></div>
-
                 <h2>Google Analytics</h2>
                 <div className="mb-6 xl:mb-8"></div>
-
                 <strong>Art und Umfang der Verarbeitung</strong>
                 <P>
                     Wir verwenden Google Analytics von Google Ireland Limited, Gordon House, Barrow Street, Dublin 4,
@@ -205,7 +193,6 @@ const Info = () => {
                     genutzt, um Berichte über die Aktivität der Website zusammenzustellen.
                 </P>
                 <div className="mb-6 xl:mb-8"></div>
-
                 <strong>Zweck und Rechtsgrundlage</strong>
                 <P>
                     Der Einsatz von Google Analytics erfolgt auf Grundlage Ihrer Einwilligung gemäß Art. 6 Abs. 1 lit.
@@ -233,7 +220,6 @@ const Info = () => {
                     und von denen Sie unter Umständen keine Kenntnis erlangen) bestehen können.
                 </P>
                 <div className="mb-6 xl:mb-8"></div>
-
                 <strong>Speicherdauer</strong>
                 <P>
                     Die konkrete Speicherdauer der verarbeiteten Daten ist nicht durch uns beeinflussbar, sondern wird
@@ -242,7 +228,6 @@ const Info = () => {
                     <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>.
                 </P>
                 <div className="mb-6 xl:mb-8"></div>
-
                 <h2>PayPal</h2>
                 <P>
                     Unsere Website ermöglicht die Bezahlung via PayPal. Anbieter des Bezahldienstes ist die PayPal
@@ -259,7 +244,6 @@ const Info = () => {
                     Datenverarbeitungsvorgänge bleiben bei einem Widerruf wirksam.
                 </P>
                 <div className="mb-6 xl:mb-8"></div>
-
                 <h2>Sofortüberweisung</h2>
                 <P>
                     Unsere Website ermöglicht die Bezahlung via “Sofortüberweisung.” Anbieter des Bezahldienstes ist die
@@ -295,10 +279,8 @@ const Info = () => {
                     <a href="https://www.klarna.com/sofort/">https://www.klarna.com/sofort/</a>.
                 </P>
                 <div className="mb-6 xl:mb-8"></div>
-
                 <h2>Google Web Fonts</h2>
                 <div className="mb-6 xl:mb-8"></div>
-
                 <strong>Art und Umfang der Verarbeitung</strong>
                 <P>
                     Wir verwenden Google Fonts von Google Ireland Limited, Gordon House, Barrow Street, Dublin 4,
@@ -307,7 +289,6 @@ const Info = () => {
                     wobei Ihre IP-Adresse übertragen wird.
                 </P>
                 <div className="mb-6 xl:mb-8"></div>
-
                 <strong>Zweck und Rechtsgrundlage</strong>
                 <P>
                     Der Einsatz von Google Fonts erfolgt auf Grundlage Ihrer Einwilligung gemäß Art. 6 Abs. 1 lit. a.
@@ -327,7 +308,6 @@ const Info = () => {
                     einsehen.
                 </P>
                 <div className="mb-6 xl:mb-8"></div>
-
                 <strong>Speicherdauer</strong>
                 <P>
                     Die konkrete Speicherdauer der verarbeiteten Daten ist nicht durch uns beeinflussbar, sondern wird
@@ -335,10 +315,8 @@ const Info = () => {
                     Google Fonts: <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>.
                 </P>
                 <div className="mb-6 xl:mb-8"></div>
-
                 <h2>Font Awesome</h2>
                 <div className="mb-6 xl:mb-8"></div>
-
                 <strong>Art und Umfang der Verarbeitung</strong>
                 <P>
                     Wir verwenden Icons von Font Awesome, einem Dienst der Fonticons, Inc., 6 Porter Road, Apartment 3R,
@@ -346,7 +324,6 @@ const Info = () => {
                     Browsercache, um sie korrekt anzeigen zu können.
                 </P>
                 <div className="mb-6 xl:mb-8"></div>
-
                 <strong>Zweck und Rechtsgrundlage</strong>
                 <P>
                     Der Einsatz von Font Awesome erfolgt auf Grundlage Ihrer Einwilligung gemäß Art. 6 Abs. 1 lit. a.
@@ -366,53 +343,13 @@ const Info = () => {
                     einsehen.
                 </P>
                 <div className="mb-6 xl:mb-8"></div>
-
                 <strong>Speicherdauer</strong>
                 <P>
                     Die konkrete Speicherdauer der verarbeiteten Daten ist nicht durch uns beeinflussbar, sondern wird
                     von Fonticons, Inc. bestimmt. Weitere Informationen finden Sie in der Datenschutzerklärung von Font
                     Awesome: <a href="https://fontawesome.com/privacy">https://fontawesome.com/privacy</a>.
                 </P>
-
                 <div className="mb-6 xl:mb-8"></div>
-
-                <h2>Font Awesome</h2>
-                <div className="mb-6 xl:mb-8"></div>
-
-                <strong>Art und Umfang der Verarbeitung</strong>
-                <P>
-                    Wir verwenden Icons von Font Awesome, einem Dienst der Fonticons, Inc., 6 Porter Road, Apartment 3R,
-                    Cambridge, MA 02140, USA. Bei Aufruf unserer Website lädt Ihr Browser die benötigten Icons in Ihren
-                    Browsercache, um sie korrekt anzeigen zu können.
-                </P>
-                <div className="mb-6 xl:mb-8"></div>
-
-                <strong>Zweck und Rechtsgrundlage</strong>
-                <P>
-                    Der Einsatz von Font Awesome erfolgt auf Grundlage Ihrer Einwilligung gemäß Art. 6 Abs. 1 lit. a.
-                    DSGVO und § 25 Abs. 1 TTDSG.
-                </P>
-                <P>
-                    Wir beabsichtigen personenbezogenen Daten an Drittländer außerhalb des Europäischen
-                    Wirtschaftsraums, insbesondere die USA, zu übermitteln. In Fällen, in denen kein
-                    Angemessenheitsbeschluss der Europäischen Kommission existiert (z.B. in den USA) haben wir mit den
-                    Empfängern der Daten anderweitige geeignete Garantien im Sinne der Art. 44 ff. DSGVO vereinbart.
-                    Dies sind – sofern nicht anders angegeben – Standardvertragsklauseln der EU-Kommission gemäß
-                    Durchführungsbeschluss (EU) 2021/914 vom 4. Juni 2021. Eine Kopie dieser Standardvertragsklauseln
-                    können Sie unter{" "}
-                    <a href="https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32021D0914&from=DE">
-                        https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32021D0914&from=DE
-                    </a>{" "}
-                    einsehen.
-                </P>
-                <div className="mb-6 xl:mb-8"></div>
-
-                <strong>Speicherdauer</strong>
-                <P>
-                    Die konkrete Speicherdauer der verarbeiteten Daten ist nicht durch uns beeinflussbar, sondern wird
-                    von Fonticons, Inc. bestimmt. Weitere Informationen finden Sie in der Datenschutzerklärung von Font
-                    Awesome: <a href="https://fontawesome.com/privacy">https://fontawesome.com/privacy</a>.
-                </P>
 
                 <img src={Logo.src} className="mt-6" alt="" />
             </div>

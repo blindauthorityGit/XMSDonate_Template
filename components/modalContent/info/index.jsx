@@ -36,7 +36,12 @@ const Info = () => {
                     60326 Frankfurt am Main
                     <br></br>
                     <br></br>
-                    <a className="font-semibold underline hover:opacity-70" href="https://www.skf-frankfurt.de/">
+                    <a
+                        className="font-semibold underline hover:opacity-70"
+                        href="https://www.skf-frankfurt.de/"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         www.monikahaus.de
                     </a>
                     <br></br>
@@ -58,7 +63,14 @@ const Info = () => {
                 <P>
                     <span className="font-bold">Design & Umsetzung</span>
                     <br />
-                    <a href="https://www..sabocon.com">Sabocon GmbH</a>
+                    <a
+                        className="font-semibold underline hover:opacity-70"
+                        href="https://www.sabocon.com"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        Sabocon GmbH
+                    </a>
                 </P>
                 <img src={Logo.src} className="mt-6" alt="" />
             </div>
