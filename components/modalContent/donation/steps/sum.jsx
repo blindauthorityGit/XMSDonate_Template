@@ -19,20 +19,34 @@ function Sum(props) {
     const userData = useStore((state) => state.userData);
     const [inputValue, setInputValue] = useState("");
     const sumRef = useRef();
+    // const [isInputFocused, setInputFocused] = useState(false);
 
+    const isInputFocused = useStore((state) => state.isInputFocused);
+    const setIsInputFocused = useStore((state) => state.setIsInputFocused);
     const handleChange = (e) => {
         const value = { sum: parseFloat(e.target.value) };
         setInputValue(e.target.value);
         addToUserData(value);
     };
 
-    const handleBlur = (e) => {
-        e.target.value = parseFloat(e.target.value).toFixed(2);
+    const handleInputFocus = () => {
+        // Check if the viewport width is less than or equal to 768 (adjust this value as needed)
+        if (window.innerWidth <= 768) {
+            // When the input is focused, set the focused state to true
+            setIsInputFocused(true);
+        }
     };
 
-    useEffect(() => {
-        console.log(sumRef.current.children[0]);
-    }, []);
+    const handleBlur = (e) => {
+        // Check if the viewport width is less than or equal to 768 (adjust this value as needed)
+        e.target.value = parseFloat(e.target.value).toFixed(2);
+
+        if (window.innerWidth <= 768) {
+            setIsInputFocused(false); // When the input is blurred, set the focused state to false
+        }
+    };
+
+    useEffect(() => {}, []);
 
     return (
         <div className="grid grid-cols-12">
@@ -66,13 +80,14 @@ function Sum(props) {
                             className="SUMINPUT border-b-2 w-full text-xl lg:text-2xl xl:text-5xl py-4 font-bold pl-4"
                             onChange={handleChange}
                             onBlur={handleBlur}
+                            onFocus={() => {
+                                handleInputFocus();
+                            }}
                             placeholder="5,00"
                             step="1"
-                            // value={userData.sum ? userData.sum.toFixed(2) : ""}
                             value={userData.sum ? userData.sum : ""}
                             min="1"
                         />
-                        {/* <span className="absolute inset-y-0 right-4 flex items-center">€</span> */}
                     </div>
                 </div>
                 <div className="col-span-9 py-4 flex items-center text-xl lg:text-2xl xl:text-5xl ">Euro</div>

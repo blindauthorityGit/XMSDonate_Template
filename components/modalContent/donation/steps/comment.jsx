@@ -17,6 +17,24 @@ function Comment(props) {
     const userData = useStore((state) => state.userData);
     const [isAnonymous, setIsAnonymous] = useState(userData.isAnonymous || false);
 
+    const setIsInputFocused = useStore((state) => state.setIsInputFocused);
+
+    const handleInputFocus = () => {
+        // Check if the viewport width is less than or equal to 768 (adjust this value as needed)
+        if (window.innerWidth <= 768) {
+            // When the input is focused, set the focused state to true
+            setIsInputFocused(true);
+        }
+    };
+
+    const handleBlur = (e) => {
+        // Check if the viewport width is less than or equal to 768 (adjust this value as needed)
+
+        if (window.innerWidth <= 768) {
+            setIsInputFocused(false); // When the input is blurred, set the focused state to false
+        }
+    };
+
     const nameRef = useRef();
 
     const handleChange = (e) => {
@@ -62,6 +80,10 @@ function Comment(props) {
                             maxLength="60"
                             placeholder="Ihr Kommentar (max. 60 Zeichen)"
                             onChange={handleChange}
+                            onBlur={handleBlur}
+                            onFocus={() => {
+                                handleInputFocus();
+                            }}
                             value={userData.comment}
                         />
                     </div>

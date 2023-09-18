@@ -42,6 +42,8 @@ const StepOne = (props) => {
     const setShowSuccess = useStore((state) => state.setShowSuccess);
     // SUCCESS
     const setModalHeight = useStore((state) => state.setModalHeight);
+    // SHOW BUTTONS OR NOT
+    const isInputFocused = useStore((state) => state.isInputFocused);
 
     // Button POsition
     const [buttonPosition, setButtonPosition] = useState(false);
@@ -202,24 +204,27 @@ const StepOne = (props) => {
                     marginBottom: currentStep === 8 ? "16px" : null,
                 }}
             >
-                <div className="col-span-6">
-                    {" "}
-                    <MainButton disabled={disabledBack} onClick={handleBack} klasse="border-2 text-darkText">
-                        Zurück
-                    </MainButton>
-                </div>
-                <div className="col-span-6 flex justify-end">
-                    {" "}
-                    <MainButton
-                        disabled={isDisabled}
-                        onClick={(e) => {
-                            handleContinueClick(e);
-                        }}
-                        klasse="border-2 text-darkText"
-                    >
-                        Weiter
-                    </MainButton>
-                </div>
+                {!isInputFocused ? (
+                    <>
+                        <div className="col-span-6">
+                            <MainButton disabled={disabledBack} onClick={handleBack} klasse="border-2 text-darkText">
+                                Zurück
+                            </MainButton>
+                        </div>
+                        <div className="col-span-6 flex justify-end">
+                            {" "}
+                            <MainButton
+                                disabled={isDisabled}
+                                onClick={(e) => {
+                                    handleContinueClick(e);
+                                }}
+                                klasse="border-2 text-darkText"
+                            >
+                                Weiter
+                            </MainButton>
+                        </div>
+                    </>
+                ) : null}
             </div>
             {createPortal(
                 <DragOverlay

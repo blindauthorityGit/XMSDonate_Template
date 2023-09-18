@@ -16,6 +16,24 @@ import useStore from "../../../../store/store";
 function Name(props) {
     const userData = useStore((state) => state.userData);
 
+    const setIsInputFocused = useStore((state) => state.setIsInputFocused);
+
+    const handleInputFocus = () => {
+        // Check if the viewport width is less than or equal to 768 (adjust this value as needed)
+        if (window.innerWidth <= 768) {
+            // When the input is focused, set the focused state to true
+            setIsInputFocused(true);
+        }
+    };
+
+    const handleBlur = (e) => {
+        // Check if the viewport width is less than or equal to 768 (adjust this value as needed)
+
+        if (window.innerWidth <= 768) {
+            setIsInputFocused(false); // When the input is blurred, set the focused state to false
+        }
+    };
+
     const nameRef = useRef();
 
     const handleChange = (e) => {
@@ -62,6 +80,10 @@ function Name(props) {
                             type="text"
                             className="border-b-2 w-full text-xl xl:text-3xl py-4 font-bold pl-4"
                             onChange={handleChange}
+                            onBlur={handleBlur}
+                            onFocus={() => {
+                                handleInputFocus();
+                            }}
                             placeholder="Ihr Name"
                             value={userData.name}
                         />
