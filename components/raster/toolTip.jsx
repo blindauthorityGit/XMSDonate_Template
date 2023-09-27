@@ -12,7 +12,7 @@ const ToolTip = (props) => {
         >
             {props.avatrSrc ? (
                 <div className="grid grid-cols-12 items-center relative z-50">
-                    <div className="col-span-3 lg:col-span-4 h-full">
+                    <div className="col-span-3 lg:col-span-4 xl:col-span-3 h-full">
                         <div className="avatar w-8 h-8 sm:w-12 lg:w-12 lg:h-12 xl:w-12 xl:h-12">
                             {props.isAnonymus || !props.avatrSrc ? (
                                 <div className="text-3xl md:text-4xl">
@@ -37,7 +37,7 @@ const ToolTip = (props) => {
                             )}
                         </div>
                     </div>
-                    <div className="col-span-9 sm:col-span-8 pl-4 lg:pl-4 text-xs sm:text-base lg:text-xs xl:text-base">
+                    <div className="col-span-9 sm:col-span-8 xl:col-span-9 pl-4 lg:pl-4 text-xs sm:text-base lg:text-xs xl:text-base">
                         <div className="font-rucksack  font-bold">
                             {props.isAnonymus ? "Anonymer Spender" : props.name}
                         </div>
@@ -53,14 +53,14 @@ const ToolTip = (props) => {
                 </div>
             ) : (
                 <div className="grid grid-cols-12 items-center relative">
-                    <div className="col-span-3 lg:col-span-3 xl:col-span-4 h-full">
+                    <div className="col-span-3 lg:col-span-3 xl:col-span-3 h-full">
                         <div className="avatar w-8 h-8 sm:w-12 lg:w-12 lg:h-12 xl:w-12 xl:h-12">
                             <div className="text-3xl md:text-4xl">
                                 <img src={Avatar.src} alt="Avatar" />{" "}
                             </div>
                         </div>
                     </div>
-                    <div className="col-span-9 sm:col-span-8 pl-4 lg:pl-4 text-xs sm:text-base lg:text-xs xl:text-base">
+                    <div className="col-span-9 sm:col-span-8 xl:col-span-9 pl-4 lg:pl-4 text-xs sm:text-base lg:text-xs xl:text-base">
                         <div className="font-rucksack  font-bold">
                             {props.isAnonymus ? "Anonymer Spender" : props.name}
                         </div>{" "}
