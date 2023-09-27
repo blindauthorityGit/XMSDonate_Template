@@ -100,7 +100,7 @@ function Payment(props) {
                                         amount: {
                                             value: Number(userData.sum), // value: document.querySelector("#sumWrapper").dataset.sum,
                                         },
-                                        description: `Weihnachten: ${userData.name}`,
+                                        description: `Spende Weihnachten: ${userData.name}`,
                                     },
                                 ],
                                 application_context: {
