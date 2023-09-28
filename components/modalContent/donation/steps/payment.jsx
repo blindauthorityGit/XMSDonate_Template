@@ -92,7 +92,7 @@ function Payment(props) {
 
                 <div className="lg:col-span-12 col-span-12 lg:pt-8">
                     <PayPalButtons
-                        ref={paypalButtonRef}
+                        // ref={paypalButtonRef}
                         createOrder={(data, actions) => {
                             return actions.order.create({
                                 purchase_units: [

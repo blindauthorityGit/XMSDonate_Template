@@ -41,8 +41,8 @@ class MyDocument extends Document {
                     }}
                 ></script>
 
-                <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/3299678.js"></script>
-                <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" async></script>
+                {/* <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/3299678.js"></script>
+                <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" async></script> */}
 
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
