@@ -16,6 +16,9 @@ import hexToRGB from "../../../../functions/hexToRGB";
 //Store
 import useStore from "../../../../store/store";
 
+//CONFIG
+import { stepsInfo } from "../../../../config";
+
 function BallChoice(props) {
     const [checked, setChecked] = useState(-1);
     const userData = useStore((state) => state.userData);
@@ -73,11 +76,9 @@ function BallChoice(props) {
         >
             <div className="grid grid-cols-12">
                 <div className="col-span-12 sm:mb-4 xl:mb-6">
-                    <H1 klasse="xl:text-6xl">Schenken Sie Hoffnung!</H1>
-                    <P klasse=" xl:mt-16 xl:mb-12">
-                        Wir sammeln Spenden für die Kinder und Jugendlichen des Kinder- und Familienzentrum Monikahaus.
-                    </P>
-                    <H3 klasse="font-bold mt-4 lg:mt-8">Wählen Sie Ihre Kugel: </H3>
+                    <H1 klasse="xl:text-6xl !text-darkText">{stepsInfo.ballChoice.headline}</H1>
+                    <P klasse=" xl:mt-16 xl:mb-12 !text-darkText">{stepsInfo.ballChoice.text} </P>
+                    <H3 klasse="font-bold mt-4 lg:mt-8 !text-darkText">Wählen Sie Ihre Kugel: </H3>
                 </div>
                 <div className="col-span-2 flex items-center ">
                     <div data-tip={props.dataTip} className="text-5xl font-black opacity-50 text-[#C6D5DD]">

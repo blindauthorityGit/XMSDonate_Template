@@ -37,7 +37,9 @@ const uploadToDatabase = async (
             await saveUserDataToFirestore(updatedUserData);
 
             // Fetch the updated user list
-            const data = await fetchFirestoreData(JSON.parse(process.env.NEXT_PUBLIC_LIVE_DB) ? "live" : "donation");
+            const data = await fetchFirestoreData(
+                JSON.parse(process.env.NEXT_PUBLIC_LIVE_DB) ? "live_klimaHelden" : "sandbox_KlimaHelden"
+            );
             setUserList(data);
             setShowOverlay(true);
             setShowSuccess(true);

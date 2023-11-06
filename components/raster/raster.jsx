@@ -106,6 +106,10 @@ const Raster = (props) => {
     });
 
     useEffect(() => {
+        console.log("is Mobile?", isMobile);
+    });
+
+    useEffect(() => {
         setMasterCounter(ballsPerTree * currentTree);
     }, [ballsPerTree, treeAnzahl, currentTree]);
 
@@ -411,7 +415,7 @@ const Raster = (props) => {
                                         }}
                                         klasse={userList.some((e) => e.id === counter - 1) ? "claimedKugel" : null}
                                         toolTipStyle={{
-                                            top: isMobile ? kugelWidth + "px" : kugelWidth + 16 + "px",
+                                            top: kugelWidth + "px",
                                             background: userList.some((e) => e.id === counter - 1)
                                                 ? userList[getIndex(userList, counter - 1)].color.toLowerCase()
                                                 : "",

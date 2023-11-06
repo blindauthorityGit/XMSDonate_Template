@@ -14,6 +14,9 @@ import addToUserData from "../../../../functions/addToUserData";
 //Store
 import useStore from "../../../../store/store";
 
+//CONFIG
+import { stepsInfo } from "../../../../config";
+
 function Sum(props) {
     const [opacity, setOpacity] = useState(0.3);
     const userData = useStore((state) => state.userData);
@@ -51,8 +54,8 @@ function Sum(props) {
     return (
         <div className="grid grid-cols-12">
             <div className="col-span-12 xl:mb-6 hidden lg:block">
-                <H1>Schenken Sie Freude</H1>
-                <P>Mit Ihrer Spende lassen wir die Wünsche unserer Kinder und Jugendlichen wahr werden. </P>
+                <H1 klasse="!text-darkText">{stepsInfo.ballChoice.headline}</H1>
+                {/* <P>{stepsInfo.ballChoice.text} </P> */}
             </div>
             <motion.div
                 className={`colors w-full col-span-12 grid grid-cols-12}`}
@@ -62,11 +65,8 @@ function Sum(props) {
                 exit={{ x: -1000, opacity: 1 }}
             >
                 <div className="col-span-12 xl:mb-6 lg:mt-6 sm:mb-4">
-                    <H2>Spendensumme</H2>
-                    <P>
-                        Ihre Spende hilft uns, den Alltag unserer Kinder und Jugendlichen schöner zu gestalten. Mit
-                        welchem Betrag möchten Sie unsere Arbeit unterstützen?
-                    </P>
+                    <H2>{stepsInfo.sum.headline}</H2>
+                    <P>{stepsInfo.sum.text}</P>
                 </div>
                 {/* <div className="col-span-2 flex items-center ">
                     <div data-tip={props.dataTip} className="text-5xl font-black opacity-50 text-[#C6D5DD]">

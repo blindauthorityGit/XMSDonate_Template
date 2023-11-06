@@ -21,6 +21,7 @@ import Info from "../components/modalContent/info";
 import Privacy from "../components/modalContent/privacy";
 import { Desktop } from "../components/modalContent/donation";
 import { SuccessModalContent } from "../components/modalContent/success";
+import { CoverImage } from "../components/images";
 
 //DND STUFF
 import { DndContext, closestCenter } from "@dnd-kit/core";
@@ -39,6 +40,8 @@ import useStore from "../store/store"; // Import the zustand store
 import Hotjar from "@hotjar/browser";
 
 //ASSETS
+import LogoBlue from "../assets/logoBlue.svg";
+import LogoWhite from "../assets/logoWhite.svg";
 import Favicon from "../assets/logoSmall.svg";
 import OGImage from "../assets/ogImage.jpg";
 
@@ -126,7 +129,9 @@ export default function Home() {
             ? JSON.parse(process.env.NEXT_PUBLIC_FILLER)
                 ? setUserList(dataFiller())
                 : setUserList(TestData)
-            : fetchFirestoreData(JSON.parse(process.env.NEXT_PUBLIC_LIVE_DB) ? "live" : "donation")
+            : fetchFirestoreData(
+                  JSON.parse(process.env.NEXT_PUBLIC_LIVE_DB) ? "live_klimaHelden" : "sandbox_KlimaHelden"
+              )
                   .then((data) => {
                       setUserList(data);
                   })
@@ -195,7 +200,17 @@ export default function Home() {
                 </RoundModal>
             ) : null}
             <MainContainer width="w-full h-full min-h-[100svh] relative">
-                <img className="absolute top-8 left-4 z-10" src={Favicon.src} alt="" />
+                {/* <img className="absolute top-8 left-4 z-10" src={LogoBlue.src} alt="" /> */}
+                <CoverImage
+                    src={LogoBlue.src} // Replace with the actual path to your image
+                    mobileSrc={LogoWhite.src}
+                    alt="Cover Background"
+                    position="absolute"
+                    height="251px" // Set the desired height of the background image
+                    width="169px"
+                    style={{ aspectRatio: "167 / 154" }}
+                    className="z-20 w-[5rem] lg:w-[6rem] h absolute top-8 left-8 OIUAHUHAIHAHWG"
+                />
                 <Snow />
                 {/* // FLOAT BUTTONS */}
 

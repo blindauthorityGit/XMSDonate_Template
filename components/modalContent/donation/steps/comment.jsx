@@ -13,6 +13,9 @@ import addToUserData from "../../../../functions/addToUserData";
 // Store
 import useStore from "../../../../store/store";
 
+//CONFIG
+import { stepsInfo } from "../../../../config";
+
 function Comment(props) {
     const userData = useStore((state) => state.userData);
     const [isAnonymous, setIsAnonymous] = useState(userData.isAnonymous || false);
@@ -49,8 +52,8 @@ function Comment(props) {
     return (
         <div className="grid grid-cols-12">
             <div className="col-span-12 xl:mb-6 hidden lg:block">
-                <H1>Schenken Sie Freude</H1>
-                <P>Mit Ihrer Spende lassen wir die Wünsche unserer Kinder und Jugendlichen wahr werden.</P>
+                <H1 klasse="!text-darkText">{stepsInfo.ballChoice.headline}</H1>
+                {/* <P>Mit Ihrer Spende lassen wir die Wünsche unserer Kinder und Jugendlichen wahr werden.</P> */}
             </div>
 
             <motion.div
@@ -61,8 +64,8 @@ function Comment(props) {
                 exit={{ x: -1000, opacity: 1 }}
             >
                 <div className="col-span-12 xl:mb-6 lg:mt-6 sm:mb-4">
-                    <H2>Ihr Kommentar</H2>
-                    <P>Gerne können Sie auch einen Kommentar abgeben (optional, max. 60 Zeichen). </P>
+                    <H2>{stepsInfo.comment.headline}</H2>
+                    <P>{stepsInfo.comment.text} </P>
                 </div>
                 <div className="col-span-2 flex items-center justify-center">
                     <div data-tip={props.dataTip} className="text-5xl font-black opacity-50 text-[#C6D5DD]">

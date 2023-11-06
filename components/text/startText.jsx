@@ -8,6 +8,9 @@ import { P } from "../typography";
 //STORE
 import useStore from "../../store/store"; // Import the zustand store
 
+//CONFIG
+import { startInfo } from "../../config";
+
 const StartText = () => {
     //GLOBAL UNCLAIMED STATE
     const showUnclaimed = useStore((state) => state.showUnclaimed);
@@ -32,10 +35,8 @@ const StartText = () => {
 
     return (
         <div className="absolute lg:static bottom-8 lg:bottom-auto w-full 3xl:mt-12">
-            <H1 klasse="hidden lg:block">Schmücken Sie den Baum</H1>
-            <P klasse="text-xl font-semibold tracking-wide hidden lg:block">
-                Wir sammeln Spenden für die Kinder und Jugendlichen<br></br> des Familienzentrums Monikahaus.
-            </P>
+            <H1 klasse="hidden lg:block">{startInfo.headline}</H1>
+            <P klasse="text-xl font-semibold tracking-wide hidden lg:block text-white">{startInfo.subline}</P>
             <MainButton
                 onClick={(e) => {
                     console.log("BUBUBU");

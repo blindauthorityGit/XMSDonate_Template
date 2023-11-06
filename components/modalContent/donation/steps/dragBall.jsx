@@ -17,6 +17,9 @@ import addToUserData from "../../../../functions/addToUserData";
 // Store
 import useStore from "../../../../store/store";
 
+//CONFIG
+import { stepsInfo } from "../../../../config";
+
 function DragBall(props) {
     const userData = useStore((state) => state.userData);
 
@@ -34,8 +37,10 @@ function DragBall(props) {
     return (
         <div className="grid grid-cols-12">
             <div className="col-span-12 xl:mb-6 sm:mb-4">
-                <H2>Schmücken Sie den Baum</H2>
-                <P>Nun können Sie Ihre Kugel auf ein freies Feld bewegen. Wo möchten Sie die Kugel hinziehen?</P>
+                <H1 klasse="!text-darkText">{stepsInfo.ballChoice.headline}</H1>
+
+                <H2>{stepsInfo.dragBall.headline}</H2>
+                <P>{stepsInfo.dragBall.text}</P>
             </div>
 
             <motion.div

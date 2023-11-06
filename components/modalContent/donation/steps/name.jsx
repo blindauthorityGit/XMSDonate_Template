@@ -13,6 +13,9 @@ import addToUserData from "../../../../functions/addToUserData";
 // Store
 import useStore from "../../../../store/store";
 
+//CONFIG
+import { stepsInfo } from "../../../../config";
+
 function Name(props) {
     const userData = useStore((state) => state.userData);
 
@@ -54,8 +57,8 @@ function Name(props) {
     return (
         <div className="grid grid-cols-12">
             <div className="col-span-12 xl:mb-6 hidden lg:block">
-                <H1>Schenken Sie Freude</H1>
-                <P>Mit Ihrer Spende lassen wir die Wünsche unserer Kinder und Jugendlichen wahr werden.</P>
+                <H1 klasse="!text-darkText">{stepsInfo.ballChoice.headline}</H1>
+                {/* <P>Mit Ihrer Spende lassen wir die Wünsche unserer Kinder und Jugendlichen wahr werden.</P> */}
             </div>
 
             <motion.div
@@ -66,8 +69,8 @@ function Name(props) {
                 exit={{ x: -1000, opacity: 1 }}
             >
                 <div className="col-span-12 xl:mb-6 lg:mt-6 sm:mb-4">
-                    <H2>Ihr Name</H2>
-                    <P>Nennen Sie uns Ihren Namen. Dieser wird dann auf Ihrer Spendenkugel angezeigt. </P>
+                    <H2>{stepsInfo.name.headline}</H2>
+                    <P>{stepsInfo.name.text} </P>
                 </div>
                 <div className="col-span-2 flex items-center justify-center mt-4 lg:mt-0">
                     <div data-tip={props.dataTip} className="text-5xl font-black opacity-50 text-[#C6D5DD]">
