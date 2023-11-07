@@ -52,7 +52,7 @@ const Full = (props) => {
                 {" "}
                 <div
                     ref={ref}
-                    className={`w-full lg:pl-6 xl:pl-6`}
+                    className={`w-full lg:pl-10 xl:pl-6`}
                     style={{ height: dimensions.height - dimensions.height * baumstumpfHeight + "px" }}
                 >
                     <Raster parent={props.parent}></Raster>

@@ -57,9 +57,9 @@ const Success = ({ onNext }) => {
                         <a href="https://www.klimahelden.org/">www.klimahelden.org</a>{" "}
                     </P>{" "}
                     <div className="mb-6 xl:mb-66"></div>
-                    <P klasse="font-bold text-center !text-lg">Benötigen Sie eine Quittung?</P>{" "}
+                    <P klasse="font-bold text-center !text-lg">Benötigst Du eine Quittung?</P>{" "}
                     <P klasse="font-semibold text-center mt-4 mb-8">
-                        Schreiben Sie uns an <b />{" "}
+                        Dann schreibe uns <b />{" "}
                         <a className="underline text-success" href="mailto:V.Weber@werkzeugweber.de">
                             V.Weber@werkzeugweber.de
                         </a>{" "}
