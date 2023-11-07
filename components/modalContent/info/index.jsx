@@ -105,6 +105,7 @@ const Info = () => {
                         Sabocon GmbH
                     </a>
                 </P>
+                <div className="mb-4 xl:mb-66"></div>
                 <P>
                     <span className="font-bold">Interessiert am einem eigenen Spendensystem?</span>
                     <br />
