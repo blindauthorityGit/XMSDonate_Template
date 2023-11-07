@@ -2,7 +2,7 @@ import React from "react";
 //TYPO
 import { H2, H3, P } from "../../typography";
 
-import Logo from "../../../assets/logoFull.svg";
+import Logo from "../../../assets/logoBlue.svg";
 
 const Info = () => {
     return (
@@ -15,14 +15,20 @@ const Info = () => {
                 <P>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</P>
                 <br />
                 <P>
-                    <span id="s3-t-firma">Sozialdienst katholischer Frauen e. V.</span>
+                    <span className="font-bold" id="s3-t-firma">
+                        Plant for the Planet Aschaffenburg e.V.
+                    </span>
                     <br />
                     {/* <span id="s3-t-ansprechpartner">Marc Werner</span>
                     <br /> */}
-                    <span id="s3-t-strasse">Kriegkstraße 32–36</span>
+                    <span id="s3-t-strasse">Vorstand: Vanessa Weber</span>
                     <br />
-                    <span id="s3-t-plz">60326</span> <span id="s3-t-ort">Frankfurt am Main</span>
+                    <span id="s3-t-strasse">Benzstraße 4</span>
+                    <br />
+                    <span id="s3-t-plz">63741</span> <span id="s3-t-ort">Aschaffenburg</span>
                 </P>
+                <div className="mb-6 xl:mb-8"></div>
+
                 <P>
                     Die verantwortliche Stelle entscheidet allein oder gemeinsam mit anderen über die Zwecke und Mittel
                     der Verarbeitung von personenbezogenen Daten (z.B. Namen, Kontaktdaten o. Ä.).
@@ -47,6 +53,7 @@ const Info = () => {
                         href="https://www.bfdi.bund.de/DE/Infothek/Anschriften_Links/anschriften_links-node.html"
                         target="_blank"
                         rel="noopener noreferrer"
+                        className="break-all"
                     >
                         https://www.bfdi.bund.de/DE/Infothek/Anschriften_Links/anschriften_links-node.html
                     </a>

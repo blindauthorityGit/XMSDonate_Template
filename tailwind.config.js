@@ -78,6 +78,7 @@ module.exports = {
                 bg: "#FBFBF5",
                 redColor: "#FE654F",
                 darkRed: "#444140",
+                success: "#56B085",
             },
         },
     },

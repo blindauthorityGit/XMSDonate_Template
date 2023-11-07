@@ -4,6 +4,12 @@ import Jessy from "../assets/jessy.svg";
 import Mika from "../assets/mika.svg";
 import Jerome from "../assets/jerome.svg";
 
+//ASSETS
+import Step1Desktop from "../assets/step1Desktop.jpg";
+import Step1Mobile from "../assets/step1Mobile.jpg";
+import Step2Desktop from "../assets/step2Desktop.jpg";
+import Step2Mobile from "../assets/step2Mobile.jpg";
+
 // Define the array of images
 const avatars = [Bob, Jessy, Mika, Jerome];
 
@@ -30,10 +36,25 @@ const colors = {
 
 const bgColors = ["#033F63", "#AF4D98", "#FF4A1C", "#CC3363", "#000000"];
 
+const onboarding = {
+    step1: {
+        headline: "Hallo, liebe Umweltfreunde!",
+        text: "<p>Wir bitten um Deine Spende, damit unsere Kinder auch in Zukunft unsere Zukunft selbst in die Hand nehmen können.</p><br/> <p> Mit deiner Spende sorgst du dafür, dass wir unsere Arbeit für die Zukunft unserer Jugend noch erfolgreicher fortsetzen können. Der Kern all unserer Bemühungen bei Klimahelden zielt auf unseren Nachwuchs ab. Die Generation unserer Jugend wird in den kommenden Jahrzehnten wie keine zuvor unter den Folgen des menschengemachten Klimawandels leiden.</p><br/>",
+        imageDesktop: <Step1Desktop />,
+        imageMobile: <Step1Mobile></Step1Mobile>,
+    },
+    step2: {
+        headline: "Hallo, liebe Umweltfreunde!",
+        text: "<p> Mit unseren Akademien oder Baumpflanzaktionen zeigen wir unseren Jüngsten, welchen Beitrag sie selbst leisten können, und dass auch deine Handlungen einen Beitrag zur Zukunft unseres Planeten darstellen.</p><br/> <p> Und in diesem Jahr haben wir uns etwas ganz Besonderes überlegt! Auf dieser Seite findest du unseren virtuellen Spendenweihnachtsbaum, den du mit deiner Spende direkt schmücken kannst. Du kannst dabei die Spendensumme frei wählen und einer Weihnachtskugel frei zuordnen und auf dem Weihnachtsbaum positionieren. Dabei kannst du deine Spende mit einem Wunsch oder Kommentar versehen und auch deinen Namen und sogar ein Bild oder Logo hinterlassen.</p><br/> <p> <strong> Wir danken dir jetzt schon für deine großzügige Spende und wünschen dir eine schöne Weihnachtszeit. </strong></p><br/> <br/> klimahelden.org",
+        imageDesktop: <Step2Desktop />,
+        imageMobile: <Step2Mobile></Step2Mobile>,
+    },
+};
+
 const startInfo = {
     headline: "UNSERE JUGEND - UNSERE ZUKUNFT",
     subline:
-        "Gemeinsam machen wir den Wald wieder grün. Ihr seid großartig! Das Klima kann nicht warten, und jeder kleine Schritt ist eine große Heldentat.",
+        "Gemeinsam machen wir den Wald wieder grün.<br/> Ihr seid großartig! Das Klima kann nicht warten, und jeder kleine Schritt ist eine große Heldentat.",
     buttonText: "Jetzt spenden",
 };
 const stepsInfo = {
@@ -80,9 +101,6 @@ const goalStep = 5000;
 // IMAGES
 const maxSize = 5; // in MB
 
-const dev = false;
-const local = false;
-
 export {
     colors,
     goalStep,
@@ -91,11 +109,10 @@ export {
     startInfo,
     goalSum,
     showGoal,
-    dev,
     anzahlBaumKugeln,
-    local,
     maxSize,
     bgColors,
     avatars,
     stepsInfo,
+    onboarding,
 };

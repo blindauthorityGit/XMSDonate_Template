@@ -353,6 +353,7 @@ const Raster = (props) => {
                                             if (e.target.classList.contains("claimedKugel")) {
                                                 e.target.children[1].style.setProperty("--custom-left", `51%`);
                                                 e.target.children[1].style.setProperty("--custom-top", `10%`);
+                                                console.log(e.target.id);
                                                 setTooltipOpen(true);
                                                 // Wrap the setTimeout in a Promise
                                                 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));

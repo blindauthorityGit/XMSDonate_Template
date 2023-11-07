@@ -17,7 +17,7 @@ const Index = ({ onClose }) => {
             case 1:
                 return <Step1 onNext={handleNextStep} />;
             case 2:
-                return <Step2 onNext={handleNextStep} />;
+                return <Step2 onNext={onClose} />;
             case 3:
                 return <Step3 onNext={onClose} />;
             default:
