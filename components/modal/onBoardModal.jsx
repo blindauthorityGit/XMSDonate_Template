@@ -87,7 +87,7 @@ const OnBoardModal = ({ onClose, children, isOpen }) => {
                 >
                     {/* Your modal content goes here */}
                     <AiOutlineClose
-                        className="right-4 top-4 cursor-pointer xl:text-3xl absolute transition-all duration-200 hover:text-4xl"
+                        className="right-4 z-50 top-4 cursor-pointer xl:text-3xl absolute transition-all duration-200 hover:text-4xl"
                         onClick={() => {
                             onClose();
                             resetUserData();
