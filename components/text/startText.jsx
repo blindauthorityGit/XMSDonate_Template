@@ -37,11 +37,11 @@ const StartText = () => {
         <div className="absolute lg:static bottom-8 lg:bottom-auto w-full 3xl:mt-12">
             <H1 klasse="hidden lg:block">{startInfo.headline}</H1>
             <P klasse="text-xl font-semibold tracking-wide hidden lg:block text-white">
-                <div dangerouslySetInnerHTML={{ __html: startInfo.subline }} />
+                {/* <div dangerouslySetInnerHTML={{ __html: startInfo.subline }} /> */}
+                {startInfo.subline}
             </P>
             <MainButton
                 onClick={(e) => {
-                    console.log("BUBUBU");
                     setShowUnclaimed(!showUnclaimed);
                     setShowOverlay(true);
                     handleModal(e);
