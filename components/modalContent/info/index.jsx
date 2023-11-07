@@ -105,6 +105,18 @@ const Info = () => {
                         Sabocon GmbH
                     </a>
                 </P>
+                <P>
+                    <span className="font-bold">Interessiert am einem eigenen Spendensystem?</span>
+                    <br />
+                    <a
+                        className="font-semibold underline hover:opacity-70"
+                        href="https://www.xmsdonate.de"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        XMS donate
+                    </a>
+                </P>
                 <img src={Logo.src} className="mt-6" alt="" />
             </div>
         </div>
