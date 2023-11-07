@@ -43,7 +43,7 @@ import useStore from "../store/store"; // Import the zustand store
 import LogoBlue from "../assets/logoBlue.svg";
 import LogoWhite from "../assets/logoWhite.svg";
 import Favicon from "../assets/logoSmall.svg";
-import OGImage from "../assets/ogImage.jpg";
+import OGImage from "../assets/ogImage2.jpg";
 
 export default function Home() {
     const userList = useStore((state) => state.userList);
@@ -144,24 +144,24 @@ export default function Home() {
     return (
         <>
             <Head>
-                <title>Monikahaus Spendenaktion</title>
+                <title>Klimahelden Spendenaktion</title>
                 <meta
                     name="description"
-                    content="Wir sammeln Spenden für die Kinder und Jugendlichen des Familienzentrums Monikahaus."
+                    content="Bei den Klimahelden steht unsere junge Generation im Mittelpunkt. Unsere Erde verändert sich aufgrund menschlicher Aktivitäten, was sich auf die Zukunft unserer Kinder auswirkt. Doch keine Sorge, gemeinsam können wir etwas dagegen tun!"
                 />
                 <meta
                     name="keywords"
-                    content="Monikahaus, Frankfurt, Spenden, Spendenaktion, Kinder, Kinderhilfe, Weihnachten, Gutes tun"
+                    content="Klimahelden, Aschaffenburg, Spenden, Spendenaktion, Kinder, Jugendliche, Weihnachten, Gutes tun"
                 />
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
                 <link rel="icon" href={Favicon.src} />
-                <meta property="og:title" content="Monikahaus Spendenaktion" />
+                <meta property="og:title" content="Klimahelden Spendenaktion" />
                 <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://monikahaus.xmsdonate.de" />
+                <meta property="og:url" content="https://klimahelden.xmsdonate.de" />
                 <meta property="og:image" content={OGImage.src} />
                 <meta
                     property="og:description"
-                    content="Wir sammeln Spenden für die Kinder und Jugendlichen des Familienzentrums Monikahaus."
+                    content="Bei den Klimahelden steht unsere junge Generation im Mittelpunkt. Unsere Erde verändert sich aufgrund menschlicher Aktivitäten, was sich auf die Zukunft unserer Kinder auswirkt. Doch keine Sorge, gemeinsam können wir etwas dagegen tun!"
                 />
                 <meta property="og:site_name" content="Monikahaus - Spendenaktion" />
                 <meta property="og:locale" content="de_DE" />
