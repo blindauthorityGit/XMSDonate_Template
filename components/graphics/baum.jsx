@@ -52,7 +52,7 @@ const BaumGraphic = () => {
         return () => {
             ref.current?.removeEventListener("animationend", handleAnimationEnd);
         };
-    }, [animateTree, swipeCount]);
+    }, [animateTree, ref, setAnimationEndCounter, swipeCount]);
 
     // Use useEffect to set the dimensions once they are available
     useEffect(() => {

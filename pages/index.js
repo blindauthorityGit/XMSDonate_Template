@@ -37,7 +37,7 @@ import { Snow } from "../components/fx";
 import useStore from "../store/store"; // Import the zustand store
 
 //HOTJAR
-import Hotjar from "@hotjar/browser";
+// import Hotjar from "@hotjar/browser";
 
 //ASSETS
 import LogoBlue from "../assets/logoBlue.svg";
@@ -121,9 +121,6 @@ export default function Home() {
     }
 
     useEffect(() => {
-        //HOTJAR INIT
-        Hotjar.init(3630058, 6);
-
         onBoarding ? setShowOverlay(true) : null;
         JSON.parse(process.env.NEXT_PUBLIC_DEV)
             ? JSON.parse(process.env.NEXT_PUBLIC_FILLER)

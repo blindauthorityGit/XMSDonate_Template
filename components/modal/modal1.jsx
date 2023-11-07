@@ -27,7 +27,7 @@ const Modal = ({ onClose, children }) => {
         return () => {
             document.removeEventListener("keydown", handleEscapeKey);
         };
-    }, [isModalOpen]);
+    }, [closeModal, isModalOpen]);
 
     // Function to calculate animation props based on screen size
     const calculateAnimationProps = () => {
@@ -74,7 +74,7 @@ const Modal = ({ onClose, children }) => {
         return () => {
             window.removeEventListener("resize", handleResize);
         };
-    }, [window.innerWidth]);
+    }, [setModalHeight]);
 
     return (
         <AnimatePresence>
