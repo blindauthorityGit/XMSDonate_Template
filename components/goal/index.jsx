@@ -29,13 +29,13 @@ const Goal = (props) => {
             // When the goal is reached, update the goal to the next value (goal + goalSum)
             setGoal(Math.ceil(sum / goalStep) * goalSum);
         }
-    }, [sum]);
+    }, [goal, sum]);
 
     // SET PERCENTAGE AFTER REASSESING GOAL FOR PROGRESS BAR
     useEffect(() => {
         setGoalsReached(Math.floor(sum / goalSum));
         setPercentage((sum / goal) * 100);
-    }, [goal]);
+    }, [goal, sum]);
 
     // SHOW TEXT AFTER ANIMATION
     useEffect(() => {
@@ -71,8 +71,8 @@ const Goal = (props) => {
                     >
                         <div
                             ref={countRef}
-                            className="now absolute text-text text-xs xl:text-base top-3 sm:top-6"
-                            style={{ right: percentage < 15 ? "-4rem" : "0" }}
+                            className="now absolute min-w-[4rem] text-text text-xs xl:text-base top-3 sm:top-6"
+                            style={{ right: percentage < 15 ? "-4rem" : null }}
                         >
                             {showCounter && (
                                 <>
