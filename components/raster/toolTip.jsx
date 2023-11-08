@@ -1,6 +1,7 @@
 import React, { forwardRef, useEffect } from "react";
+import Image from "next/image"; // Import the Image component
 
-//ASSETS
+// ASSETS
 import Avatar from "../../assets/avatar.svg";
 
 const ToolTip = (props) => {
@@ -12,26 +13,37 @@ const ToolTip = (props) => {
         >
             {props.avatrSrc ? (
                 <div className="grid grid-cols-12 items-center relative z-50">
-                    <div className="col-span-3 lg:col-span-4 xl:col-span-3 h-full">
+                    <div className="col-span-3 lg:col-span-3 xl:col-span-3 h-full">
                         <div className="avatar w-8 h-8 sm:w-12 lg:w-12 lg:h-12 xl:w-12 xl:h-12">
                             {props.isAnonymus || !props.avatrSrc ? (
                                 <div className="text-3xl md:text-4xl">
-                                    <img src={Avatar.src} alt="Avatar" />
+                                    <Image src={Avatar} alt="Avatar" width={64} height={64} />
                                 </div>
                             ) : (
-                                <div
-                                    className="w-full h-full relative"
-                                    // style={{ backgroundImage: `url(${props.avatrSrc})`, height: heigh + "px" }}
-                                >
+                                <div className="w-full h-full relative">
                                     <div
                                         onClick={props.onClickAvatar}
-                                        className="avatar text-3xl md:text-4xl w-full h-full  rounded-full bg-cover bg-center"
+                                        className="avatar text-3xl md:text-4xl w-full h-full relative  rounded-full bg-cover bg-center"
                                         style={{
-                                            backgroundImage: `url(${props.avatrSrc})`,
                                             aspectRatio: "1/1",
                                         }}
                                     >
-                                        {/* <img className="rounded-full" src={props.avatrSrc[0].data_url} alt="avtrImg" /> */}
+                                        <Image
+                                            src={props.avatrSrc}
+                                            alt="avtrImg"
+                                            // width={128}
+                                            // height={128}
+                                            objectFit={"cover"}
+                                            placeholder="blur"
+                                            blurDataURL={Avatar.src}
+                                            fill={true}
+                                            className="rounded-full relative h-full w-full " // To apply rounded corners
+                                            style={
+                                                {
+                                                    // aspectRatio: "1/1",
+                                                }
+                                            }
+                                        />
                                     </div>
                                 </div>
                             )}
@@ -56,7 +68,8 @@ const ToolTip = (props) => {
                     <div className="col-span-3 lg:col-span-3 xl:col-span-3 h-full">
                         <div className="avatar w-8 h-8 sm:w-12 lg:w-12 lg:h-12 xl:w-12 xl:h-12">
                             <div className="text-3xl md:text-4xl">
-                                <img src={Avatar.src} alt="Avatar" />{" "}
+                                <Image src={Avatar} alt="Avatar" width={64} height={64} />
+                                {/* Use the Image component */}
                             </div>
                         </div>
                     </div>

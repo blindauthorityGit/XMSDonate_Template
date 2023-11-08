@@ -12,6 +12,7 @@ import { H1, H3, P } from "../../../typography";
 //Fcuntions
 import addToUserData from "../../../../functions/addToUserData";
 import hexToRGB from "../../../../functions/hexToRGB";
+import generateAnalogousColors from "../../../../functions/generateAnalogousColors";
 
 //Store
 import useStore from "../../../../store/store";
@@ -64,6 +65,7 @@ function BallChoice(props) {
         // Set the checked state to the index if the color is found, otherwise set it to -1 (no color selected)
         setChecked(selectedColorIndex !== -1 ? selectedColorIndex : -1);
         selectedColorIndex !== -1 ? addChecked(selectedColorIndex) : null;
+        generateAnalogousColors("#FF0000", 4);
     }, []);
 
     return (

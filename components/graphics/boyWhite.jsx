@@ -34,6 +34,10 @@ const BoyWhiteGraphic = () => {
         };
     }, []);
 
+    useEffect(() => {
+        console.log(tooltipOpen);
+    }, [tooltipOpen]);
+
     // Render the component only if the window width is above 320px
     if (windowWidth <= 320) {
         return null; // Return null to render nothing

@@ -34,18 +34,33 @@ const BaumGraphic = () => {
 
             setAnimationEndCounter(randomString);
         };
+        const handleAnimationEndMobile = () => {
+            ref.current.classList.remove(animateTree == "right" ? "mobile-slide-out-right" : "mobile-slide-out-left");
+            const randomString = [...Array(6)]
+                .map(() => String.fromCharCode(Math.floor(Math.random() * 26) + 97))
+                .join("");
+
+            setAnimationEndCounter(randomString);
+        };
+
+        const isMobile = window.innerWidth <= 768; // Adjust this breakpoint as needed
 
         if (animateTree === "right") {
-            ref.current.classList.add("slide-out-right");
-            ref.current.removeEventListener("animationend", handleAnimationEnd);
-            ref.current.addEventListener("animationend", handleAnimationEnd);
+            ref.current.classList.add(isMobile ? "mobile-slide-out-right" : "slide-out-right");
+            ref.current.removeEventListener("animationend", isMobile ? handleAnimationEndMobile : handleAnimationEnd);
+            ref.current.addEventListener("animationend", isMobile ? handleAnimationEndMobile : handleAnimationEnd);
         } else if (animateTree === "left") {
-            ref.current.classList.add("slide-out-left");
-            ref.current.removeEventListener("animationend", handleAnimationEnd);
-            ref.current.addEventListener("animationend", handleAnimationEnd);
+            ref.current.classList.add(isMobile ? "mobile-slide-out-left" : "slide-out-left");
+            ref.current.removeEventListener("animationend", isMobile ? handleAnimationEndMobile : handleAnimationEnd);
+            ref.current.addEventListener("animationend", isMobile ? handleAnimationEndMobile : handleAnimationEnd);
         } else {
-            // Reset any animation classes and remove event listener
-            ref.current.classList.remove("slide-out-right", "slide-out-left");
+            // Reset any animation classes and remove the event listener
+            ref.current.classList.remove(
+                "slide-out-right",
+                "slide-out-left",
+                "mobile-slide-out-right",
+                "mobile-slide-out-left"
+            );
             ref.current.removeEventListener("animationend", handleAnimationEnd);
         }
 

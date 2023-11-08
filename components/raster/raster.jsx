@@ -29,6 +29,7 @@ import { FaChevronCircleLeft, FaChevronCircleRight } from "react-icons/fa";
 
 //FUNTIONS
 import isElementOverflowing from "../../functions/isElementOverflowing";
+import calculateToolTipPosition from "../../functions/calculateToolTipPosition";
 
 const Raster = (props) => {
     //GLOBAL USER DATA STATE
@@ -106,7 +107,7 @@ const Raster = (props) => {
     });
 
     useEffect(() => {
-        console.log("is Mobile?", isMobile);
+        // console.log("is Mobile?", isMobile);
     });
 
     useEffect(() => {
@@ -354,7 +355,6 @@ const Raster = (props) => {
                                                 e.target.children[1].style.setProperty("--custom-left", `51%`);
                                                 e.target.children[1].style.setProperty("--custom-top", `10%`);
                                                 console.log(e.target.id);
-                                                setTooltipOpen(true);
                                                 // Wrap the setTimeout in a Promise
                                                 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -381,7 +381,14 @@ const Raster = (props) => {
                                                     );
                                                     e.target.children[1].style.setProperty("--custom-top", `2%`);
 
-                                                    console.log(beforePercentage);
+                                                    // CHECK IF BALL IS LOWER ROWS, AND ADD ZINDEX TO CHARACTER IF TRUE
+                                                    calculateToolTipPosition(
+                                                        ballsPerTree,
+                                                        currentTree,
+                                                        Number(e.target.id)
+                                                    )
+                                                        ? setTooltipOpen(true)
+                                                        : null;
                                                 };
 
                                                 // Call the function

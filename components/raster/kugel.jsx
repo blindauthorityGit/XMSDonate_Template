@@ -62,7 +62,7 @@ const Kugel = (props, ref) => {
                 {props.children}
             </>
             <ToolTip
-                klasse={`absolute tooltip hidden z-50 lg:right-[${props.abstand}rem] bg-black py-4 lg:py-6 px-4 lg:px-6 min-w-[12rem] w-auto max-w-[18rem] md:min-w-[14rem] xl:min-w-[20rem] lg:font-bold rounded-xl ${props.toolTipColor} ${props.toolTipAfterColor}`}
+                klasse={`absolute tooltip hidden z-50 lg:right-[${props.abstand}rem] bg-black py-4 lg:py-4 px-4 lg:px-4 min-w-[12rem] w-auto max-w-[18rem] md:min-w-[14rem] xl:min-w-[20rem] lg:font-bold rounded-xl ${props.toolTipColor} ${props.toolTipAfterColor}`}
                 name={props.fullName}
                 sum={props.sum}
                 isAnonymus={props.isAnon}
@@ -73,7 +73,7 @@ const Kugel = (props, ref) => {
                 onMouseLeave={props.toolTiponMouseLeave}
                 imgData={props.imgData}
                 tooltipID={props.id}
-                // onClickAvatar={props.onClickAvatar}
+                onClickAvatar={props.onClickAvatar}
             ></ToolTip>
         </div>
     );

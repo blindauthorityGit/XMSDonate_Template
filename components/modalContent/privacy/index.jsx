@@ -357,6 +357,13 @@ const Info = () => {
                     Awesome: <a href="https://fontawesome.com/privacy">https://fontawesome.com/privacy</a>.
                 </P>
                 <div className="mb-6 xl:mb-8"></div>
+                <strong>Grafiken / Lizenzen</strong>
+                <P>
+                    Einige Grafiken auf dieser Website wurden unter Verwendung von Adobe Stock-Lizenzen erworben.
+                    Urheberrechtsinhaber: Johannes Buchner. Bitte beachten Sie, dass diese Grafiken urheberrechtlich
+                    geschützt sind und ihre Verwendung gemäß den Lizenzbedingungen von Adobe Stock erfolgt{" "}
+                </P>
+                <div className="mb-6 xl:mb-8"></div>
 
                 <img src={Logo.src} className="mt-6" alt="" />
             </div>
