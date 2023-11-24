@@ -54,7 +54,7 @@ const onboarding = {
 const startInfo = {
     headline: "UNSERE JUGEND - UNSERE ZUKUNFT",
     subline:
-        "Gemeinsam machen wir den Wald wieder grün.<br/> Ihr seid großartig! Das Klima kann nicht warten, und jeder kleine Schritt ist eine große Heldentat.",
+        "Gemeinsam machen wir den Wald wieder grün. Ihr seid großartig! Das Klima kann nicht warten, und jeder kleine Schritt ist eine große Heldentat.",
     buttonText: "Jetzt spenden",
 };
 const stepsInfo = {
