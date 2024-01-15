@@ -41,6 +41,7 @@ const StartText = () => {
                 {startInfo.subline}
             </P>
             <MainButton
+                disabled
                 onClick={(e) => {
                     setShowUnclaimed(!showUnclaimed);
                     setShowOverlay(true);
